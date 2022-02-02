@@ -19,6 +19,8 @@
 		9229AB1127AA5DCC00238B24 /* BDSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB1027AA5DCC00238B24 /* BDSButton.swift */; };
 		9229AB1327AA632400238B24 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB1227AA632400238B24 /* UIView+.swift */; };
 		9229AB1527AA645400238B24 /* Adjusted+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB1427AA645400238B24 /* Adjusted+.swift */; };
+		9229AB1727AA7A3100238B24 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB1627AA7A3100238B24 /* UITextField+.swift */; };
+		9229AB1927AAAE0700238B24 /* BDSAuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB1827AAAE0700238B24 /* BDSAuthTextField.swift */; };
 		926290F227A46D44006A3B58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290F127A46D44006A3B58 /* AppDelegate.swift */; };
 		926290F427A46D44006A3B58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290F327A46D44006A3B58 /* SceneDelegate.swift */; };
 		926290F627A46D44006A3B58 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290F527A46D44006A3B58 /* EmailLoginViewController.swift */; };
@@ -39,6 +41,8 @@
 		9229AB1027AA5DCC00238B24 /* BDSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDSButton.swift; sourceTree = "<group>"; };
 		9229AB1227AA632400238B24 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		9229AB1427AA645400238B24 /* Adjusted+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Adjusted+.swift"; sourceTree = "<group>"; };
+		9229AB1627AA7A3100238B24 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		9229AB1827AAAE0700238B24 /* BDSAuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDSAuthTextField.swift; sourceTree = "<group>"; };
 		926290EE27A46D44006A3B58 /* Auth-Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auth-Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		926290F127A46D44006A3B58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		926290F327A46D44006A3B58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,8 +78,9 @@
 		921CD0C927A97EE700890E4B /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
-				921CD0CA27A97F4A00890E4B /* BDSTextField.swift */,
 				9229AB1027AA5DCC00238B24 /* BDSButton.swift */,
+				921CD0CA27A97F4A00890E4B /* BDSTextField.swift */,
+				9229AB1827AAAE0700238B24 /* BDSAuthTextField.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 				9229AB0C27AA5C0800238B24 /* UIImage+.swift */,
 				9229AB1227AA632400238B24 /* UIView+.swift */,
 				9229AB1427AA645400238B24 /* Adjusted+.swift */,
+				9229AB1627AA7A3100238B24 /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -284,7 +290,9 @@
 			files = (
 				9229AB1127AA5DCC00238B24 /* BDSButton.swift in Sources */,
 				9229AB0927A9A23200238B24 /* LoginViewController.swift in Sources */,
+				9229AB1927AAAE0700238B24 /* BDSAuthTextField.swift in Sources */,
 				926290F627A46D44006A3B58 /* EmailLoginViewController.swift in Sources */,
+				9229AB1727AA7A3100238B24 /* UITextField+.swift in Sources */,
 				921CD0CB27A97F4A00890E4B /* BDSTextField.swift in Sources */,
 				9229AB1327AA632400238B24 /* UIView+.swift in Sources */,
 				9262911527A46FB8006A3B58 /* UIColor+.swift in Sources */,

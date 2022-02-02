@@ -47,7 +47,7 @@ final class BDSButton: UIButton {
     
     // MARK: - Public Methods
     
-    func setBtnColors(normalBgColor: UIColor, normalFontColor: UIColor, activatedBgColor: UIColor, activatedFontColor: UIColor) {
+    public func setBtnColors(normalBgColor: UIColor, normalFontColor: UIColor, activatedBgColor: UIColor, activatedFontColor: UIColor) {
         self.normalBgColor = normalBgColor
         self.normalFontColor = normalFontColor
         self.activatedBgColor = activatedBgColor
@@ -55,7 +55,7 @@ final class BDSButton: UIButton {
     }
     
     /// 버튼 타이틀과 스타일 변경 폰트 사이즈 adjusted 적용
-    func setTitleWithStyle(title: String, size: CGFloat, weight: FontWeight = .regular) {
+    public func setTitleWithStyle(title: String, size: CGFloat, weight: FontWeight = .regular) {
         let font: UIFont
         
         switch weight {
