@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921CD0CB27A97F4A00890E4B /* BDSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921CD0CA27A97F4A00890E4B /* BDSTextField.swift */; };
+		9229AB0227A99FAC00238B24 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9262911E27A47088006A3B58 /* Pretendard-SemiBold.otf */; };
+		9229AB0327A99FAC00238B24 /* PPNeueMachina-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9262912127A47088006A3B58 /* PPNeueMachina-Regular.otf */; };
+		9229AB0427A99FAC00238B24 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9262911D27A47088006A3B58 /* Pretendard-Bold.otf */; };
+		9229AB0527A99FAC00238B24 /* PPNeueMachina-Ultrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9262911F27A47088006A3B58 /* PPNeueMachina-Ultrabold.otf */; };
+		9229AB0627A99FAC00238B24 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9262912027A47088006A3B58 /* Pretendard-Medium.otf */; };
+		9229AB0727A99FAC00238B24 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9262912227A47088006A3B58 /* Pretendard-Regular.otf */; };
+		9229AB0927A9A23200238B24 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB0827A9A23200238B24 /* LoginViewController.swift */; };
+		9229AB0D27AA5C0800238B24 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB0C27AA5C0800238B24 /* UIImage+.swift */; };
+		9229AB1127AA5DCC00238B24 /* BDSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB1027AA5DCC00238B24 /* BDSButton.swift */; };
+		9229AB1327AA632400238B24 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB1227AA632400238B24 /* UIView+.swift */; };
+		9229AB1527AA645400238B24 /* Adjusted+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB1427AA645400238B24 /* Adjusted+.swift */; };
 		926290F227A46D44006A3B58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290F127A46D44006A3B58 /* AppDelegate.swift */; };
 		926290F427A46D44006A3B58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290F327A46D44006A3B58 /* SceneDelegate.swift */; };
 		926290F627A46D44006A3B58 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290F527A46D44006A3B58 /* EmailLoginViewController.swift */; };
@@ -21,6 +33,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		921CD0CA27A97F4A00890E4B /* BDSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDSTextField.swift; sourceTree = "<group>"; };
+		9229AB0827A9A23200238B24 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9229AB0C27AA5C0800238B24 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		9229AB1027AA5DCC00238B24 /* BDSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDSButton.swift; sourceTree = "<group>"; };
+		9229AB1227AA632400238B24 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		9229AB1427AA645400238B24 /* Adjusted+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Adjusted+.swift"; sourceTree = "<group>"; };
 		926290EE27A46D44006A3B58 /* Auth-Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auth-Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		926290F127A46D44006A3B58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		926290F327A46D44006A3B58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +71,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		921CD0C927A97EE700890E4B /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				921CD0CA27A97F4A00890E4B /* BDSTextField.swift */,
+				9229AB1027AA5DCC00238B24 /* BDSButton.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		9229AB0127A99EFD00238B24 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9262911227A46F90006A3B58 /* Storyboard */,
+				9262911327A46F9B006A3B58 /* Asset */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		926290E527A46D44006A3B58 = {
 			isa = PBXGroup;
 			children = (
@@ -73,7 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				926290FF27A46D45006A3B58 /* Info.plist */,
-				9262911027A46F57006A3B58 /* Resource */,
+				9262911027A46F57006A3B58 /* Global */,
+				9229AB0127A99EFD00238B24 /* Resource */,
 				9262911127A46F6A006A3B58 /* Source */,
 			);
 			path = "Auth-Practice";
@@ -92,25 +129,25 @@
 			isa = PBXGroup;
 			children = (
 				926290F527A46D44006A3B58 /* EmailLoginViewController.swift */,
+				9229AB0827A9A23200238B24 /* LoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		9262911027A46F57006A3B58 /* Resource */ = {
+		9262911027A46F57006A3B58 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				9262910E27A46F3E006A3B58 /* Support */,
+				921CD0C927A97EE700890E4B /* DesignSystem */,
 				9262911627A46FBD006A3B58 /* Extension */,
-				9262911327A46F9B006A3B58 /* Asset */,
-				9262911227A46F90006A3B58 /* Storyboard */,
 			);
-			path = Resource;
+			path = Global;
 			sourceTree = "<group>";
 		};
 		9262911127A46F6A006A3B58 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				9262910F27A46F4B006A3B58 /* ViewController */,
-				9262910E27A46F3E006A3B58 /* Support */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -138,6 +175,9 @@
 			children = (
 				9262912327A470AB006A3B58 /* UIFont+.swift */,
 				9262911427A46FB8006A3B58 /* UIColor+.swift */,
+				9229AB0C27AA5C0800238B24 /* UIImage+.swift */,
+				9229AB1227AA632400238B24 /* UIView+.swift */,
+				9229AB1427AA645400238B24 /* Adjusted+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -223,9 +263,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9229AB0327A99FAC00238B24 /* PPNeueMachina-Regular.otf in Resources */,
+				9229AB0427A99FAC00238B24 /* Pretendard-Bold.otf in Resources */,
 				926290FE27A46D45006A3B58 /* LaunchScreen.storyboard in Resources */,
+				9229AB0627A99FAC00238B24 /* Pretendard-Medium.otf in Resources */,
+				9229AB0727A99FAC00238B24 /* Pretendard-Regular.otf in Resources */,
+				9229AB0527A99FAC00238B24 /* PPNeueMachina-Ultrabold.otf in Resources */,
 				926290FB27A46D45006A3B58 /* Assets.xcassets in Resources */,
 				926290F927A46D44006A3B58 /* Main.storyboard in Resources */,
+				9229AB0227A99FAC00238B24 /* Pretendard-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,10 +282,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9229AB1127AA5DCC00238B24 /* BDSButton.swift in Sources */,
+				9229AB0927A9A23200238B24 /* LoginViewController.swift in Sources */,
 				926290F627A46D44006A3B58 /* EmailLoginViewController.swift in Sources */,
+				921CD0CB27A97F4A00890E4B /* BDSTextField.swift in Sources */,
+				9229AB1327AA632400238B24 /* UIView+.swift in Sources */,
 				9262911527A46FB8006A3B58 /* UIColor+.swift in Sources */,
 				9262912427A470AB006A3B58 /* UIFont+.swift in Sources */,
 				926290F227A46D44006A3B58 /* AppDelegate.swift in Sources */,
+				9229AB1527AA645400238B24 /* Adjusted+.swift in Sources */,
+				9229AB0D27AA5C0800238B24 /* UIImage+.swift in Sources */,
 				926290F427A46D44006A3B58 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
