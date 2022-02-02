@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 final class BDSButton: UIButton {
     
     // MARK: - Properties
@@ -24,13 +27,20 @@ final class BDSButton: UIButton {
     private var activatedBgColor: UIColor = .black200
     private var activatedFontColor: UIColor = .white
     
+    private var leftIconImageView = UIImageView().then {
+        $0.contentMode = .scaleAspectFit
+        $0.isHidden = true
+    }
+    
     init() {
         super.init(frame: .zero)
+        setLayout()
         setDefaultStyle()
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
+        setLayout()
         setDefaultStyle()
     }
     
@@ -43,6 +53,15 @@ final class BDSButton: UIButton {
         self.backgroundColor = self.normalBgColor
         self.tintColor = .white
         self.setTitleColor(self.normalFontColor, for: .normal)
+    }
+    
+    private func setLayout() {
+        self.addSubview(leftIconImageView)
+        leftIconImageView.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(18)
+            $0.centerY.equalToSuperview()
+            $0.width.height.equalTo(20)
+        }
     }
     
     // MARK: - Public Methods
@@ -71,5 +90,15 @@ final class BDSButton: UIButton {
         
         self.titleLabel?.font = font
         self.setTitle(title, for: .normal)
+    }
+    
+    public func setLeftIcon(imageName: String) {
+        leftIconImageView.isHidden = false
+        leftIconImageView.image = UIImage(named: imageName)
+    }
+    
+    public func setBorder(width: CGFloat, color: UIColor) {
+        self.layer.borderWidth = width
+        self.layer.borderColor = color.cgColor
     }
 }

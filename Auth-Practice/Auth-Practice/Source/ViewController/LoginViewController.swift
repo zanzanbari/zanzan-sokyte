@@ -22,6 +22,7 @@ final class LoginViewController: UIViewController {
     private var kakakoLoginButton = BDSButton().then {
         $0.setBtnColors(normalBgColor: .gray300, normalFontColor: .white, activatedBgColor: .yellow100, activatedFontColor: .black200)
         $0.setTitleWithStyle(title: "카카오 로그인", size: 17.0)
+        $0.setLeftIcon(imageName: "icnKakao")
         $0.isActivated = true
         $0.isEnabled = true
     }
@@ -29,6 +30,7 @@ final class LoginViewController: UIViewController {
     private var naverLoginButton = BDSButton().then {
         $0.setBtnColors(normalBgColor: .gray300, normalFontColor: .white, activatedBgColor: .green100, activatedFontColor: .white)
         $0.setTitleWithStyle(title: "네이버 로그인", size: 17.0)
+        $0.setLeftIcon(imageName: "icnNaver")
         $0.isActivated = true
         $0.isEnabled = true
     }
@@ -36,6 +38,8 @@ final class LoginViewController: UIViewController {
     private var appleLoginButton = BDSButton().then {
         $0.setBtnColors(normalBgColor: .gray300, normalFontColor: .white, activatedBgColor: .white, activatedFontColor: .black200)
         $0.setTitleWithStyle(title: "Apple 로그인", size: 17.0)
+        $0.setLeftIcon(imageName: "icnApple")
+        $0.setBorder(width: 1, color: .black200)
         $0.isActivated = true
         $0.isEnabled = true
     }
@@ -125,8 +129,6 @@ final class LoginViewController: UIViewController {
             $0.leading.equalTo(lineView.snp.trailing).offset(30)
         }
     }
-    
-    // MARK: - Custom Method
     
     // MARK: - @objc
     
