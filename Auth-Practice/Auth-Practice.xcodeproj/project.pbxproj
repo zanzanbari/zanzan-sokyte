@@ -21,6 +21,16 @@
 		9229AB1527AA645400238B24 /* Adjusted+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB1427AA645400238B24 /* Adjusted+.swift */; };
 		9229AB1727AA7A3100238B24 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB1627AA7A3100238B24 /* UITextField+.swift */; };
 		9229AB1927AAAE0700238B24 /* BDSAuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB1827AAAE0700238B24 /* BDSAuthTextField.swift */; };
+		9229AB3D27AC152100238B24 /* URLConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB3C27AC152100238B24 /* URLConstant.swift */; };
+		9229AB3F27AC15FF00238B24 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB3E27AC15FF00238B24 /* NetworkResult.swift */; };
+		9229AB4127AC163100238B24 /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB4027AC163100238B24 /* NetworkConstant.swift */; };
+		9229AB4327AC16C900238B24 /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB4227AC16C900238B24 /* MoyaLoggingPlugin.swift */; };
+		9229AB4527AC16EA00238B24 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB4427AC16EA00238B24 /* GeneralResponse.swift */; };
+		9229AB4727AC171400238B24 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB4627AC171400238B24 /* BaseTargetType.swift */; };
+		9229AB4927AC17D500238B24 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB4827AC17D500238B24 /* LoginModel.swift */; };
+		9229AB4B27AC190300238B24 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB4A27AC190300238B24 /* LoginResponse.swift */; };
+		9229AB4D27AC1B6600238B24 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB4C27AC1B6600238B24 /* LoginService.swift */; };
+		9229AB4F27AC1BAA00238B24 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB4E27AC1BAA00238B24 /* LoginAPI.swift */; };
 		926290F227A46D44006A3B58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290F127A46D44006A3B58 /* AppDelegate.swift */; };
 		926290F427A46D44006A3B58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290F327A46D44006A3B58 /* SceneDelegate.swift */; };
 		926290F627A46D44006A3B58 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290F527A46D44006A3B58 /* EmailLoginViewController.swift */; };
@@ -43,6 +53,16 @@
 		9229AB1427AA645400238B24 /* Adjusted+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Adjusted+.swift"; sourceTree = "<group>"; };
 		9229AB1627AA7A3100238B24 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		9229AB1827AAAE0700238B24 /* BDSAuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDSAuthTextField.swift; sourceTree = "<group>"; };
+		9229AB3C27AC152100238B24 /* URLConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstant.swift; sourceTree = "<group>"; };
+		9229AB3E27AC15FF00238B24 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		9229AB4027AC163100238B24 /* NetworkConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
+		9229AB4227AC16C900238B24 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
+		9229AB4427AC16EA00238B24 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
+		9229AB4627AC171400238B24 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		9229AB4827AC17D500238B24 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		9229AB4A27AC190300238B24 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		9229AB4C27AC1B6600238B24 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		9229AB4E27AC1BAA00238B24 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		926290EE27A46D44006A3B58 /* Auth-Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auth-Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		926290F127A46D44006A3B58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		926290F327A46D44006A3B58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +114,47 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		9229AB2427AC090900238B24 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9229AB3B27AC150300238B24 /* APIModel */,
+				9229AB3A27AC14F900238B24 /* APIService */,
+				9229AB3927AC14F100238B24 /* Base */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9229AB3927AC14F100238B24 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9229AB3C27AC152100238B24 /* URLConstant.swift */,
+				9229AB3E27AC15FF00238B24 /* NetworkResult.swift */,
+				9229AB4027AC163100238B24 /* NetworkConstant.swift */,
+				9229AB4227AC16C900238B24 /* MoyaLoggingPlugin.swift */,
+				9229AB4427AC16EA00238B24 /* GeneralResponse.swift */,
+				9229AB4627AC171400238B24 /* BaseTargetType.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9229AB3A27AC14F900238B24 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				9229AB4C27AC1B6600238B24 /* LoginService.swift */,
+				9229AB4E27AC1BAA00238B24 /* LoginAPI.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		9229AB3B27AC150300238B24 /* APIModel */ = {
+			isa = PBXGroup;
+			children = (
+				9229AB4827AC17D500238B24 /* LoginModel.swift */,
+				9229AB4A27AC190300238B24 /* LoginResponse.swift */,
+			);
+			path = APIModel;
+			sourceTree = "<group>";
+		};
 		926290E527A46D44006A3B58 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				926290FF27A46D45006A3B58 /* Info.plist */,
+				9229AB2427AC090900238B24 /* Network */,
 				9262911027A46F57006A3B58 /* Global */,
 				9229AB0127A99EFD00238B24 /* Resource */,
 				9262911127A46F6A006A3B58 /* Source */,
@@ -291,16 +353,26 @@
 				9229AB1127AA5DCC00238B24 /* BDSButton.swift in Sources */,
 				9229AB0927A9A23200238B24 /* LoginViewController.swift in Sources */,
 				9229AB1927AAAE0700238B24 /* BDSAuthTextField.swift in Sources */,
+				9229AB3D27AC152100238B24 /* URLConstant.swift in Sources */,
+				9229AB4127AC163100238B24 /* NetworkConstant.swift in Sources */,
+				9229AB4927AC17D500238B24 /* LoginModel.swift in Sources */,
+				9229AB4527AC16EA00238B24 /* GeneralResponse.swift in Sources */,
 				926290F627A46D44006A3B58 /* EmailLoginViewController.swift in Sources */,
 				9229AB1727AA7A3100238B24 /* UITextField+.swift in Sources */,
+				9229AB4327AC16C900238B24 /* MoyaLoggingPlugin.swift in Sources */,
+				9229AB3F27AC15FF00238B24 /* NetworkResult.swift in Sources */,
 				921CD0CB27A97F4A00890E4B /* BDSTextField.swift in Sources */,
 				9229AB1327AA632400238B24 /* UIView+.swift in Sources */,
 				9262911527A46FB8006A3B58 /* UIColor+.swift in Sources */,
 				9262912427A470AB006A3B58 /* UIFont+.swift in Sources */,
+				9229AB4D27AC1B6600238B24 /* LoginService.swift in Sources */,
+				9229AB4727AC171400238B24 /* BaseTargetType.swift in Sources */,
 				926290F227A46D44006A3B58 /* AppDelegate.swift in Sources */,
 				9229AB1527AA645400238B24 /* Adjusted+.swift in Sources */,
 				9229AB0D27AA5C0800238B24 /* UIImage+.swift in Sources */,
 				926290F427A46D44006A3B58 /* SceneDelegate.swift in Sources */,
+				9229AB4F27AC1BAA00238B24 /* LoginAPI.swift in Sources */,
+				9229AB4B27AC190300238B24 /* LoginResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
