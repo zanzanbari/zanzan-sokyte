@@ -181,7 +181,8 @@ final class EmailLoginViewController: UIViewController {
                 passwordWarningLabel.isHidden = true
             } else {
                 if passwordTextField.hasText {
-                    // 서버 통신 후 분기 처리
+                    // FIX ME : 서버 통신
+                    requestLogin()
                     
                     // TODO REMOVE
                     emailWarningLabel.isHidden = true
@@ -235,5 +236,39 @@ extension EmailLoginViewController: UITextFieldDelegate {
         passwordTextField.resignFirstResponder()
         
         return true
+    }
+}
+
+// MARK: - Network
+
+extension EmailLoginViewController {
+    func requestLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        LoginAPI.shared.postLogin(parameter: LoginRequest.init(email: email, password: password)) { responseData in
+            switch responseData {
+            case .success(let loginResponse):
+                
+                guard let response = loginResponse as? GeneralResponse<LoginResponse> else { return }
+                
+                print(loginResponse, "✅")
+                
+                if response.status == 404 {
+                    self.showToast(message: response.message ?? "", font: .Pretendard(type: .regular, size: 12))
+                } else {
+                    // User Defaults 분기 처리 및 메인 화면으로 이동 
+                }
+                
+            case .requestErr(let message):
+                print("requestErr \(message)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }

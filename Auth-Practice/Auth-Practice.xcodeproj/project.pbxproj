@@ -31,6 +31,7 @@
 		9229AB4B27AC190300238B24 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB4A27AC190300238B24 /* LoginResponse.swift */; };
 		9229AB4D27AC1B6600238B24 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB4C27AC1B6600238B24 /* LoginService.swift */; };
 		9229AB4F27AC1BAA00238B24 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB4E27AC1BAA00238B24 /* LoginAPI.swift */; };
+		9229AB5127AC1E3B00238B24 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229AB5027AC1E3B00238B24 /* UIViewController+.swift */; };
 		926290F227A46D44006A3B58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290F127A46D44006A3B58 /* AppDelegate.swift */; };
 		926290F427A46D44006A3B58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290F327A46D44006A3B58 /* SceneDelegate.swift */; };
 		926290F627A46D44006A3B58 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290F527A46D44006A3B58 /* EmailLoginViewController.swift */; };
@@ -63,6 +64,7 @@
 		9229AB4A27AC190300238B24 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		9229AB4C27AC1B6600238B24 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		9229AB4E27AC1BAA00238B24 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		9229AB5027AC1E3B00238B24 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		926290EE27A46D44006A3B58 /* Auth-Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auth-Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		926290F127A46D44006A3B58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		926290F327A46D44006A3B58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				9229AB1227AA632400238B24 /* UIView+.swift */,
 				9229AB1427AA645400238B24 /* Adjusted+.swift */,
 				9229AB1627AA7A3100238B24 /* UITextField+.swift */,
+				9229AB5027AC1E3B00238B24 /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 			files = (
 				9229AB1127AA5DCC00238B24 /* BDSButton.swift in Sources */,
 				9229AB0927A9A23200238B24 /* LoginViewController.swift in Sources */,
+				9229AB5127AC1E3B00238B24 /* UIViewController+.swift in Sources */,
 				9229AB1927AAAE0700238B24 /* BDSAuthTextField.swift in Sources */,
 				9229AB3D27AC152100238B24 /* URLConstant.swift in Sources */,
 				9229AB4127AC163100238B24 /* NetworkConstant.swift in Sources */,
