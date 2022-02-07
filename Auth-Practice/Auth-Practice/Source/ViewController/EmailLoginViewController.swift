@@ -252,12 +252,10 @@ extension EmailLoginViewController {
                 
                 guard let response = loginResponse as? GeneralResponse<LoginResponse> else { return }
                 
-                print(loginResponse, "✅")
-                
-                if response.status == 404 {
+                if response.status == 200 {
                     self.showToast(message: response.message ?? "", font: .Pretendard(type: .regular, size: 12))
                 } else {
-                    // User Defaults 분기 처리 및 메인 화면으로 이동 
+                    self.showToast(message: response.message ?? "", font: .Pretendard(type: .regular, size: 12))
                 }
                 
             case .requestErr(let message):

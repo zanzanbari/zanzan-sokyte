@@ -13,7 +13,7 @@ struct URLConstant {
     
     // MARK: - base URL
     
-    static let baseURL = "https://asia-northeast3-appjam-beforeget.cloudfunctions.net/api"
+    static let baseURL = "https://asia-northeast3-zanzan-18f89.cloudfunctions.net/api"
     
     // MARK: - Auth
     
