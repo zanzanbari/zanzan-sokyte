@@ -14,7 +14,7 @@ extension  UIViewController {
                                                width: 150,
                                                height: 35))
         
-        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.backgroundColor = UIColor.lightGray.withAlphaComponent(0.6)
         toastLabel.textColor = UIColor.white
         toastLabel.font = font
         toastLabel.textAlignment = .center;
