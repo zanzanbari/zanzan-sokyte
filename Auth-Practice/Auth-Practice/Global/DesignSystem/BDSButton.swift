@@ -48,7 +48,7 @@ final class BDSButton: UIButton {
     
     /// 디폴트 버튼 스타일 설정
     private func setDefaultStyle() {
-        self.makeRounded(cornerRadius: 4.adjusted)
+        self.makeRounded(cornerRadius: 12.adjusted)
         self.titleLabel?.font = .Pretendard(type: .medium, size: 17)
         self.backgroundColor = self.normalBgColor
         self.tintColor = .white
