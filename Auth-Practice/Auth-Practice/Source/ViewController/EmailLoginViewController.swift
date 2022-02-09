@@ -181,12 +181,10 @@ final class EmailLoginViewController: UIViewController {
                 passwordWarningLabel.isHidden = true
             } else {
                 if passwordTextField.hasText {
-                    // FIX ME : 서버 통신
-                    requestLogin()
-                    
-                    // TODO REMOVE
                     emailWarningLabel.isHidden = true
                     passwordWarningLabel.isHidden = true
+                    
+                    requestLogin()
                 } else {
                     emailWarningLabel.isHidden = true
                     passwordWarningLabel.isHidden = false
@@ -219,11 +217,10 @@ extension EmailLoginViewController: UITextFieldDelegate {
                 passwordWarningLabel.isHidden = true
             } else {
                 if passwordTextField.hasText {
-                    // 서버 통신 후 분기 처리
-                    
-                    // TODO REMOVE
                     emailWarningLabel.isHidden = true
                     passwordWarningLabel.isHidden = true
+                    
+                    requestLogin()
                 } else {
                     emailWarningLabel.isHidden = true
                     passwordWarningLabel.isHidden = false
@@ -253,8 +250,13 @@ extension EmailLoginViewController {
                 guard let response = loginResponse as? GeneralResponse<LoginResponse> else { return }
                 
                 if response.status == 200 {
-                    self.showToast(message: response.message ?? "", font: .Pretendard(type: .regular, size: 12))
+                    UserDefaults.standard.setValue(response.data?.nickname ?? "", forKey: "name")
+                    UserDefaults.standard.setValue(response.data?.accesstoken ?? "", forKey: "token")
+                    
+                    let dvc = MainViewController()
+                    self.navigationController?.pushViewController(dvc, animated: true)
                 } else {
+                    // status가 400 혹은 500일 경우
                     self.showToast(message: response.message ?? "", font: .Pretendard(type: .regular, size: 12))
                 }
                 

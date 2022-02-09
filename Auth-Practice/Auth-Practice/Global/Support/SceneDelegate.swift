@@ -19,7 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene)
         
-        self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        if (UserDefaults.standard.value(forKey: "token")) != nil {
+            self.window?.rootViewController = UINavigationController(rootViewController: MainViewController())
+        } else {
+            self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        }
+        
         self.window?.makeKeyAndVisible()
     }
     
