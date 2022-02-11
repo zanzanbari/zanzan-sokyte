@@ -7,6 +7,11 @@ target 'Auth-Practice' do
   	pod 'KakaoSDKCommon'
   	pod 'KakaoSDKUser'
   	pod 'KakaoSDKAuth'
+
+	pod 'Moya', '~> 14.0'
+  	pod 'SnapKit', '~> 5.0.0'
+  	pod 'Then'
+
   # Pods for Auth-Practice
 
 end

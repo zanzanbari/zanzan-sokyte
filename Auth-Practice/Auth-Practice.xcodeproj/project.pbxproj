@@ -39,9 +39,6 @@
 		926290F927A46D44006A3B58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926290F727A46D44006A3B58 /* Main.storyboard */; };
 		926290FB27A46D45006A3B58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 926290FA27A46D45006A3B58 /* Assets.xcassets */; };
 		926290FE27A46D45006A3B58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926290FC27A46D45006A3B58 /* LaunchScreen.storyboard */; };
-		9262910727A46D94006A3B58 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 9262910627A46D94006A3B58 /* Moya */; };
-		9262910A27A46DB5006A3B58 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9262910927A46DB5006A3B58 /* SnapKit */; };
-		9262910D27A46DC9006A3B58 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 9262910C27A46DC9006A3B58 /* Then */; };
 		9262911527A46FB8006A3B58 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262911427A46FB8006A3B58 /* UIColor+.swift */; };
 		9262912427A470AB006A3B58 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262912327A470AB006A3B58 /* UIFont+.swift */; };
 		D50886846E2E577971DD1390 /* Pods_Auth_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106E32A4B866B5A09F3EE87B /* Pods_Auth_Practice.framework */; };
@@ -94,9 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9262910727A46D94006A3B58 /* Moya in Frameworks */,
-				9262910D27A46DC9006A3B58 /* Then in Frameworks */,
-				9262910A27A46DB5006A3B58 /* SnapKit in Frameworks */,
 				D50886846E2E577971DD1390 /* Pods_Auth_Practice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,7 +284,6 @@
 				BA8912BF19F6B7E5C658F0C9 /* Pods-Auth-Practice.debug.xcconfig */,
 				A9F0CEA115B9620A598EDB8A /* Pods-Auth-Practice.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -313,9 +306,6 @@
 			);
 			name = "Auth-Practice";
 			packageProductDependencies = (
-				9262910627A46D94006A3B58 /* Moya */,
-				9262910927A46DB5006A3B58 /* SnapKit */,
-				9262910C27A46DC9006A3B58 /* Then */,
 			);
 			productName = "Auth-Practice";
 			productReference = 926290EE27A46D44006A3B58 /* Auth-Practice.app */;
@@ -346,9 +336,6 @@
 			);
 			mainGroup = 926290E527A46D44006A3B58;
 			packageReferences = (
-				9262910527A46D94006A3B58 /* XCRemoteSwiftPackageReference "Moya.git" */,
-				9262910827A46DB5006A3B58 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
-				9262910B27A46DC9006A3B58 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 926290EF27A46D44006A3B58 /* Products */;
 			projectDirPath = "";
@@ -671,51 +658,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9262910527A46D94006A3B58 /* XCRemoteSwiftPackageReference "Moya.git" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		9262910827A46DB5006A3B58 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				branch = develop;
-				kind = branch;
-			};
-		};
-		9262910B27A46DC9006A3B58 /* XCRemoteSwiftPackageReference "Then" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/Then";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9262910627A46D94006A3B58 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9262910527A46D94006A3B58 /* XCRemoteSwiftPackageReference "Moya.git" */;
-			productName = Moya;
-		};
-		9262910927A46DB5006A3B58 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9262910827A46DB5006A3B58 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
-			productName = SnapKit;
-		};
-		9262910C27A46DC9006A3B58 /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9262910B27A46DC9006A3B58 /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 926290E627A46D44006A3B58 /* Project object */;
 }
