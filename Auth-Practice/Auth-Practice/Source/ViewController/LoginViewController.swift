@@ -7,6 +7,8 @@
 
 import UIKit
 
+import KakaoSDKUser
+
 import SnapKit
 import Then
 
@@ -25,6 +27,7 @@ final class LoginViewController: UIViewController {
         $0.setLeftIcon(imageName: "icnKakao")
         $0.isActivated = true
         $0.isEnabled = true
+        $0.addTarget(self, action: #selector(touchUpKakaoLoginButton), for: .touchUpInside)
     }
     
     private var naverLoginButton = BDSButton().then {
@@ -138,7 +141,14 @@ final class LoginViewController: UIViewController {
     }
     
     @objc func touchUpKakaoLoginButton() {
-        
+        // 카카오톡 설치 여부 확인
+        if UserApi.isKakaoTalkLoginAvailable() {
+            // 카카오톡 로그인. api 호출 결과를 클로저로 전달.
+            loginWithKakaoApp()
+        } else {
+            // 만약, 카카오톡이 깔려있지 않을 경우에는 웹 브라우저로 카카오 로그인함.
+            loginWithWeb()
+        }
     }
     
     @objc func touchUpNaverLoginButton() {
@@ -148,4 +158,43 @@ final class LoginViewController: UIViewController {
     @objc func touchUpAppleLoginButton() {
         
     }
+    
+    // MARK: - Custom Method
+    
+    private func loginWithKakaoApp() {
+        UserApi.shared.loginWithKakaoTalk { _, error in
+            if let error = error {
+                print(error)
+            } else {
+                print("loginWithKakaoApp() success.")
+                self.getUserID()
+            }
+        }
+    }
+    
+    private func loginWithWeb() {
+        UserApi.shared.loginWithKakaoAccount { _, error in
+            if let error = error {
+                print(error)
+            } else {
+                print("loginWithKakaoAccount() success.")
+                self.getUserID()
+            }
+        }
+    }
+    
+    private func getUserID() {
+        UserApi.shared.me {(user, error) in
+            if let error = error {
+                print(error)
+            } else {
+                if let userID = user?.id {
+//                    UserDefaults.standard.set(String(userID), forKey: "userID")
+                    
+                    // 서버 연결 
+                }
+            }
+        }
+    }
+        
 }
