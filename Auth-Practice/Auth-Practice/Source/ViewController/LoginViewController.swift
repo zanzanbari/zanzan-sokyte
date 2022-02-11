@@ -136,4 +136,16 @@ final class LoginViewController: UIViewController {
         let dvc = EmailLoginViewController()
         navigationController?.pushViewController(dvc, animated: true)
     }
+    
+    @objc func touchUpKakaoLoginButton() {
+        
+    }
+    
+    @objc func touchUpNaverLoginButton() {
+        
+    }
+    
+    @objc func touchUpAppleLoginButton() {
+        
+    }
 }
