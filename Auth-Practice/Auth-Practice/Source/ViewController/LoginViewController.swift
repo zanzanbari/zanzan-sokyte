@@ -158,9 +158,11 @@ final class LoginViewController: UIViewController {
     @objc func touchUpAppleLoginButton() {
         
     }
-    
-    // MARK: - Custom Method
-    
+}
+
+// MARK: - Kakao Login
+
+extension LoginViewController {
     private func loginWithKakaoApp() {
         UserApi.shared.loginWithKakaoTalk { _, error in
             if let error = error {
@@ -189,12 +191,17 @@ final class LoginViewController: UIViewController {
                 print(error)
             } else {
                 if let userID = user?.id {
+                    print(userID)
 //                    UserDefaults.standard.set(String(userID), forKey: "userID")
-                    
-                    // 서버 연결 
+                    // 서버 연결
                 }
             }
         }
     }
-        
+}
+
+// MARK: - Naver Login
+
+extension LoginViewController {
+    
 }
