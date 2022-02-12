@@ -12,9 +12,20 @@
 				<string>kakao3abea69a625e2c13ec18d6554bbd97d8</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>naverloginzanzazn</string>
+			</array>
+		</dict>
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
-	<array/>
+	<array>
+		<string>naversearchapp</string>
+		<string>naversearchthirdlogin</string>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>PPNeueMachina-Regular.otf</string>
