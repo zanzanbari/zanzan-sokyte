@@ -8,6 +8,8 @@ target 'Auth-Practice' do
   	pod 'KakaoSDKUser'
   	pod 'KakaoSDKAuth'
 
+	pod 'naveridlogin-sdk-ios'
+
 	pod 'Moya', '~> 14.0'
   	pod 'SnapKit', '~> 5.0.0'
   	pod 'Then'
