@@ -11,18 +11,21 @@ import Moya
 
 enum LoginService {
     case postLogin(parameter: LoginRequest)
+    case authReissueToken
 }
 
 extension LoginService: BaseTargetType {
     var path: String {
         switch self {
         case .postLogin: return URLConstant.authLogin
+        case .authReissueToken: return URLConstant.authReissueToken
         }
     }
     
     var method: Moya.Method {
         switch self {
         case .postLogin: return .post
+        case .authReissueToken: return .get
         }
     }
     
@@ -32,12 +35,15 @@ extension LoginService: BaseTargetType {
             let parameter: [String: Any] = ["email": parameter.email,
                                             "password": parameter.password]
             return .requestParameters(parameters: parameter, encoding: JSONEncoding.default)
+        case .authReissueToken:
+            return .requestPlain
         }
     }
     
     var headers: [String : String]? {
         switch self {
         case .postLogin: return NetworkConstant.noTokenHeader
+        case .authReissueToken: return NetworkConstant.hasRefreshTokenHedaer
         }
     }
 }

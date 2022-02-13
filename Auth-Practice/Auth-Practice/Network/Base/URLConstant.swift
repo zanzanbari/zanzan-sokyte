@@ -16,4 +16,5 @@ struct URLConstant {
     // MARK: - Auth
     
     static let authLogin = "/auth/login"
+    static let authReissueToken = "/auth/reissue/token"
 }

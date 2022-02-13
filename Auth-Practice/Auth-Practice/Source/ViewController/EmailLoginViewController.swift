@@ -252,12 +252,37 @@ extension EmailLoginViewController {
                 if response.status == 200 {
                     UserDefaults.standard.setValue(response.data?.nickname ?? "", forKey: Const.UserDefaultsKey.name)
                     UserDefaults.standard.setValue(response.data?.accesstoken ?? "", forKey: Const.UserDefaultsKey.accessToken)
-                    UserDefaults.standard.setValue(response.data?.accesstoken ?? "", forKey: Const.UserDefaultsKey.refreshToken)
+                    UserDefaults.standard.setValue(response.data?.refreshtoken ?? "", forKey: Const.UserDefaultsKey.refreshToken)
                     
                     let dvc = MainViewController()
                     self.navigationController?.pushViewController(dvc, animated: true)
+                } else if response.status == 403 {
+                    
                 } else {
-                    // status가 400 혹은 500일 경우
+                    self.showToast(message: response.message ?? "", font: .Pretendard(type: .regular, size: 12))
+                }
+                
+            case .requestErr(let message):
+                print("requestErr \(message)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
+    func getRefreshToken() {
+        LoginAPI.shared.reissueToken { responseData in
+            switch responseData {
+            case .success(let response):
+                guard let response = response as? GeneralResponse<LoginResponse> else { return }
+                
+                if response.status == 200 {
+                    UserDefaults.standard.setValue(response.data?.accesstoken ?? "", forKey: Const.UserDefaultsKey.accessToken)
+                } else {
                     self.showToast(message: response.message ?? "", font: .Pretendard(type: .regular, size: 12))
                 }
                 
