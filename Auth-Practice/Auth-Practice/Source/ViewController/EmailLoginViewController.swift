@@ -250,8 +250,9 @@ extension EmailLoginViewController {
                 guard let response = loginResponse as? GeneralResponse<LoginResponse> else { return }
                 
                 if response.status == 200 {
-                    UserDefaults.standard.setValue(response.data?.nickname ?? "", forKey: "name")
-                    UserDefaults.standard.setValue(response.data?.accesstoken ?? "", forKey: "token")
+                    UserDefaults.standard.setValue(response.data?.nickname ?? "", forKey: Const.UserDefaultsKey.name)
+                    UserDefaults.standard.setValue(response.data?.accesstoken ?? "", forKey: Const.UserDefaultsKey.accessToken)
+                    UserDefaults.standard.setValue(response.data?.accesstoken ?? "", forKey: Const.UserDefaultsKey.refreshToken)
                     
                     let dvc = MainViewController()
                     self.navigationController?.pushViewController(dvc, animated: true)

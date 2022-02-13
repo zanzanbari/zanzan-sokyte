@@ -40,7 +40,7 @@ final class MainViewController: UIViewController {
         
         view.backgroundColor = .white
         
-        if let name = UserDefaults.standard.value(forKey: "name") {
+        if let name = UserDefaults.standard.value(forKey: Const.UserDefaultsKey.name) {
             mainLabel.text = "\(name)님, 환영합니다!"
         }
     }

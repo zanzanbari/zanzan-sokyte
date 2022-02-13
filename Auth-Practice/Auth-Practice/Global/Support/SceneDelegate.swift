@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene)
         
-        if (UserDefaults.standard.value(forKey: "token")) != nil {
+        if (UserDefaults.standard.value(forKey: Const.UserDefaultsKey.accessToken)) != nil {
             self.window?.rootViewController = UINavigationController(rootViewController: MainViewController())
         } else {
             self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())

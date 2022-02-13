@@ -13,6 +13,8 @@ extension Const {
     struct UserDefaultsKey {
         static let isAppleLogin = "isAppleLogin"
         static let userID = "userID"
+        
+        static let name = "name"
         static let accessToken = "accessToekn"
         static let refreshToken = "refreshToken"
     }
