@@ -33,15 +33,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        NaverThirdPartyLoginConnection
+          .getSharedInstance()?
+          .receiveAccessToken(URLContexts.first?.url)
+        
         if let url = URLContexts.first?.url {
             if AuthApi.isKakaoTalkLoginUrl(url) {
                 _ = AuthController.handleOpenUrl(url: url)
             }
         }
-        
-        NaverThirdPartyLoginConnection
-          .getSharedInstance()?
-          .receiveAccessToken(URLContexts.first?.url)
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

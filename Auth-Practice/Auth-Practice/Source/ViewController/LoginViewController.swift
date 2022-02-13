@@ -206,7 +206,7 @@ extension LoginViewController {
             } else {
                 if let userID = user?.id {
                     print(userID)
-                    //                    UserDefaults.standard.set(String(userID), forKey: "userID")
+//                    UserDefaults.standard.set(String(userID), forKey: "userID")
                     // 서버 연결
                 }
             }
@@ -258,11 +258,13 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate {
         req.responseJSON { response in
             guard let result = response.value as? [String: Any] else { return }
             guard let object = result["response"] as? [String: Any] else { return }
+            
             guard let name = object["name"] as? String else { return }
             guard let email = object["email"] as? String else { return }
             guard let id = object["id"] as? String else { return }
             
             print(email, name, id)
+            UserDefaults.standard.set(String(id), forKey: "userID")
         }
         
     }

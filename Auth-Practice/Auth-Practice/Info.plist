@@ -9,15 +9,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kakao3abea69a625e2c13ec18d6554bbd97d8</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>naverloginzanzazn</string>
+				<string>naverloginzanzan</string>
 			</array>
 		</dict>
 	</array>
