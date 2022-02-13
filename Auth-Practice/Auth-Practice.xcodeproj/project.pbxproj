@@ -41,6 +41,7 @@
 		926290FE27A46D45006A3B58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926290FC27A46D45006A3B58 /* LaunchScreen.storyboard */; };
 		9262911527A46FB8006A3B58 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262911427A46FB8006A3B58 /* UIColor+.swift */; };
 		9262912427A470AB006A3B58 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262912327A470AB006A3B58 /* UIFont+.swift */; };
+		92A43A1527B96CDF00DD241A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A43A1427B96CDF00DD241A /* UserDefaultsKey.swift */; };
 		D50886846E2E577971DD1390 /* Pods_Auth_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106E32A4B866B5A09F3EE87B /* Pods_Auth_Practice.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		9262912127A47088006A3B58 /* PPNeueMachina-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PPNeueMachina-Regular.otf"; sourceTree = "<group>"; };
 		9262912227A47088006A3B58 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		9262912327A470AB006A3B58 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		92A43A1427B96CDF00DD241A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		A9F0CEA115B9620A598EDB8A /* Pods-Auth-Practice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Auth-Practice.release.xcconfig"; path = "Target Support Files/Pods-Auth-Practice/Pods-Auth-Practice.release.xcconfig"; sourceTree = "<group>"; };
 		BA8912BF19F6B7E5C658F0C9 /* Pods-Auth-Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Auth-Practice.debug.xcconfig"; path = "Target Support Files/Pods-Auth-Practice/Pods-Auth-Practice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,6 +220,7 @@
 		9262911027A46F57006A3B58 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				92A43A1327B96CD200DD241A /* Const */,
 				9262910E27A46F3E006A3B58 /* Support */,
 				921CD0C927A97EE700890E4B /* DesignSystem */,
 				9262911627A46FBD006A3B58 /* Extension */,
@@ -276,6 +279,14 @@
 				9262911E27A47088006A3B58 /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		92A43A1327B96CD200DD241A /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				92A43A1427B96CDF00DD241A /* UserDefaultsKey.swift */,
+			);
+			path = Const;
 			sourceTree = "<group>";
 		};
 		980D32312A5D21ECA67BCD09 /* Pods */ = {
@@ -422,6 +433,7 @@
 				9229AB4527AC16EA00238B24 /* GeneralResponse.swift in Sources */,
 				926290F627A46D44006A3B58 /* EmailLoginViewController.swift in Sources */,
 				9229AB1727AA7A3100238B24 /* UITextField+.swift in Sources */,
+				92A43A1527B96CDF00DD241A /* UserDefaultsKey.swift in Sources */,
 				9229AB4327AC16C900238B24 /* MoyaLoggingPlugin.swift in Sources */,
 				9229AB3F27AC15FF00238B24 /* NetworkResult.swift in Sources */,
 				921CD0CB27A97F4A00890E4B /* BDSTextField.swift in Sources */,

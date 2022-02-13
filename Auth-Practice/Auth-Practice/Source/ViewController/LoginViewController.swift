@@ -204,9 +204,11 @@ extension LoginViewController {
             if let error = error {
                 print(error)
             } else {
-                if let userID = user?.id {
-                    print(userID)
-//                    UserDefaults.standard.set(String(userID), forKey: "userID")
+                if let id = user?.id {
+                    print(id)
+                    
+                    UserDefaults.standard.set(String(id), forKey: Const.UserDefaultsKey.userID)
+                    UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isAppleLogin)
                     // 서버 연결
                 }
             }
@@ -264,9 +266,14 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate {
             guard let id = object["id"] as? String else { return }
             
             print(email, name, id)
-            UserDefaults.standard.set(String(id), forKey: "userID")
+            UserDefaults.standard.set(String(id), forKey: Const.UserDefaultsKey.userID)
+            UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isAppleLogin)
+            // 서버 연결
         }
         
     }
 }
+
+// MARK: - Network
+
 
