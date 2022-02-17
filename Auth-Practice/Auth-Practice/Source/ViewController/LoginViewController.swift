@@ -207,8 +207,8 @@ extension LoginViewController {
                 if let id = user?.id {
                     print(id)
                     
-                    UserDefaults.standard.set(String(id), forKey: Const.UserDefaultsKey.userID)
-                    UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isAppleLogin)
+//                    UserDefaults.standard.set(String(id), forKey: Const.UserDefaultsKey.userID)
+//                    UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isAppleLogin)
                     // 서버 연결
                 }
             }
@@ -227,7 +227,7 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate {
     
     // referesh token
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
-        loginInstance?.accessToken
+        
     }
     
     // 로그아웃
@@ -261,17 +261,20 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate {
             guard let result = response.value as? [String: Any] else { return }
             guard let object = result["response"] as? [String: Any] else { return }
             
+            dump(object)
+            
             guard let name = object["name"] as? String else { return }
             guard let email = object["email"] as? String else { return }
             guard let id = object["id"] as? String else { return }
+            print(name, email, id)
             
-            print(email, name, id)
-            UserDefaults.standard.set(String(id), forKey: Const.UserDefaultsKey.userID)
-            UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isAppleLogin)
+//            UserDefaults.standard.set(String(id), forKey: Const.UserDefaultsKey.userID)
+//            UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isAppleLogin)
             // 서버 연결
         }
-        
     }
+    
+    
 }
 
 // MARK: - Network
