@@ -42,6 +42,7 @@
 		9262911527A46FB8006A3B58 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262911427A46FB8006A3B58 /* UIColor+.swift */; };
 		9262912427A470AB006A3B58 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262912327A470AB006A3B58 /* UIFont+.swift */; };
 		92A43A1527B96CDF00DD241A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A43A1427B96CDF00DD241A /* UserDefaultsKey.swift */; };
+		92FC851227BF8D520020965A /* SocialLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC851127BF8D520020965A /* SocialLoginRequest.swift */; };
 		D50886846E2E577971DD1390 /* Pods_Auth_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106E32A4B866B5A09F3EE87B /* Pods_Auth_Practice.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		9262912227A47088006A3B58 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		9262912327A470AB006A3B58 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		92A43A1427B96CDF00DD241A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		92FC851127BF8D520020965A /* SocialLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginRequest.swift; sourceTree = "<group>"; };
 		A9F0CEA115B9620A598EDB8A /* Pods-Auth-Practice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Auth-Practice.release.xcconfig"; path = "Target Support Files/Pods-Auth-Practice/Pods-Auth-Practice.release.xcconfig"; sourceTree = "<group>"; };
 		BA8912BF19F6B7E5C658F0C9 /* Pods-Auth-Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Auth-Practice.debug.xcconfig"; path = "Target Support Files/Pods-Auth-Practice/Pods-Auth-Practice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +166,7 @@
 			children = (
 				9229AB4827AC17D500238B24 /* LoginRequest.swift */,
 				9229AB4A27AC190300238B24 /* LoginResponse.swift */,
+				92FC851127BF8D520020965A /* SocialLoginRequest.swift */,
 			);
 			path = APIModel;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				9229AB1527AA645400238B24 /* Adjusted+.swift in Sources */,
 				9229AB0D27AA5C0800238B24 /* UIImage+.swift in Sources */,
 				926290F427A46D44006A3B58 /* SceneDelegate.swift in Sources */,
+				92FC851227BF8D520020965A /* SocialLoginRequest.swift in Sources */,
 				9229AB4F27AC1BAA00238B24 /* LoginAPI.swift in Sources */,
 				9229AB4B27AC190300238B24 /* LoginResponse.swift in Sources */,
 			);

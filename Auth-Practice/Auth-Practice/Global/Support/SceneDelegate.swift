@@ -37,8 +37,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
           .getSharedInstance()?
           .receiveAccessToken(URLContexts.first?.url)
         
-        print(URLContexts.first?.url)
-        
         if let url = URLContexts.first?.url {
             if AuthApi.isKakaoTalkLoginUrl(url) {
                 _ = AuthController.handleOpenUrl(url: url)

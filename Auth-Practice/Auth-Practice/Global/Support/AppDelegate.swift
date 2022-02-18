@@ -25,19 +25,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // FIXME: - key값을 명시적으로 입력하지 않고 로그인 가능하도록
         KakaoSDK.initSDK(appKey: "NATIVE_APP_KEY")
         
-        let naverThirdPartyLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
-        // 네이버 앱으로 인증하는 방식을 활성화하려면 앱 델리게이트에 다음 코드를 추가합니다.
-        naverThirdPartyLoginInstance?.isNaverAppOauthEnable = true
-        // SafariViewContoller에서 인증하는 방식을 활성화하려면 앱 델리게이트에 다음 코드를 추가합니다.
-        naverThirdPartyLoginInstance?.isInAppOauthEnable = true
-        
-        // 인증 화면을 아이폰의 세로모드에서만 적용
-        naverThirdPartyLoginInstance?.isOnlyPortraitSupportedInIphone()
-        
-        naverThirdPartyLoginInstance?.serviceUrlScheme = kServiceAppUrlScheme // 앱을 등록할 때 입력한 URL Scheme
-        naverThirdPartyLoginInstance?.consumerKey = kConsumerKey // 상수 - client id
-        naverThirdPartyLoginInstance?.consumerSecret = kConsumerSecret // pw
-        naverThirdPartyLoginInstance?.appName = (Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String) ?? ""
+        // MARK: - 네이버 로그인
+         let instance = NaverThirdPartyLoginConnection.getSharedInstance()
+
+         // 네이버 앱으로 인증하는 방식 활성화
+         instance?.isNaverAppOauthEnable = true
+
+         // SafariViewController에서 인증하는 방식 활성화
+         instance?.isInAppOauthEnable = true
+
+         // 인증 화면을 아이폰의 세로모드에서만 적용
+         instance?.isOnlyPortraitSupportedInIphone()
+
+         instance?.serviceUrlScheme = kServiceAppUrlScheme // 앱을 등록할 때 입력한 URL Scheme
+         instance?.consumerKey = kConsumerKey // 상수 - client id
+         instance?.consumerSecret = kConsumerSecret // pw
+         instance?.appName = (Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String) ?? ""
         
         return true
     }

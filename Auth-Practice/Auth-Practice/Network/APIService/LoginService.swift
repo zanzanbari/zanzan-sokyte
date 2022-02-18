@@ -12,6 +12,7 @@ import Moya
 enum LoginService {
     case postLogin(parameter: LoginRequest)
     case authReissueToken
+    case socialLogin(parameter: SocailLoginRequest)
 }
 
 extension LoginService: BaseTargetType {
@@ -19,6 +20,7 @@ extension LoginService: BaseTargetType {
         switch self {
         case .postLogin: return URLConstant.authLogin
         case .authReissueToken: return URLConstant.authReissueToken
+        case .socialLogin(let parameter): return URLConstant.authSocialLogin + "/\(parameter.social)/login"
         }
     }
     
@@ -26,6 +28,7 @@ extension LoginService: BaseTargetType {
         switch self {
         case .postLogin: return .post
         case .authReissueToken: return .get
+        case .socialLogin: return .post
         }
     }
     
@@ -37,12 +40,14 @@ extension LoginService: BaseTargetType {
             return .requestParameters(parameters: parameter, encoding: JSONEncoding.default)
         case .authReissueToken:
             return .requestPlain
+        case .socialLogin(let parameter):
+            return .requestParameters(parameters: ["token": parameter.token], encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String : String]? {
         switch self {
-        case .postLogin: return NetworkConstant.noTokenHeader
+        case .postLogin, .socialLogin: return NetworkConstant.noTokenHeader
         case .authReissueToken: return NetworkConstant.hasRefreshTokenHedaer
         }
     }

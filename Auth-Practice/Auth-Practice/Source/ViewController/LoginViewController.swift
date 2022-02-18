@@ -167,6 +167,8 @@ final class LoginViewController: UIViewController {
     
     @objc func touchUpNaverLoginButton() {
         loginInstance?.requestThirdPartyLogin()
+        //        loginInstance?.requestDeleteToken()
+        //        loginInstance?.requestAccessTokenWithRefreshToken()
     }
     
     @objc func touchUpAppleLoginButton() {
@@ -206,9 +208,8 @@ extension LoginViewController {
             } else {
                 if let id = user?.id {
                     print(id)
-                    
-//                    UserDefaults.standard.set(String(id), forKey: Const.UserDefaultsKey.userID)
-//                    UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isAppleLogin)
+                    //                    UserDefaults.standard.set(String(id), forKey: Const.UserDefaultsKey.userID)
+                    //                    UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isAppleLogin)
                     // 서버 연결
                 }
             }
@@ -227,7 +228,7 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate {
     
     // referesh token
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
-        
+        print(loginInstance?.refreshToken)
     }
     
     // 로그아웃
@@ -250,28 +251,7 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate {
         guard let tokenType = loginInstance?.tokenType else { return }
         guard let accessToken = loginInstance?.accessToken else { return }
         
-        let urlStr = "https://openapi.naver.com/v1/nid/me"
-        let url = URL(string: urlStr)!
-        
-        let authorization = "\(tokenType) \(accessToken)"
-        
-        let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
-        
-        req.responseJSON { response in
-            guard let result = response.value as? [String: Any] else { return }
-            guard let object = result["response"] as? [String: Any] else { return }
-            
-            dump(object)
-            
-            guard let name = object["name"] as? String else { return }
-            guard let email = object["email"] as? String else { return }
-            guard let id = object["id"] as? String else { return }
-            print(name, email, id)
-            
-//            UserDefaults.standard.set(String(id), forKey: Const.UserDefaultsKey.userID)
-//            UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isAppleLogin)
-            // 서버 연결
-        }
+        socialLogin(socialType: "naver", token: accessToken)
     }
     
     
@@ -279,4 +259,29 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate {
 
 // MARK: - Network
 
-
+extension LoginViewController {
+    private func socialLogin(socialType: String, token: String){
+        LoginAPI.shared.socialLogin(parameter: SocailLoginRequest.init(social: socialType, token: token)) { responseData in
+            switch responseData {
+            case .success(let loginResponse):
+                
+                guard let response = loginResponse as? GeneralResponse<LoginResponse> else { return }
+                
+                if response.status == 200 {
+                    UserDefaults.standard.setValue(response.data?.accesstoken ?? "", forKey: Const.UserDefaultsKey.accessToken)
+                } else {
+                    self.showToast(message: response.message ?? "", font: .Pretendard(type: .regular, size: 12))
+                }
+                
+            case .requestErr(let message):
+                print("requestErr \(message)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+}

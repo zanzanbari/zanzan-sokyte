@@ -17,4 +17,5 @@ struct URLConstant {
     
     static let authLogin = "/auth/login"
     static let authReissueToken = "/auth/reissue/token"
+    static let authSocialLogin = "/auth"
 }
