@@ -155,6 +155,16 @@ final class LoginViewController: UIViewController {
     }
     
     @objc func touchUpKakaoLoginButton() {
+        
+//        UserApi.shared.logout {(error) in
+//            if let error = error {
+//                print(error)
+//            }
+//            else {
+//                print("logout() success.")
+//            }
+//        }
+        
         // 카카오톡 설치 여부 확인
         if UserApi.isKakaoTalkLoginAvailable() {
             // 카카오톡 로그인. api 호출 결과를 클로저로 전달.
@@ -167,8 +177,8 @@ final class LoginViewController: UIViewController {
     
     @objc func touchUpNaverLoginButton() {
         loginInstance?.requestThirdPartyLogin()
-        //        loginInstance?.requestDeleteToken()
-        //        loginInstance?.requestAccessTokenWithRefreshToken()
+//        loginInstance?.requestDeleteToken()
+//        loginInstance?.requestAccessTokenWithRefreshToken()
     }
     
     @objc func touchUpAppleLoginButton() {
@@ -180,12 +190,13 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController {
     private func loginWithKakaoApp() {
-        UserApi.shared.loginWithKakaoTalk { _, error in
+        UserApi.shared.loginWithKakaoTalk { response, error in
             if let error = error {
                 print(error)
             } else {
                 print("loginWithKakaoApp() success.")
-                self.getUserID()
+                guard let accessToken = response?.accessToken else { return }
+                self.socialLogin(socialType: Const.SocialType.kakao, token: accessToken)
             }
         }
     }
@@ -206,12 +217,7 @@ extension LoginViewController {
             if let error = error {
                 print(error)
             } else {
-                if let id = user?.id {
-                    print(id)
-                    //                    UserDefaults.standard.set(String(id), forKey: Const.UserDefaultsKey.userID)
-                    //                    UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isAppleLogin)
-                    // 서버 연결
-                }
+                // 사용자 정보 get
             }
         }
     }
@@ -223,12 +229,20 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate {
     // 로그인에 성공한 경우 호출
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
         print("Success login")
-        getNaverInfo()
+        guard let isValidAccessToken = loginInstance?.isValidAccessTokenExpireTimeNow() else { return }
+        
+        if !isValidAccessToken {
+            return
+        }
+        
+        guard let accessToken = loginInstance?.accessToken else { return }
+        
+        socialLogin(socialType: Const.SocialType.naver, token: accessToken)
     }
     
     // referesh token
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
-        print(loginInstance?.refreshToken)
+        
     }
     
     // 로그아웃
@@ -240,21 +254,6 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate {
     func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
         print("error = \(error.localizedDescription)")
     }
-    
-    private func getNaverInfo() {
-        guard let isValidAccessToken = loginInstance?.isValidAccessTokenExpireTimeNow() else { return }
-        
-        if !isValidAccessToken {
-            return
-        }
-        
-        guard let tokenType = loginInstance?.tokenType else { return }
-        guard let accessToken = loginInstance?.accessToken else { return }
-        
-        socialLogin(socialType: "naver", token: accessToken)
-    }
-    
-    
 }
 
 // MARK: - Network
@@ -268,7 +267,9 @@ extension LoginViewController {
                 guard let response = loginResponse as? GeneralResponse<LoginResponse> else { return }
                 
                 if response.status == 200 {
+                    UserDefaults.standard.setValue(response.data?.nickname ?? "", forKey: Const.UserDefaultsKey.name)
                     UserDefaults.standard.setValue(response.data?.accesstoken ?? "", forKey: Const.UserDefaultsKey.accessToken)
+                    UserDefaults.standard.setValue(response.data?.refreshtoken ?? "", forKey: Const.UserDefaultsKey.refreshToken)
                 } else {
                     self.showToast(message: response.message ?? "", font: .Pretendard(type: .regular, size: 12))
                 }

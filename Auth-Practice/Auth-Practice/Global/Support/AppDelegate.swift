@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // MARK: - 카카오 로그인
         // FIXME: - key값을 명시적으로 입력하지 않고 로그인 가능하도록
-        KakaoSDK.initSDK(appKey: "NATIVE_APP_KEY")
+        KakaoSDK.initSDK(appKey: "d1b0517fbfeeda73aea1f19d44ea99cb")
         
         // MARK: - 네이버 로그인
          let instance = NaverThirdPartyLoginConnection.getSharedInstance()

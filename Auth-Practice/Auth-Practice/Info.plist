@@ -12,9 +12,19 @@
 				<string>naverloginzanzan</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakaod1b0517fbfeeda73aea1f19d44ea99cb</string>
+			</array>
+		</dict>
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>kakaolink</string>
+		<string>kakaokompassauth</string>
 		<string>naversearchapp</string>
 		<string>naversearchthirdlogin</string>
 	</array>

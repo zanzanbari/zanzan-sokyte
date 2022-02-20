@@ -57,7 +57,7 @@ public class LoginAPI {
                 let networkResult = self.judgeStatus(by: statusCode, data)
                 completion(networkResult)
                 
-            case .failure(let err):
+            case .failure(let err):      
                 print(err)
             }
         }
