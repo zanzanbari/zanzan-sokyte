@@ -20,11 +20,20 @@ final class MainViewController: UIViewController {
         $0.spacing = 10
     }
     
-    private lazy var taxiButton = VehicleButton(vehicleType: .taxi)
+    private lazy var taxiButton = VehicleButton(vehicleType: .taxi).then {
+        $0.addTarget(self, action: #selector(touchUpTaxiButton), for: .touchUpInside)
+    }
+    
     private lazy var blackButton = VehicleButton(vehicleType: .black)
+    
     private lazy var bikeButton = VehicleButton(vehicleType: .bike)
     
     // MARK: - Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.isNavigationBarHidden = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +45,30 @@ final class MainViewController: UIViewController {
     
     private func configUI() {
         view.backgroundColor = .white
+        
+        view.addSubview(vehicleButtonStackView)
+        
+        vehicleButtonStackView.addArrangedSubview(taxiButton)
+        vehicleButtonStackView.addArrangedSubview(blackButton)
+        vehicleButtonStackView.addArrangedSubview(bikeButton)
     }
     
     private func setLayout() {
-        
+        vehicleButtonStackView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(20)
+            $0.leading.trailing.equalToSuperview().inset(100)
+            $0.height.equalTo(70)
+        }
     }
     
     // MARK: - Custom Method
+    
+    // MARK: - @objc
+    
+    @objc func touchUpTaxiButton() {
+        let dvc = TaxiMapViewController()
+        navigationController?.pushViewController(dvc, animated: true)
+    }
 }
 
 fileprivate final class VehicleButton: UIButton {
@@ -73,14 +99,14 @@ fileprivate final class VehicleButton: UIButton {
         addSubview(buttonTitleLabel)
         
         image.snp.makeConstraints {
-            $0.top.leading.equalToSuperview().offset(1)
-            $0.height.width.equalTo(46.5)
+            $0.top.leading.equalToSuperview()
+            $0.height.width.equalTo(50)
         }
         
         buttonTitleLabel.snp.makeConstraints {
             $0.bottom.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(18)
+            $0.centerX.equalTo(image.snp.centerX)
+            $0.height.equalTo(20)
         }
     }
 }
@@ -104,11 +130,11 @@ fileprivate enum VehicleType {
     var image: UIImage {
         switch self {
         case .taxi:
-            return UIImage(named: " ")!
+            return UIImage(named: "icnTaxi")!
         case .black:
-            return UIImage(named: " ")!
+            return UIImage(named: "icnBlack")!
         case .bike:
-            return UIImage(named: " ")!
+            return UIImage(named: "icnGrayTaxi")!
         }
     }
 }
