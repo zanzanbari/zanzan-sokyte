@@ -8,9 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		50BEFEEF540F5085A2268FF3 /* Pods_KakaoT_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4FF5C493D6C0F45A0B6527 /* Pods_KakaoT_Practice.framework */; };
+		9282433A27C7A09E00288F60 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282433927C7A09E00288F60 /* MainViewController.swift */; };
+		9282433C27C7A0AB00288F60 /* TaxiMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282433B27C7A0AB00288F60 /* TaxiMapViewController.swift */; };
+		9282434127C7A1BE00288F60 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434027C7A1BE00288F60 /* Temp.swift */; };
+		9282434327C7A1CA00288F60 /* TempService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434227C7A1CA00288F60 /* TempService.swift */; };
+		9282434527C7A1D000288F60 /* TempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434427C7A1D000288F60 /* TempModel.swift */; };
+		9282434827C7A1E800288F60 /* Dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = 9282434727C7A1E800288F60 /* Dummy.json */; };
+		9282434B27C7A3CE00288F60 /* KakakoTTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434A27C7A3CE00288F60 /* KakakoTTextField.swift */; };
+		9282434D27C7A53500288F60 /* TaxiSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434C27C7A53500288F60 /* TaxiSearchViewController.swift */; };
 		92FB1B9A27C29F9A001B5E1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1B9927C29F9A001B5E1C /* AppDelegate.swift */; };
 		92FB1B9C27C29F9A001B5E1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1B9B27C29F9A001B5E1C /* SceneDelegate.swift */; };
-		92FB1B9E27C29F9A001B5E1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1B9D27C29F9A001B5E1C /* ViewController.swift */; };
 		92FB1BA127C29F9A001B5E1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FB1B9F27C29F9A001B5E1C /* Main.storyboard */; };
 		92FB1BA327C29F9B001B5E1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FB1BA227C29F9B001B5E1C /* Assets.xcassets */; };
 		92FB1BA627C29F9B001B5E1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FB1BA427C29F9B001B5E1C /* LaunchScreen.storyboard */; };
@@ -18,10 +25,17 @@
 
 /* Begin PBXFileReference section */
 		43B850F8154F210140A290B9 /* Pods-KakaoT-Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KakaoT-Practice.debug.xcconfig"; path = "Target Support Files/Pods-KakaoT-Practice/Pods-KakaoT-Practice.debug.xcconfig"; sourceTree = "<group>"; };
+		9282433927C7A09E00288F60 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9282433B27C7A0AB00288F60 /* TaxiMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiMapViewController.swift; sourceTree = "<group>"; };
+		9282434027C7A1BE00288F60 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
+		9282434227C7A1CA00288F60 /* TempService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempService.swift; sourceTree = "<group>"; };
+		9282434427C7A1D000288F60 /* TempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempModel.swift; sourceTree = "<group>"; };
+		9282434727C7A1E800288F60 /* Dummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Dummy.json; sourceTree = "<group>"; };
+		9282434A27C7A3CE00288F60 /* KakakoTTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakakoTTextField.swift; sourceTree = "<group>"; };
+		9282434C27C7A53500288F60 /* TaxiSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiSearchViewController.swift; sourceTree = "<group>"; };
 		92FB1B9627C29F9A001B5E1C /* KakaoT-Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KakaoT-Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FB1B9927C29F9A001B5E1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92FB1B9B27C29F9A001B5E1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		92FB1B9D27C29F9A001B5E1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		92FB1BA027C29F9A001B5E1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92FB1BA227C29F9B001B5E1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92FB1BA527C29F9B001B5E1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,8 +70,130 @@
 				43B850F8154F210140A290B9 /* Pods-KakaoT-Practice.debug.xcconfig */,
 				DDB78034CB67101DA0D31814 /* Pods-KakaoT-Practice.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9282433027C7A01700288F60 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				9282434927C7A38200288F60 /* DesignSystem */,
+				9282433427C7A04900288F60 /* Network */,
+				9282433327C7A03B00288F60 /* Support */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		9282433127C7A01E00288F60 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9282433627C7A06C00288F60 /* Asset */,
+				9282433527C7A05D00288F60 /* Storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		9282433227C7A02400288F60 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9282433827C7A09200288F60 /* Taxi */,
+				9282433727C7A07700288F60 /* Main */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		9282433327C7A03B00288F60 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				92FB1BA727C29F9B001B5E1C /* Info.plist */,
+				92FB1B9927C29F9A001B5E1C /* AppDelegate.swift */,
+				92FB1B9B27C29F9A001B5E1C /* SceneDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		9282433427C7A04900288F60 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9282434627C7A1D600288F60 /* Mock */,
+				9282433F27C7A1B100288F60 /* Base */,
+				9282433E27C7A1A200288F60 /* APIService */,
+				9282433D27C7A19A00288F60 /* APIModel */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9282433527C7A05D00288F60 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				92FB1B9F27C29F9A001B5E1C /* Main.storyboard */,
+				92FB1BA427C29F9B001B5E1C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9282433627C7A06C00288F60 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				92FB1BA227C29F9B001B5E1C /* Assets.xcassets */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		9282433727C7A07700288F60 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9282433927C7A09E00288F60 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9282433827C7A09200288F60 /* Taxi */ = {
+			isa = PBXGroup;
+			children = (
+				9282433B27C7A0AB00288F60 /* TaxiMapViewController.swift */,
+				9282434C27C7A53500288F60 /* TaxiSearchViewController.swift */,
+			);
+			path = Taxi;
+			sourceTree = "<group>";
+		};
+		9282433D27C7A19A00288F60 /* APIModel */ = {
+			isa = PBXGroup;
+			children = (
+				9282434427C7A1D000288F60 /* TempModel.swift */,
+			);
+			path = APIModel;
+			sourceTree = "<group>";
+		};
+		9282433E27C7A1A200288F60 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				9282434227C7A1CA00288F60 /* TempService.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		9282433F27C7A1B100288F60 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9282434027C7A1BE00288F60 /* Temp.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9282434627C7A1D600288F60 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				9282434727C7A1E800288F60 /* Dummy.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		9282434927C7A38200288F60 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				9282434A27C7A3CE00288F60 /* KakakoTTextField.swift */,
+			);
+			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 		92FB1B8D27C29F9A001B5E1C = {
@@ -81,13 +217,9 @@
 		92FB1B9827C29F9A001B5E1C /* KakaoT-Practice */ = {
 			isa = PBXGroup;
 			children = (
-				92FB1B9927C29F9A001B5E1C /* AppDelegate.swift */,
-				92FB1B9B27C29F9A001B5E1C /* SceneDelegate.swift */,
-				92FB1B9D27C29F9A001B5E1C /* ViewController.swift */,
-				92FB1B9F27C29F9A001B5E1C /* Main.storyboard */,
-				92FB1BA227C29F9B001B5E1C /* Assets.xcassets */,
-				92FB1BA427C29F9B001B5E1C /* LaunchScreen.storyboard */,
-				92FB1BA727C29F9B001B5E1C /* Info.plist */,
+				9282433027C7A01700288F60 /* Global */,
+				9282433127C7A01E00288F60 /* Resource */,
+				9282433227C7A02400288F60 /* Source */,
 			);
 			path = "KakaoT-Practice";
 			sourceTree = "<group>";
@@ -154,6 +286,7 @@
 			files = (
 				92FB1BA627C29F9B001B5E1C /* LaunchScreen.storyboard in Resources */,
 				92FB1BA327C29F9B001B5E1C /* Assets.xcassets in Resources */,
+				9282434827C7A1E800288F60 /* Dummy.json in Resources */,
 				92FB1BA127C29F9A001B5E1C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,9 +340,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92FB1B9E27C29F9A001B5E1C /* ViewController.swift in Sources */,
+				9282434B27C7A3CE00288F60 /* KakakoTTextField.swift in Sources */,
+				9282434527C7A1D000288F60 /* TempModel.swift in Sources */,
 				92FB1B9A27C29F9A001B5E1C /* AppDelegate.swift in Sources */,
 				92FB1B9C27C29F9A001B5E1C /* SceneDelegate.swift in Sources */,
+				9282434127C7A1BE00288F60 /* Temp.swift in Sources */,
+				9282434D27C7A53500288F60 /* TaxiSearchViewController.swift in Sources */,
+				9282433C27C7A0AB00288F60 /* TaxiMapViewController.swift in Sources */,
+				9282433A27C7A09E00288F60 /* MainViewController.swift in Sources */,
+				9282434327C7A1CA00288F60 /* TempService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +500,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "KakaoT-Practice/Info.plist";
+				INFOPLIST_FILE = "KakaoT-Practice/Global/Support/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -390,7 +529,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "KakaoT-Practice/Info.plist";
+				INFOPLIST_FILE = "KakaoT-Practice/Global/Support/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
