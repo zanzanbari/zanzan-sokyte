@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		50BEFEEF540F5085A2268FF3 /* Pods_KakaoT_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4FF5C493D6C0F45A0B6527 /* Pods_KakaoT_Practice.framework */; };
+		9240852F27CAAEFA0029E753 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240852E27CAAEFA0029E753 /* UIColor+.swift */; };
 		9282433A27C7A09E00288F60 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282433927C7A09E00288F60 /* MainViewController.swift */; };
 		9282433C27C7A0AB00288F60 /* TaxiMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282433B27C7A0AB00288F60 /* TaxiMapViewController.swift */; };
 		9282434127C7A1BE00288F60 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434027C7A1BE00288F60 /* Temp.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		43B850F8154F210140A290B9 /* Pods-KakaoT-Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KakaoT-Practice.debug.xcconfig"; path = "Target Support Files/Pods-KakaoT-Practice/Pods-KakaoT-Practice.debug.xcconfig"; sourceTree = "<group>"; };
+		9240852E27CAAEFA0029E753 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		9282433927C7A09E00288F60 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9282433B27C7A0AB00288F60 /* TaxiMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiMapViewController.swift; sourceTree = "<group>"; };
 		9282434027C7A1BE00288F60 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
@@ -73,9 +75,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9240852D27CAAEEC0029E753 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9240852E27CAAEFA0029E753 /* UIColor+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		9282433027C7A01700288F60 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				9240852D27CAAEEC0029E753 /* Extension */,
 				9282434927C7A38200288F60 /* DesignSystem */,
 				9282433427C7A04900288F60 /* Network */,
 				9282433327C7A03B00288F60 /* Support */,
@@ -349,6 +360,7 @@
 				9282433C27C7A0AB00288F60 /* TaxiMapViewController.swift in Sources */,
 				9282433A27C7A09E00288F60 /* MainViewController.swift in Sources */,
 				9282434327C7A1CA00288F60 /* TempService.swift in Sources */,
+				9240852F27CAAEFA0029E753 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
