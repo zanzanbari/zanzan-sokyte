@@ -12,6 +12,10 @@
 		924CAA4E27CFA07F0023BCA6 /* KDSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA4D27CFA07F0023BCA6 /* KDSFont.swift */; };
 		924CAA5027CFD6740023BCA6 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA4F27CFD6740023BCA6 /* UILabel+.swift */; };
 		924CAA5327CFDDE90023BCA6 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5227CFDDE90023BCA6 /* UITextField+.swift */; };
+		924CAA5527CFED020023BCA6 /* AnimationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5427CFED020023BCA6 /* AnimationTransition.swift */; };
+		924CAA5727CFEE970023BCA6 /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5627CFEE970023BCA6 /* DismissAnimation.swift */; };
+		924CAA5B27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5A27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift */; };
+		924CAA5D27D00D5A0023BCA6 /* TaxiSearchViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5C27D00D5A0023BCA6 /* TaxiSearchViewController+.swift */; };
 		9282433A27C7A09E00288F60 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282433927C7A09E00288F60 /* MainViewController.swift */; };
 		9282433C27C7A0AB00288F60 /* TaxiMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282433B27C7A0AB00288F60 /* TaxiMapViewController.swift */; };
 		9282434127C7A1BE00288F60 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434027C7A1BE00288F60 /* Temp.swift */; };
@@ -33,6 +37,10 @@
 		924CAA4D27CFA07F0023BCA6 /* KDSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDSFont.swift; sourceTree = "<group>"; };
 		924CAA4F27CFD6740023BCA6 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		924CAA5227CFDDE90023BCA6 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		924CAA5427CFED020023BCA6 /* AnimationTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTransition.swift; sourceTree = "<group>"; };
+		924CAA5627CFEE970023BCA6 /* DismissAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
+		924CAA5A27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiLocationCollectionViewCell.swift; sourceTree = "<group>"; };
+		924CAA5C27D00D5A0023BCA6 /* TaxiSearchViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaxiSearchViewController+.swift"; sourceTree = "<group>"; };
 		9282433927C7A09E00288F60 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9282433B27C7A0AB00288F60 /* TaxiMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiMapViewController.swift; sourceTree = "<group>"; };
 		9282434027C7A1BE00288F60 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
@@ -94,6 +102,9 @@
 		9240853327CAB9A00029E753 /* Transition */ = {
 			isa = PBXGroup;
 			children = (
+				924CAA5427CFED020023BCA6 /* AnimationTransition.swift */,
+				924CAA5627CFEE970023BCA6 /* DismissAnimation.swift */,
+				924CAA5C27D00D5A0023BCA6 /* TaxiSearchViewController+.swift */,
 			);
 			path = Transition;
 			sourceTree = "<group>";
@@ -112,6 +123,23 @@
 				9282434A27C7A3CE00288F60 /* KakakoTTextField.swift */,
 			);
 			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		924CAA5827CFFB610023BCA6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9282433B27C7A0AB00288F60 /* TaxiMapViewController.swift */,
+				9282434C27C7A53500288F60 /* TaxiSearchViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		924CAA5927CFFB740023BCA6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				924CAA5A27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9282433027C7A01700288F60 /* Global */ = {
@@ -193,8 +221,8 @@
 		9282433827C7A09200288F60 /* Taxi */ = {
 			isa = PBXGroup;
 			children = (
-				9282433B27C7A0AB00288F60 /* TaxiMapViewController.swift */,
-				9282434C27C7A53500288F60 /* TaxiSearchViewController.swift */,
+				924CAA5927CFFB740023BCA6 /* View */,
+				924CAA5827CFFB610023BCA6 /* ViewController */,
 			);
 			path = Taxi;
 			sourceTree = "<group>";
@@ -389,13 +417,17 @@
 				92FB1B9A27C29F9A001B5E1C /* AppDelegate.swift in Sources */,
 				924CAA5027CFD6740023BCA6 /* UILabel+.swift in Sources */,
 				92FB1B9C27C29F9A001B5E1C /* SceneDelegate.swift in Sources */,
+				924CAA5B27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift in Sources */,
 				9282434127C7A1BE00288F60 /* Temp.swift in Sources */,
 				924CAA4E27CFA07F0023BCA6 /* KDSFont.swift in Sources */,
 				9282434D27C7A53500288F60 /* TaxiSearchViewController.swift in Sources */,
 				9282433C27C7A0AB00288F60 /* TaxiMapViewController.swift in Sources */,
+				924CAA5527CFED020023BCA6 /* AnimationTransition.swift in Sources */,
 				924CAA5327CFDDE90023BCA6 /* UITextField+.swift in Sources */,
+				924CAA5727CFEE970023BCA6 /* DismissAnimation.swift in Sources */,
 				9282433A27C7A09E00288F60 /* MainViewController.swift in Sources */,
 				9282434327C7A1CA00288F60 /* TempService.swift in Sources */,
+				924CAA5D27D00D5A0023BCA6 /* TaxiSearchViewController+.swift in Sources */,
 				9240852F27CAAEFA0029E753 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
