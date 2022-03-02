@@ -23,10 +23,9 @@ final class MainViewController: UIViewController {
     private lazy var taxiButton = VehicleButton(vehicleType: .taxi).then {
         $0.addTarget(self, action: #selector(touchUpTaxiButton), for: .touchUpInside)
     }
-    
     private lazy var blackButton = VehicleButton(vehicleType: .black)
-    
     private lazy var bikeButton = VehicleButton(vehicleType: .bike)
+    private lazy var veletButton = VehicleButton(vehicleType: .velet)
     
     // MARK: - Life Cycle
     
@@ -51,12 +50,13 @@ final class MainViewController: UIViewController {
         vehicleButtonStackView.addArrangedSubview(taxiButton)
         vehicleButtonStackView.addArrangedSubview(blackButton)
         vehicleButtonStackView.addArrangedSubview(bikeButton)
+        vehicleButtonStackView.addArrangedSubview(veletButton)
     }
     
     private func setLayout() {
         vehicleButtonStackView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(20)
-            $0.leading.trailing.equalToSuperview().inset(100)
+            $0.leading.trailing.equalToSuperview().inset(50)
             $0.height.equalTo(70)
         }
     }
@@ -76,6 +76,7 @@ fileprivate final class VehicleButton: UIButton {
     
     private lazy var buttonTitleLabel = UILabel().then {
         $0.text = type.title
+        $0.font = KDSFont.body6
         $0.textColor = .black
         $0.textAlignment = .center
     }
@@ -104,7 +105,7 @@ fileprivate final class VehicleButton: UIButton {
         }
         
         buttonTitleLabel.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
+            $0.top.equalTo(image.snp.bottom).offset(5)
             $0.centerX.equalTo(image.snp.centerX)
             $0.height.equalTo(20)
         }
@@ -115,6 +116,7 @@ fileprivate enum VehicleType {
     case taxi
     case black
     case bike
+    case velet
     
     var title: String {
         switch self {
@@ -124,17 +126,21 @@ fileprivate enum VehicleType {
             return "블랙"
         case .bike:
             return "바이크"
+        case .velet:
+            return "대리"
         }
     }
     
     var image: UIImage {
         switch self {
         case .taxi:
-            return UIImage(named: "icnTaxi")!
+            return UIImage(named: "img_car_nomal")!
         case .black:
-            return UIImage(named: "icnBlack")!
+            return UIImage(named: "img_car_black")!
         case .bike:
-            return UIImage(named: "icnGrayTaxi")!
+            return UIImage(named: "img_car_venti")!
+        case .velet:
+            return UIImage(named: "img_car_ luxury")!
         }
     }
 }
