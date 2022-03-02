@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Mask Group.png",
+      "filename" : "img_car_black.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Mask Group@2x.png",
+      "filename" : "img_car_black@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Mask Group@3x.png",
+      "filename" : "img_car_black@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
