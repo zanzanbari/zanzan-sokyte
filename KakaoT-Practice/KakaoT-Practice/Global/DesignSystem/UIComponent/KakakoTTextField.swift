@@ -23,9 +23,9 @@ class KakakoTTextField: UITextField {
         didSet {
             switch textFieldType {
             case .here:
-                self.setLeftIcon(12, 24, UIImage(named: "icn_circle_here")!)
+                self.setLeftIcon(8, 24, UIImage(named: "icn_circle_here")!)
             case .destination:
-                self.setLeftIcon(12, 24, UIImage(named: "icn_circle_destination")!)
+                self.setLeftIcon(8, 24, UIImage(named: "icn_circle_destination")!)
             }
         }
     }
