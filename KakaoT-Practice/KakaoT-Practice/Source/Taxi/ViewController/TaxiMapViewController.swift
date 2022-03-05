@@ -10,9 +10,17 @@ import UIKit
 import SnapKit
 import Then
 
+import CoreLocation
+
 final class TaxiMapViewController: UIViewController {
     
     // MARK: - Properties
+    
+    var locationManager : CLLocationManager!
+    
+    private var mapView: MTMapView?
+    private var mapPoint1: MTMapPoint?
+    private var positionItem1: MTMapPOIItem?
     
     private lazy var transition = AnimationTransition()
     
@@ -44,7 +52,7 @@ final class TaxiMapViewController: UIViewController {
     private var hereTextField = KakakoTTextField().then {
         $0.textFieldType = .here
         $0.isActivated = false
-        $0.text = "현위치: 어쩌구 저쩌구"
+        $0.text = "현위치: 애오개역 5호선 1번 출구"
         $0.textColor = .black100
     }
     
@@ -76,6 +84,8 @@ final class TaxiMapViewController: UIViewController {
     
     private var destinationList: [String] = ["집", "회사"]
     
+    private var taxiMapMarkerView = TaxiMapMarkerView()
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,6 +105,23 @@ final class TaxiMapViewController: UIViewController {
     private func configUI() {
         view.backgroundColor = .gray
         
+        mapView = MTMapView(frame: self.view.bounds)
+        if let mapView = mapView {
+            mapView.delegate = self
+            mapView.baseMapType = .standard
+            view.addSubview(mapView)
+            
+            /// 마커 추가
+            positionItem1 = MTMapPOIItem()
+            positionItem1?.itemName = "애오개역 5호선 1번 출구"
+            positionItem1?.mapPoint = MTMapPoint(geoCoord: MTMapPointGeo(latitude:  37.553085038675434,
+                                                                longitude: 126.9562709925087))
+            positionItem1?.markerType = .bluePin
+            
+            mapView.addPOIItems([positionItem1])
+            mapView.fitAreaToShowAllPOIItems()
+        }
+        
         [backButton, businessButton, bookingButton, locationButton, bottomBackgrounView].forEach {
             view.addSubview($0)
         }
@@ -113,6 +140,8 @@ final class TaxiMapViewController: UIViewController {
         [hereTextField, destinationTextField].forEach {
             $0.isUserInteractionEnabled = false
         }
+        
+        view.addSubview(taxiMapMarkerView)
     }
     
     private func setLayout() {
@@ -170,6 +199,12 @@ final class TaxiMapViewController: UIViewController {
 //            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(23)
             $0.height.equalTo(40)
         }
+        
+        taxiMapMarkerView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(228)
+            $0.centerX.equalToSuperview()
+            $0.width.height.equalTo(47)
+        }
     }
     
     // MARK: - Custom Method
@@ -180,6 +215,11 @@ final class TaxiMapViewController: UIViewController {
         
         destinationCollectionView.delegate = self
         destinationCollectionView.dataSource = self
+        
+//        locationManager = CLLocationManager()
+//        locationManager.delegate = self
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.startUpdatingLocation()
     }
     
     private func calculateCellWidth(text: String) -> CGFloat {
@@ -197,8 +237,6 @@ final class TaxiMapViewController: UIViewController {
     }
     
     @objc func touchUpBottomView() {
-        print("📌 화면 탭!!")
-        
         let cellOriginPoint = bottomBackgrounView.superview?.convert(bottomBackgrounView.center, to: nil)
         let cellOriginFrame = bottomBackgrounView.superview?.convert(bottomBackgrounView.frame, to: nil)
         transition.setPoint(point: cellOriginPoint)
@@ -293,4 +331,25 @@ extension TaxiMapViewController: UICollectionViewDataSource {
         }
         return cell
     }
+}
+
+// MARK: - MapView
+
+extension TaxiMapViewController: MTMapViewDelegate {
+    func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
+        let currentLocation = location?.mapPointGeo()
+        if let latitude = currentLocation?.latitude, let longitude = currentLocation?.longitude{
+            print("MTMapView updateCurrentLocation (\(latitude),\(longitude)) accuracy (\(accuracy))")
+        }
+    }
+    
+    func mapView(_ mapView: MTMapView?, updateDeviceHeading headingAngle: MTMapRotationAngle) {
+        print("MTMapView updateDeviceHeading (\(headingAngle)) degrees")
+    }
+}
+
+// MARK: - CLLocationManagerDelegate
+
+extension TaxiMapViewController: CLLocationManagerDelegate {
+    
 }

@@ -17,6 +17,7 @@ final class TaxiSearchViewController: UIViewController {
     private var backButton = UIButton().then {
         $0.setTitle("", for: .normal)
         $0.setImage(UIImage(named: "btn_back"), for: .normal)
+        $0.addTarget(self, action: #selector(touchUpBackButton), for: .touchUpInside)
     }
     
     private var locationButton = UIButton().then {
@@ -32,7 +33,7 @@ final class TaxiSearchViewController: UIViewController {
     private var hereTextField = KakakoTTextField().then {
         $0.textFieldType = .here
         $0.isActivated = false
-        $0.text = "현위치: 어쩌구 저쩌구"
+        $0.text = "현위치: 애오개역 5호선 1번 출구"
         $0.textColor = .black100
     }
     
@@ -150,6 +151,13 @@ final class TaxiSearchViewController: UIViewController {
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(237)
         }
     }
+    
+    // MARK: - @objc
+    
+    @objc func touchUpBackButton() {
+        // FIXME: - Custom Dismiss 
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK: - UITextField Delegate
@@ -167,7 +175,7 @@ extension TaxiSearchViewController: UITextFieldDelegate {
         textField.backgroundColor = .white
         
         if textField == hereTextField && hereTextField.isEmpty {
-            hereTextField.text = "현위치: 어쩌구 저쩌구"
+            hereTextField.text = "현위치: 애오개역 5호선 1번 출구"
         }
     }
     
