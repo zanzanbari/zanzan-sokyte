@@ -28,6 +28,7 @@ final class TaxiSearchViewController: UIViewController {
     private var mapButton = UIButton().then {
         $0.setTitle("", for: .normal)
         $0.setImage(UIImage(named: "btn_map"), for: .normal)
+        $0.addTarget(self, action: #selector(touchUpMapButton), for: .touchUpInside)
     }
     
     private var hereTextField = KakakoTTextField().then {
@@ -157,6 +158,26 @@ final class TaxiSearchViewController: UIViewController {
     @objc func touchUpBackButton() {
         // FIXME: - Custom Dismiss 
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func touchUpMapButton() {
+        DirectionsAPI.shared.postLogin(parameter: DirectionsRequest.init(origin: "126.9562709925087,37.553085038675434", destination: "126.9730306593579,37.582622695164794")) { responseData in
+            switch responseData {
+            case .success(let dirResponse):
+                
+                guard let response = dirResponse as? GeneralResponse<DirectionsResponse> else { return }
+                dump(response)
+                
+            case .requestErr(let message):
+                print("requestErr \(message)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }
 

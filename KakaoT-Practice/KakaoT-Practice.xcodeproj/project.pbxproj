@@ -27,12 +27,19 @@
 		9267FF4727D0B42300B0FF1E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9267FF4627D0B42300B0FF1E /* libsqlite3.tbd */; };
 		9282433A27C7A09E00288F60 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282433927C7A09E00288F60 /* MainViewController.swift */; };
 		9282433C27C7A0AB00288F60 /* TaxiMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282433B27C7A0AB00288F60 /* TaxiMapViewController.swift */; };
-		9282434127C7A1BE00288F60 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434027C7A1BE00288F60 /* Temp.swift */; };
-		9282434327C7A1CA00288F60 /* TempService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434227C7A1CA00288F60 /* TempService.swift */; };
-		9282434527C7A1D000288F60 /* TempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434427C7A1D000288F60 /* TempModel.swift */; };
+		9282434127C7A1BE00288F60 /* URLConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434027C7A1BE00288F60 /* URLConstant.swift */; };
+		9282434327C7A1CA00288F60 /* DirectionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434227C7A1CA00288F60 /* DirectionsService.swift */; };
+		9282434527C7A1D000288F60 /* DirectionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434427C7A1D000288F60 /* DirectionsResponse.swift */; };
 		9282434827C7A1E800288F60 /* Dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = 9282434727C7A1E800288F60 /* Dummy.json */; };
 		9282434B27C7A3CE00288F60 /* KakakoTTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434A27C7A3CE00288F60 /* KakakoTTextField.swift */; };
 		9282434D27C7A53500288F60 /* TaxiSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282434C27C7A53500288F60 /* TaxiSearchViewController.swift */; };
+		92B471B127D3F72500D691E7 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471B027D3F72500D691E7 /* NetworkResult.swift */; };
+		92B471B327D3F75A00D691E7 /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471B227D3F75A00D691E7 /* NetworkConstant.swift */; };
+		92B471B527D3F7F600D691E7 /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471B427D3F7F600D691E7 /* MoyaLoggingPlugin.swift */; };
+		92B471B727D3F80E00D691E7 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471B627D3F80E00D691E7 /* GeneralResponse.swift */; };
+		92B471B927D3F82500D691E7 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471B827D3F82500D691E7 /* BaseTargetType.swift */; };
+		92B471BB27D3F95B00D691E7 /* DirectionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471BA27D3F95B00D691E7 /* DirectionsRequest.swift */; };
+		92B471BD27D3FAA800D691E7 /* DirectionsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471BC27D3FAA800D691E7 /* DirectionsAPI.swift */; };
 		92FB1B9A27C29F9A001B5E1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1B9927C29F9A001B5E1C /* AppDelegate.swift */; };
 		92FB1B9C27C29F9A001B5E1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1B9B27C29F9A001B5E1C /* SceneDelegate.swift */; };
 		92FB1BA127C29F9A001B5E1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FB1B9F27C29F9A001B5E1C /* Main.storyboard */; };
@@ -62,12 +69,19 @@
 		9267FF4627D0B42300B0FF1E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		9282433927C7A09E00288F60 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9282433B27C7A0AB00288F60 /* TaxiMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiMapViewController.swift; sourceTree = "<group>"; };
-		9282434027C7A1BE00288F60 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
-		9282434227C7A1CA00288F60 /* TempService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempService.swift; sourceTree = "<group>"; };
-		9282434427C7A1D000288F60 /* TempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempModel.swift; sourceTree = "<group>"; };
+		9282434027C7A1BE00288F60 /* URLConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstant.swift; sourceTree = "<group>"; };
+		9282434227C7A1CA00288F60 /* DirectionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsService.swift; sourceTree = "<group>"; };
+		9282434427C7A1D000288F60 /* DirectionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsResponse.swift; sourceTree = "<group>"; };
 		9282434727C7A1E800288F60 /* Dummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Dummy.json; sourceTree = "<group>"; };
 		9282434A27C7A3CE00288F60 /* KakakoTTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakakoTTextField.swift; sourceTree = "<group>"; };
 		9282434C27C7A53500288F60 /* TaxiSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiSearchViewController.swift; sourceTree = "<group>"; };
+		92B471B027D3F72500D691E7 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		92B471B227D3F75A00D691E7 /* NetworkConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
+		92B471B427D3F7F600D691E7 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
+		92B471B627D3F80E00D691E7 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
+		92B471B827D3F82500D691E7 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		92B471BA27D3F95B00D691E7 /* DirectionsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsRequest.swift; sourceTree = "<group>"; };
+		92B471BC27D3FAA800D691E7 /* DirectionsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsAPI.swift; sourceTree = "<group>"; };
 		92FB1B9627C29F9A001B5E1C /* KakaoT-Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KakaoT-Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FB1B9927C29F9A001B5E1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92FB1B9B27C29F9A001B5E1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -266,7 +280,8 @@
 		9282433D27C7A19A00288F60 /* APIModel */ = {
 			isa = PBXGroup;
 			children = (
-				9282434427C7A1D000288F60 /* TempModel.swift */,
+				9282434427C7A1D000288F60 /* DirectionsResponse.swift */,
+				92B471BA27D3F95B00D691E7 /* DirectionsRequest.swift */,
 			);
 			path = APIModel;
 			sourceTree = "<group>";
@@ -274,7 +289,8 @@
 		9282433E27C7A1A200288F60 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
-				9282434227C7A1CA00288F60 /* TempService.swift */,
+				9282434227C7A1CA00288F60 /* DirectionsService.swift */,
+				92B471BC27D3FAA800D691E7 /* DirectionsAPI.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -282,7 +298,12 @@
 		9282433F27C7A1B100288F60 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				9282434027C7A1BE00288F60 /* Temp.swift */,
+				9282434027C7A1BE00288F60 /* URLConstant.swift */,
+				92B471B027D3F72500D691E7 /* NetworkResult.swift */,
+				92B471B227D3F75A00D691E7 /* NetworkConstant.swift */,
+				92B471B427D3F7F600D691E7 /* MoyaLoggingPlugin.swift */,
+				92B471B627D3F80E00D691E7 /* GeneralResponse.swift */,
+				92B471B827D3F82500D691E7 /* BaseTargetType.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -450,23 +471,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				9282434B27C7A3CE00288F60 /* KakakoTTextField.swift in Sources */,
-				9282434527C7A1D000288F60 /* TempModel.swift in Sources */,
+				9282434527C7A1D000288F60 /* DirectionsResponse.swift in Sources */,
 				92FB1B9A27C29F9A001B5E1C /* AppDelegate.swift in Sources */,
 				924CAA5027CFD6740023BCA6 /* UILabel+.swift in Sources */,
 				92FB1B9C27C29F9A001B5E1C /* SceneDelegate.swift in Sources */,
 				9248132E27D1204600A0CECC /* TaxiMapMarkerView.swift in Sources */,
 				924CAA5B27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift in Sources */,
-				9282434127C7A1BE00288F60 /* Temp.swift in Sources */,
+				92B471BB27D3F95B00D691E7 /* DirectionsRequest.swift in Sources */,
+				9282434127C7A1BE00288F60 /* URLConstant.swift in Sources */,
+				92B471B327D3F75A00D691E7 /* NetworkConstant.swift in Sources */,
 				924CAA4E27CFA07F0023BCA6 /* KDSFont.swift in Sources */,
 				9282434D27C7A53500288F60 /* TaxiSearchViewController.swift in Sources */,
 				9282433C27C7A0AB00288F60 /* TaxiMapViewController.swift in Sources */,
+				92B471B527D3F7F600D691E7 /* MoyaLoggingPlugin.swift in Sources */,
 				924CAA5527CFED020023BCA6 /* AnimationTransition.swift in Sources */,
 				924CAA5327CFDDE90023BCA6 /* UITextField+.swift in Sources */,
+				92B471B727D3F80E00D691E7 /* GeneralResponse.swift in Sources */,
 				924CAA5727CFEE970023BCA6 /* DismissAnimation.swift in Sources */,
 				9282433A27C7A09E00288F60 /* MainViewController.swift in Sources */,
-				9282434327C7A1CA00288F60 /* TempService.swift in Sources */,
+				9282434327C7A1CA00288F60 /* DirectionsService.swift in Sources */,
 				924CAA5D27D00D5A0023BCA6 /* TaxiSearchViewController+.swift in Sources */,
 				9240852F27CAAEFA0029E753 /* UIColor+.swift in Sources */,
+				92B471B127D3F72500D691E7 /* NetworkResult.swift in Sources */,
+				92B471B927D3F82500D691E7 /* BaseTargetType.swift in Sources */,
+				92B471BD27D3FAA800D691E7 /* DirectionsAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
