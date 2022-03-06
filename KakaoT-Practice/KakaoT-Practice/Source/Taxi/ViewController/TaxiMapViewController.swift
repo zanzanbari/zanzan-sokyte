@@ -19,10 +19,9 @@ final class TaxiMapViewController: UIViewController {
     var locationManager : CLLocationManager!
     
     private var mapView: MTMapView?
-    private var mapPoint1: MTMapPoint?
     private var positionItem1: MTMapPOIItem?
     
-    private lazy var transition = AnimationTransition()
+    private let modalAnimation: ModalAnimation = ModalAnimation()
     
     private var backButton = KakaoTButton(buttonType: .back).then {
         $0.addTarget(self, action: #selector(touchUpBackButton), for: .touchUpInside)
@@ -95,6 +94,8 @@ final class TaxiMapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager = CLLocationManager()
+        configMap()
         configUI()
         setLayout()
         bind()
@@ -103,24 +104,7 @@ final class TaxiMapViewController: UIViewController {
     // MARK: - InitUI
     
     private func configUI() {
-        view.backgroundColor = .gray
-        
-        mapView = MTMapView(frame: self.view.bounds)
-        if let mapView = mapView {
-            mapView.delegate = self
-            mapView.baseMapType = .standard
-            view.addSubview(mapView)
-            
-            /// 마커 추가
-            positionItem1 = MTMapPOIItem()
-            positionItem1?.itemName = "애오개역 5호선 1번 출구"
-            positionItem1?.mapPoint = MTMapPoint(geoCoord: MTMapPointGeo(latitude:  37.553085038675434,
-                                                                longitude: 126.9562709925087))
-            positionItem1?.markerType = .bluePin
-            
-            mapView.addPOIItems([positionItem1])
-            mapView.fitAreaToShowAllPOIItems()
-        }
+        view.backgroundColor = .white
         
         [backButton, businessButton, bookingButton, locationButton, bottomBackgrounView].forEach {
             view.addSubview($0)
@@ -215,11 +199,6 @@ final class TaxiMapViewController: UIViewController {
         
         destinationCollectionView.delegate = self
         destinationCollectionView.dataSource = self
-        
-//        locationManager = CLLocationManager()
-//        locationManager.delegate = self
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.startUpdatingLocation()
     }
     
     private func calculateCellWidth(text: String) -> CGFloat {
@@ -230,6 +209,55 @@ final class TaxiMapViewController: UIViewController {
         return label.frame.width + 12 + 24 + 6 + 15
     }
     
+    private func configMap() {
+        /// 델리게이트 설정
+        locationManager.delegate = self
+        /// 거리 정확도 설정
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        /// 사용자에게 허용 받기 alert 띄우기
+        locationManager.requestWhenInUseAuthorization()
+        
+        /// 위치 서비스 설정 유무
+        if CLLocationManager.locationServicesEnabled() {
+            print("위치 서비스 On 상태")
+            locationManager.startUpdatingLocation() //위치 정보 받아오기 시작
+            print(locationManager.location?.coordinate)
+        } else {
+            print("위치 서비스 Off 상태")
+        }
+        
+        mapView = MTMapView(frame: self.view.bounds)
+        if let mapView = mapView {
+            mapView.delegate = self
+            mapView.baseMapType = .standard
+            view.addSubview(mapView)
+            
+            /// 마커 추가
+            positionItem1 = MTMapPOIItem()
+            positionItem1?.itemName = "애오개역 5호선 1번 출구"
+            positionItem1?.mapPoint = MTMapPoint(geoCoord: MTMapPointGeo(latitude:  37.553085038675434,
+                                                                longitude: 126.9562709925087))
+            positionItem1?.markerType = .bluePin
+            
+            mapView.addPOIItems([positionItem1])
+            mapView.fitAreaToShowAllPOIItems()
+        }
+    }
+    
+    /// 위치 정보 계속 업데이트 -> 위도 경도 받아옴
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("didUpdateLocations")
+        if let location = locations.first {
+            print("위도: \(location.coordinate.latitude)")
+            print("경도: \(location.coordinate.longitude)")
+        }
+    }
+    
+    /// 위도 경도 받아오기 에러
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
     // MARK: - @objc
     
     @objc func touchUpBackButton() {
@@ -237,15 +265,26 @@ final class TaxiMapViewController: UIViewController {
     }
     
     @objc func touchUpBottomView() {
-        let cellOriginPoint = bottomBackgrounView.superview?.convert(bottomBackgrounView.center, to: nil)
-        let cellOriginFrame = bottomBackgrounView.superview?.convert(bottomBackgrounView.frame, to: nil)
-        transition.setPoint(point: cellOriginPoint)
-        transition.setFrame(frame: cellOriginFrame)
         
         let dvc = TaxiSearchViewController()
         dvc.modalPresentationStyle = .custom
+        dvc.transitioningDelegate = self
         present(dvc, animated: true, completion: nil)
     }
+}
+
+// MARK: - Custom Transition Delegate
+
+extension TaxiMapViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return modalAnimation
+    }
+    
+    // dismiss될때 실행애니메이션
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DisMissAnimation()
+    }
+
 }
 
 // MARK: - Button
