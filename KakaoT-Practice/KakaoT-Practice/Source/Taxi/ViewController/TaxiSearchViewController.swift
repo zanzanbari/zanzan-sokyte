@@ -156,7 +156,8 @@ final class TaxiSearchViewController: UIViewController {
     // MARK: - @objc
     
     @objc func touchUpBackButton() {
-        // FIXME: - Custom Dismiss 
+        // FIXME: - Custom Dismiss
+        modalPresentationStyle = .custom
         dismiss(animated: true, completion: nil)
     }
     
@@ -179,6 +180,12 @@ final class TaxiSearchViewController: UIViewController {
             }
         }
     }
+}
+
+// MARK: - Custom Transition Delegate
+
+extension TaxiSearchViewController: UIViewControllerTransitioningDelegate {
+
 }
 
 // MARK: - UITextField Delegate

@@ -13,10 +13,9 @@
 		924CAA4E27CFA07F0023BCA6 /* KDSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA4D27CFA07F0023BCA6 /* KDSFont.swift */; };
 		924CAA5027CFD6740023BCA6 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA4F27CFD6740023BCA6 /* UILabel+.swift */; };
 		924CAA5327CFDDE90023BCA6 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5227CFDDE90023BCA6 /* UITextField+.swift */; };
-		924CAA5527CFED020023BCA6 /* AnimationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5427CFED020023BCA6 /* AnimationTransition.swift */; };
+		924CAA5527CFED020023BCA6 /* ModalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5427CFED020023BCA6 /* ModalAnimation.swift */; };
 		924CAA5727CFEE970023BCA6 /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5627CFEE970023BCA6 /* DismissAnimation.swift */; };
 		924CAA5B27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5A27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift */; };
-		924CAA5D27D00D5A0023BCA6 /* TaxiSearchViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5C27D00D5A0023BCA6 /* TaxiSearchViewController+.swift */; };
 		9267FF3327D0AFF400B0FF1E /* DaumMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9267FF3227D0AFF400B0FF1E /* DaumMap.framework */; };
 		9267FF3727D0B05E00B0FF1E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9267FF3627D0B05E00B0FF1E /* SystemConfiguration.framework */; };
 		9267FF3927D0B06700B0FF1E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9267FF3827D0B06700B0FF1E /* CoreLocation.framework */; };
@@ -54,10 +53,9 @@
 		924CAA4D27CFA07F0023BCA6 /* KDSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDSFont.swift; sourceTree = "<group>"; };
 		924CAA4F27CFD6740023BCA6 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		924CAA5227CFDDE90023BCA6 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
-		924CAA5427CFED020023BCA6 /* AnimationTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTransition.swift; sourceTree = "<group>"; };
+		924CAA5427CFED020023BCA6 /* ModalAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAnimation.swift; sourceTree = "<group>"; };
 		924CAA5627CFEE970023BCA6 /* DismissAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
 		924CAA5A27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiLocationCollectionViewCell.swift; sourceTree = "<group>"; };
-		924CAA5C27D00D5A0023BCA6 /* TaxiSearchViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaxiSearchViewController+.swift"; sourceTree = "<group>"; };
 		9267FF3227D0AFF400B0FF1E /* DaumMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DaumMap.framework; sourceTree = "<group>"; };
 		9267FF3627D0B05E00B0FF1E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9267FF3827D0B06700B0FF1E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -151,9 +149,8 @@
 		9240853327CAB9A00029E753 /* Transition */ = {
 			isa = PBXGroup;
 			children = (
-				924CAA5427CFED020023BCA6 /* AnimationTransition.swift */,
+				924CAA5427CFED020023BCA6 /* ModalAnimation.swift */,
 				924CAA5627CFEE970023BCA6 /* DismissAnimation.swift */,
-				924CAA5C27D00D5A0023BCA6 /* TaxiSearchViewController+.swift */,
 			);
 			path = Transition;
 			sourceTree = "<group>";
@@ -484,13 +481,12 @@
 				9282434D27C7A53500288F60 /* TaxiSearchViewController.swift in Sources */,
 				9282433C27C7A0AB00288F60 /* TaxiMapViewController.swift in Sources */,
 				92B471B527D3F7F600D691E7 /* MoyaLoggingPlugin.swift in Sources */,
-				924CAA5527CFED020023BCA6 /* AnimationTransition.swift in Sources */,
+				924CAA5527CFED020023BCA6 /* ModalAnimation.swift in Sources */,
 				924CAA5327CFDDE90023BCA6 /* UITextField+.swift in Sources */,
 				92B471B727D3F80E00D691E7 /* GeneralResponse.swift in Sources */,
 				924CAA5727CFEE970023BCA6 /* DismissAnimation.swift in Sources */,
 				9282433A27C7A09E00288F60 /* MainViewController.swift in Sources */,
 				9282434327C7A1CA00288F60 /* DirectionsService.swift in Sources */,
-				924CAA5D27D00D5A0023BCA6 /* TaxiSearchViewController+.swift in Sources */,
 				9240852F27CAAEFA0029E753 /* UIColor+.swift in Sources */,
 				92B471B127D3F72500D691E7 /* NetworkResult.swift in Sources */,
 				92B471B927D3F82500D691E7 /* BaseTargetType.swift in Sources */,
