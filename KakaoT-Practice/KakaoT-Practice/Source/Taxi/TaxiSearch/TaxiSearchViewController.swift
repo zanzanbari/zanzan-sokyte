@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class TaxiSearchViewController: UIViewController {
+final class TaxiSearchViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
     // MARK: - Properties
     
@@ -72,6 +72,11 @@ final class TaxiSearchViewController: UIViewController {
         super.viewDidLoad()
         configUI()
         setLayout()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - InitUI
@@ -162,30 +167,12 @@ final class TaxiSearchViewController: UIViewController {
     }
     
     @objc func touchUpHomeButton() {
-        DirectionsAPI.shared.postLogin(parameter: DirectionsRequest.init(origin: "126.9562709925087,37.553085038675434", destination: "126.9730306593579,37.582622695164794")) { responseData in
-            switch responseData {
-            case .success(let dirResponse):
-                
-                guard let response = dirResponse as? GeneralResponse<DirectionsResponse> else { return }
-                
-                
-            case .requestErr(let message):
-                print("requestErr \(message)")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-            }
+        destinationTextField.text = "청와대 사랑채"
+        DispatchQueue.main.async() {
+            self.getDirectionsInfo()
+            self.dismiss(animated: true)
         }
     }
-}
-
-// MARK: - Custom Transition Delegate
-
-extension TaxiSearchViewController: UIViewControllerTransitioningDelegate {
-
 }
 
 // MARK: - UITextField Delegate
@@ -209,30 +196,6 @@ extension TaxiSearchViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-    }
-}
-
-// MARK: - Network
-
-extension TaxiSearchViewController {
-    func getDirectionsInfo() {
-        DirectionsAPI.shared.postLogin(parameter: DirectionsRequest.init(origin: "126.9562709925087,37.553085038675434", destination: "126.9730306593579,37.582622695164794")) { responseData in
-            switch responseData {
-            case .success(let dirResponse):
-                
-                guard let response = dirResponse as? GeneralResponse<DirectionsResponse> else { return }
-                dump(response)
-                
-            case .requestErr(let message):
-                print("requestErr \(message)")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-            }
-        }
     }
 }
 
@@ -308,6 +271,30 @@ fileprivate final class KakaoTButton: UIButton {
         label.snp.makeConstraints {
             $0.leading.equalTo(image.snp.trailing).offset(6)
             $0.centerY.equalTo(image.snp.centerY)
+        }
+    }
+}
+
+// MARK: - Network
+
+extension TaxiSearchViewController {
+    func getDirectionsInfo() {
+        DirectionsAPI.shared.postLogin(parameter: DirectionsRequest.init(origin: "126.9562709925087,37.553085038675434", destination: "126.9730306593579,37.582622695164794")) { responseData in
+            switch responseData {
+            case .success(let dirResponse):
+                
+                guard let response = dirResponse as? GeneralResponse<DirectionsResponse> else { return }
+                NotificationCenter.default.post(name: Notification.Name("DirectionNotification"), object: response)
+                
+            case .requestErr(let message):
+                print("requestErr \(message)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
         }
     }
 }

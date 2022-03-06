@@ -12,7 +12,7 @@ import Then
 
 import CoreLocation
 
-final class TaxiMapViewController: UIViewController {
+final class TaxiMapViewController: UIViewController, CLLocationManagerDelegate {
     
     // MARK: - Properties
     
@@ -40,50 +40,10 @@ final class TaxiMapViewController: UIViewController {
         $0.titleLabel?.font = KDSFont.body7
         
         // TODO: - 버튼 아이콘과 텍스트 레이아웃 수정
-//        var config = UIButton.Configuration.plain()
-//        config.imagePadding = -4
-//        config.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-//        $0.configuration = config
     }
     
-    private var bottomBackgrounView = UIView().then {
-        $0.backgroundColor = .white
-    }
-    
-    private var hereTextField = KakakoTTextField().then {
-        $0.textFieldType = .here
-        $0.isActivated = false
-        $0.text = "현위치: 애오개역 5호선 1번 출구"
-        $0.textColor = .black100
-    }
-    
-    private var lineView = UIView().then {
-        $0.backgroundColor = .gray400
-    }
-    
-    private var destinationTextField = KakakoTTextField().then {
-        $0.textFieldType = .destination
-        $0.isActivated = false
-        $0.setPlaceholder(placeholder: "어디로 갈까요?")
-    }
-    
-    private var destinationCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = UICollectionViewFlowLayout.automaticSize
-        layout.estimatedItemSize = .zero
-        
-        return UICollectionView(frame: .zero, collectionViewLayout: layout).then {
-            $0.backgroundColor = .clear
-            $0.isScrollEnabled = true
-            $0.bounces = false
-            $0.isPagingEnabled = false
-            $0.showsHorizontalScrollIndicator = false
-            $0.register(TaxiLocationCollectionViewCell.self, forCellWithReuseIdentifier: TaxiLocationCollectionViewCell.CellIdentifier)
-        }
-    }()
-    
-    private var destinationList: [String] = ["집", "회사"]
+    private var locationView = TaxiMapLocationView()
+    private var carView = TaxiMapCarView()
     
     private var taxiMapMarkerView = TaxiMapMarkerView()
     
@@ -92,6 +52,7 @@ final class TaxiMapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.isNavigationBarHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(getNotification), name: NSNotification.Name("DirectionNotification"), object: nil)
     }
     
     override func viewDidLoad() {
@@ -109,26 +70,28 @@ final class TaxiMapViewController: UIViewController {
     private func configUI() {
         view.backgroundColor = .white
         
-        [backButton, businessButton, bookingButton, locationButton, bottomBackgrounView].forEach {
+        [backButton,
+         businessButton,
+         bookingButton,
+         locationButton,
+         locationView,
+         carView].forEach {
             view.addSubview($0)
         }
         
         bookingButton.layer.cornerRadius = 20
         bookingButton.layer.masksToBounds = true
         
-        bottomBackgrounView.layer.cornerRadius = 16
-        bottomBackgrounView.layer.masksToBounds = true
-        bottomBackgrounView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        
-        [hereTextField, lineView, destinationTextField, destinationCollectionView].forEach {
-            bottomBackgrounView.addSubview($0)
-        }
-        
-        [hereTextField, destinationTextField].forEach {
-            $0.isUserInteractionEnabled = false
+        [locationView, carView].forEach {
+            $0.layer.cornerRadius = 16
+            $0.layer.masksToBounds = true
+            $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
         
         view.addSubview(taxiMapMarkerView)
+        
+        locationView.isHidden = false
+        carView.isHidden = true
     }
     
     private func setLayout() {
@@ -157,34 +120,14 @@ final class TaxiMapViewController: UIViewController {
             $0.width.height.equalTo(40)
         }
         
-        bottomBackgrounView.snp.makeConstraints {
-            $0.top.equalTo(bookingButton.snp.bottom).offset(16)
+        locationView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalTo(locationButton.snp.bottom).offset(16)
         }
         
-        hereTextField.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(8)
-            $0.top.equalToSuperview().inset(19)
-            $0.height.equalTo(48)
-        }
-        
-        lineView.snp.makeConstraints {
-            $0.top.equalTo(hereTextField.snp.bottom).offset(5)
-            $0.leading.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(1)
-        }
-        
-        destinationTextField.snp.makeConstraints {
-            $0.top.equalTo(lineView.snp.bottom).offset(5)
-            $0.leading.trailing.equalToSuperview().inset(8)
-            $0.height.equalTo(48)
-        }
-        
-        destinationCollectionView.snp.makeConstraints {
-            $0.top.equalTo(destinationTextField.snp.bottom).offset(3)
-            $0.leading.trailing.equalToSuperview()
-//            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(23)
-            $0.height.equalTo(40)
+        carView.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(452)
         }
         
         taxiMapMarkerView.snp.makeConstraints {
@@ -198,18 +141,7 @@ final class TaxiMapViewController: UIViewController {
     
     private func bind() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpBottomView))
-        bottomBackgrounView.addGestureRecognizer(tapGesture)
-        
-        destinationCollectionView.delegate = self
-        destinationCollectionView.dataSource = self
-    }
-    
-    private func calculateCellWidth(text: String) -> CGFloat {
-        let label = UILabel()
-        label.text = text
-        label.font = KDSFont.body6
-        label.sizeToFit()
-        return label.frame.width + 12 + 24 + 6 + 15
+        locationView.addGestureRecognizer(tapGesture)
     }
     
     private func configMap() {
@@ -276,6 +208,24 @@ final class TaxiMapViewController: UIViewController {
         dvc.transitioningDelegate = self
         present(dvc, animated: true, completion: nil)
     }
+    
+    @objc func getNotification(_ notification: Notification) {
+        locationView.isHidden = true
+        
+//        let dvc = TaxiMapCarViewController()
+//        dvc.modalTransitionStyle = .coverVertical
+//        dvc.modalPresentationStyle = .overCurrentContext
+//        present(dvc, animated: true, completion: nil)
+        
+        carView.isHidden = false
+        
+        let object = notification.object as! GeneralResponse<DirectionsResponse>
+        guard let carData = object.data?.carType else { return }
+        
+        carView.ventiCarView.cost = carData[2].cost
+        carView.blueCarView.cost = carData[0].cost
+        carView.normalCarView.cost = carData[1].cost
+    }
 }
 
 // MARK: - Custom Transition Delegate
@@ -285,11 +235,9 @@ extension TaxiMapViewController: UIViewControllerTransitioningDelegate {
         return modalAnimation
     }
     
-    // dismiss될때 실행애니메이션
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return DisMissAnimation()
     }
-
 }
 
 // MARK: - Button
@@ -338,44 +286,6 @@ fileprivate enum KakaoTButtonType {
         }
     }
 }
-    
-// MARK: - UICollectionView Delegate
-
-extension TaxiMapViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = calculateCellWidth(text: destinationList[indexPath.item])
-        let cellHeight = collectionView.frame.height
-        return CGSize(width: cellWidth, height: cellHeight)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
-    }
-}
-
-// MARK: - UICollectionView DataSource
-
-extension TaxiMapViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return destinationList.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TaxiLocationCollectionViewCell.CellIdentifier, for: indexPath) as? TaxiLocationCollectionViewCell else { return UICollectionViewCell() }
-        if indexPath.item == 0 {
-            cell.setCell(type: .home)
-        } else if indexPath.item == 1 {
-            cell.setCell(type: .company)
-        } else {
-            cell.setCell(type: .none)
-        }
-        return cell
-    }
-}
 
 // MARK: - MapView
 
@@ -392,8 +302,3 @@ extension TaxiMapViewController: MTMapViewDelegate {
     }
 }
 
-// MARK: - CLLocationManagerDelegate
-
-extension TaxiMapViewController: CLLocationManagerDelegate {
-    
-}
