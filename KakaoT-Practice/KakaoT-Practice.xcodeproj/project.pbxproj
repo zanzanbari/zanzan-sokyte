@@ -35,6 +35,7 @@
 		9286D77827D5366D002666DA /* TaxiMapLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286D77727D5366D002666DA /* TaxiMapLocationView.swift */; };
 		9286D77A27D5367F002666DA /* TaxiMapCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286D77927D5367F002666DA /* TaxiMapCarView.swift */; };
 		9286D77C27D53813002666DA /* TaxiMapCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286D77B27D53813002666DA /* TaxiMapCarViewController.swift */; };
+		9286D78127D54C3F002666DA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286D78027D54C3F002666DA /* Location.swift */; };
 		92B471B127D3F72500D691E7 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471B027D3F72500D691E7 /* NetworkResult.swift */; };
 		92B471B327D3F75A00D691E7 /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471B227D3F75A00D691E7 /* NetworkConstant.swift */; };
 		92B471B527D3F7F600D691E7 /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471B427D3F7F600D691E7 /* MoyaLoggingPlugin.swift */; };
@@ -79,6 +80,7 @@
 		9286D77727D5366D002666DA /* TaxiMapLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiMapLocationView.swift; sourceTree = "<group>"; };
 		9286D77927D5367F002666DA /* TaxiMapCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiMapCarView.swift; sourceTree = "<group>"; };
 		9286D77B27D53813002666DA /* TaxiMapCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiMapCarViewController.swift; sourceTree = "<group>"; };
+		9286D78027D54C3F002666DA /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		92B471B027D3F72500D691E7 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		92B471B227D3F75A00D691E7 /* NetworkConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
 		92B471B427D3F7F600D691E7 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		9282433027C7A01700288F60 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				9286D77F27D54C25002666DA /* Value */,
 				9240852D27CAAEEC0029E753 /* Extension */,
 				9282434927C7A38200288F60 /* DesignSystem */,
 				9282433427C7A04900288F60 /* Network */,
@@ -347,6 +350,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9286D77F27D54C25002666DA /* Value */ = {
+			isa = PBXGroup;
+			children = (
+				9286D78027D54C3F002666DA /* Location.swift */,
+			);
+			path = Value;
+			sourceTree = "<group>";
+		};
 		92FB1B8D27C29F9A001B5E1C = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +509,7 @@
 				924CAA5027CFD6740023BCA6 /* UILabel+.swift in Sources */,
 				92FB1B9C27C29F9A001B5E1C /* SceneDelegate.swift in Sources */,
 				9248132E27D1204600A0CECC /* TaxiMapMarkerView.swift in Sources */,
+				9286D78127D54C3F002666DA /* Location.swift in Sources */,
 				924CAA5B27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift in Sources */,
 				9286D77C27D53813002666DA /* TaxiMapCarViewController.swift in Sources */,
 				9286D77A27D5367F002666DA /* TaxiMapCarView.swift in Sources */,

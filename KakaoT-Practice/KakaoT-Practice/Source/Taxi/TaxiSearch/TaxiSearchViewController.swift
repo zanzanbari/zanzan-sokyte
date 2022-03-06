@@ -279,11 +279,13 @@ fileprivate final class KakaoTButton: UIButton {
 
 extension TaxiSearchViewController {
     func getDirectionsInfo() {
-        DirectionsAPI.shared.postLogin(parameter: DirectionsRequest.init(origin: "126.9562709925087,37.553085038675434", destination: "126.9730306593579,37.582622695164794")) { responseData in
+        DirectionsAPI.shared.postLogin(parameter: DirectionsRequest.init(origin: "\(LocationValue.originLongitude),\(LocationValue.originLatitude)", destination: "\(LocationValue.destinationLongtitude),\(LocationValue.destinationLatitude)")) { responseData in
             switch responseData {
             case .success(let dirResponse):
                 
                 guard let response = dirResponse as? GeneralResponse<DirectionsResponse> else { return }
+                
+                
                 NotificationCenter.default.post(name: Notification.Name("DirectionNotification"), object: response)
                 
             case .requestErr(let message):

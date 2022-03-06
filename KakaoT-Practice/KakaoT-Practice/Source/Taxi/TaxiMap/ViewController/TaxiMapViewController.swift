@@ -10,13 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
-import CoreLocation
-
-final class TaxiMapViewController: UIViewController, CLLocationManagerDelegate {
+final class TaxiMapViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var locationManager : CLLocationManager!
     private var latitude: Double = 0.0
     private var longtitude: Double = 0.0
     
@@ -57,7 +54,7 @@ final class TaxiMapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager = CLLocationManager()
+        mapView = MTMapView(frame: self.view.bounds)
         positionItem1 = MTMapPOIItem()
         configMap()
         configUI()
@@ -145,23 +142,6 @@ final class TaxiMapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     private func configMap() {
-        /// 델리게이트 설정
-        locationManager.delegate = self
-        /// 거리 정확도 설정
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        /// 사용자에게 허용 받기 alert 띄우기
-        locationManager.requestWhenInUseAuthorization()
-        
-        /// 위치 서비스 설정 유무
-        if CLLocationManager.locationServicesEnabled() {
-            print("위치 서비스 On 상태")
-            locationManager.startUpdatingLocation() //위치 정보 받아오기 시작
-            print(locationManager.location?.coordinate)
-        } else {
-            print("위치 서비스 Off 상태")
-        }
-        
-        mapView = MTMapView(frame: self.view.bounds)
         if let mapView = mapView {
             mapView.delegate = self
             mapView.baseMapType = .standard
@@ -169,30 +149,13 @@ final class TaxiMapViewController: UIViewController, CLLocationManagerDelegate {
             
             /// 마커 추가
             positionItem1?.itemName = "애오개역 5호선 1번 출구"
-            positionItem1?.mapPoint = MTMapPoint(geoCoord: MTMapPointGeo(latitude:  37.553085038675434,
-                                                                longitude: 126.9562709925087))
+            positionItem1?.mapPoint = MTMapPoint(geoCoord: MTMapPointGeo(latitude:  LocationValue.originLatitude,
+                                                                longitude: LocationValue.originLongitude))
             positionItem1?.markerType = .bluePin
             
             mapView.addPOIItems([positionItem1!])
             mapView.fitAreaToShowAllPOIItems()
         }
-    }
-    
-    /// 위치 정보 계속 업데이트 -> 위도 경도 받아옴
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("didUpdateLocations")
-        if let location = locations.first {
-            latitude = location.coordinate.latitude
-            longtitude = location.coordinate.longitude
-            
-            print("위도: \(location.coordinate.latitude)")
-            print("경도: \(location.coordinate.longitude)")
-        }
-    }
-    
-    /// 위도 경도 받아오기 에러
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
     }
     
     // MARK: - @objc
@@ -211,6 +174,7 @@ final class TaxiMapViewController: UIViewController, CLLocationManagerDelegate {
     
     @objc func getNotification(_ notification: Notification) {
         locationView.isHidden = true
+        taxiMapMarkerView.isHidden = true
         
 //        let dvc = TaxiMapCarViewController()
 //        dvc.modalTransitionStyle = .coverVertical
@@ -218,13 +182,14 @@ final class TaxiMapViewController: UIViewController, CLLocationManagerDelegate {
 //        present(dvc, animated: true, completion: nil)
         
         carView.isHidden = false
-        
         let object = notification.object as! GeneralResponse<DirectionsResponse>
         guard let carData = object.data?.carType else { return }
-        
         carView.ventiCarView.cost = carData[2].cost
         carView.blueCarView.cost = carData[0].cost
         carView.normalCarView.cost = carData[1].cost
+
+        mapView?.setMapCenter(MTMapPoint(geoCoord: MTMapPointGeo(latitude:  LocationValue.destinationLatitude,
+                                                                 longitude: LocationValue.destinationLongtitude)), zoomLevel: 2, animated: true)
     }
 }
 
