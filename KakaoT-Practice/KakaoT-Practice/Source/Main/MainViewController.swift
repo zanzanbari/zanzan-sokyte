@@ -7,12 +7,16 @@
 
 import UIKit
 
+import CoreLocation
+
 import SnapKit
 import Then
 
-final class MainViewController: UIViewController {
+final class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     // MARK: - Properties
+    
+    private var locationManager : CLLocationManager = CLLocationManager()
     
     private var vehicleButtonStackView = UIStackView().then {
         $0.axis = .horizontal
@@ -62,6 +66,36 @@ final class MainViewController: UIViewController {
     }
     
     // MARK: - Custom Method
+    
+    private func initCoreLocation() {
+        /// 델리게이트 설정
+        locationManager.delegate = self
+        /// 거리 정확도 설정
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        /// 사용자에게 허용 받기 alert 띄우기
+        locationManager.requestWhenInUseAuthorization()
+        
+        /// 위치 서비스 설정 유무
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            print(locationManager.location?.coordinate)
+        } else {
+        }
+    }
+    
+    /// 위치 정보 계속 업데이트 -> 위도 경도 받아옴
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("didUpdateLocations")
+        if let location = locations.first {
+//            Const.Location.originLatitude = location.coordinate.latitude
+//            Const.Location.originLongitude = location.coordinate.longitude
+        }
+    }
+    
+    /// 위도 경도 받아오기 에러
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
     
     // MARK: - @objc
     
