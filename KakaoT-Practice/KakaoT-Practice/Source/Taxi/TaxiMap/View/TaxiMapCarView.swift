@@ -17,7 +17,7 @@ final class TaxiMapCarView: UIView {
     }
     
     private lazy var bubbleTitleLabel = UILabel().then {
-        $0.text = "지금 호출하면 벤티가 바로 배차돼요."
+        $0.text = "지금 호출하면 벤티가 바로 배차돼요!"
         $0.textColor = .white
         $0.font = KDSFont.body8
     }
@@ -69,7 +69,9 @@ final class TaxiMapCarView: UIView {
         }
         
         bubbleTitleLabel.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
+            $0.top.equalToSuperview().inset(13)
+            $0.bottom.equalToSuperview().inset(19)
+            $0.centerX.equalToSuperview()
         }
     }
 }
@@ -111,12 +113,21 @@ enum CarItemType {
             return "더 넓고 편안한 벤티"
         }
     }
+    
+    var isCescoMember: Bool {
+        switch self {
+        case .blue, .venti:
+            return true
+        case .normal:
+            return false
+        }
+    }
 }
 
 final class CarItemView: UIView {
     private lazy var type: CarItemType = .normal
     
-    private lazy var imageView = UIImageView().then {
+    private lazy var carTypeImageView = UIImageView().then {
         $0.image = type.image
     }
     
@@ -130,6 +141,11 @@ final class CarItemView: UIView {
         $0.text = type.subTitle
         $0.textColor = .navy100
         $0.font = KDSFont.body6
+    }
+    
+    private lazy var cescoImageView = UIImageView().then {
+        $0.image = UIImage(named: "icn_cesco")
+        $0.isHidden = !type.isCescoMember
     }
     
     private lazy var costLabel = UILabel().then {
@@ -159,11 +175,11 @@ final class CarItemView: UIView {
     private func setView() {
         self.backgroundColor = .white
         
-        [imageView, titleLabel, subTitleLabel, costLabel].forEach {
+        [carTypeImageView, titleLabel, subTitleLabel, costLabel, cescoImageView].forEach {
             addSubview($0)
         }
         
-        imageView.snp.makeConstraints {
+        carTypeImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(20)
             $0.top.equalToSuperview().inset(21)
             $0.width.equalTo(56)
@@ -172,12 +188,17 @@ final class CarItemView: UIView {
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(20)
-            $0.leading.equalTo(imageView.snp.trailing).offset(12)
+            $0.leading.equalTo(carTypeImageView.snp.trailing).offset(12)
+        }
+        
+        cescoImageView.snp.makeConstraints {
+            $0.leading.equalTo(titleLabel.snp.trailing).offset(5)
+            $0.centerY.equalTo(titleLabel)
         }
         
         subTitleLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(6)
-            $0.leading.equalTo(imageView.snp.trailing).offset(12)
+            $0.leading.equalTo(carTypeImageView.snp.trailing).offset(12)
         }
         
         costLabel.snp.makeConstraints {
