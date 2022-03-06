@@ -16,7 +16,9 @@ final class TaxiMapViewController: UIViewController {
     
     // MARK: - Properties
     
-    var locationManager : CLLocationManager!
+    private var locationManager : CLLocationManager!
+    private var latitude: Double = 0.0
+    private var longtitude: Double = 0.0
     
     private var mapView: MTMapView?
     private var positionItem1: MTMapPOIItem?
@@ -95,6 +97,7 @@ final class TaxiMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager = CLLocationManager()
+        positionItem1 = MTMapPOIItem()
         configMap()
         configUI()
         setLayout()
@@ -233,13 +236,12 @@ final class TaxiMapViewController: UIViewController {
             view.addSubview(mapView)
             
             /// 마커 추가
-            positionItem1 = MTMapPOIItem()
             positionItem1?.itemName = "애오개역 5호선 1번 출구"
             positionItem1?.mapPoint = MTMapPoint(geoCoord: MTMapPointGeo(latitude:  37.553085038675434,
                                                                 longitude: 126.9562709925087))
             positionItem1?.markerType = .bluePin
             
-            mapView.addPOIItems([positionItem1])
+            mapView.addPOIItems([positionItem1!])
             mapView.fitAreaToShowAllPOIItems()
         }
     }
@@ -248,6 +250,9 @@ final class TaxiMapViewController: UIViewController {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("didUpdateLocations")
         if let location = locations.first {
+            latitude = location.coordinate.latitude
+            longtitude = location.coordinate.longitude
+            
             print("위도: \(location.coordinate.latitude)")
             print("경도: \(location.coordinate.longitude)")
         }

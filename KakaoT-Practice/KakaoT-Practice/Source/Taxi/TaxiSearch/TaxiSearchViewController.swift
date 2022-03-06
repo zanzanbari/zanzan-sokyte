@@ -28,7 +28,6 @@ final class TaxiSearchViewController: UIViewController {
     private var mapButton = UIButton().then {
         $0.setTitle("", for: .normal)
         $0.setImage(UIImage(named: "btn_map"), for: .normal)
-        $0.addTarget(self, action: #selector(touchUpMapButton), for: .touchUpInside)
     }
     
     private var hereTextField = KakakoTTextField().then {
@@ -58,7 +57,9 @@ final class TaxiSearchViewController: UIViewController {
         $0.font = KDSFont.body4
     }
     
-    private var homeButton = KakaoTButton(buttonType: .home)
+    private var homeButton = KakaoTButton(buttonType: .home).then {
+        $0.addTarget(self, action: #selector(touchUpHomeButton), for: .touchUpInside)
+    }
     private var companyButton = KakaoTButton(buttonType: .company)
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -156,18 +157,17 @@ final class TaxiSearchViewController: UIViewController {
     // MARK: - @objc
     
     @objc func touchUpBackButton() {
-        // FIXME: - Custom Dismiss
         modalPresentationStyle = .custom
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func touchUpMapButton() {
+    @objc func touchUpHomeButton() {
         DirectionsAPI.shared.postLogin(parameter: DirectionsRequest.init(origin: "126.9562709925087,37.553085038675434", destination: "126.9730306593579,37.582622695164794")) { responseData in
             switch responseData {
             case .success(let dirResponse):
                 
                 guard let response = dirResponse as? GeneralResponse<DirectionsResponse> else { return }
-                dump(response)
+                
                 
             case .requestErr(let message):
                 print("requestErr \(message)")
@@ -212,6 +212,29 @@ extension TaxiSearchViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: - Network
+
+extension TaxiSearchViewController {
+    func getDirectionsInfo() {
+        DirectionsAPI.shared.postLogin(parameter: DirectionsRequest.init(origin: "126.9562709925087,37.553085038675434", destination: "126.9730306593579,37.582622695164794")) { responseData in
+            switch responseData {
+            case .success(let dirResponse):
+                
+                guard let response = dirResponse as? GeneralResponse<DirectionsResponse> else { return }
+                dump(response)
+                
+            case .requestErr(let message):
+                print("requestErr \(message)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+}
 
 // MARK: - Button
 

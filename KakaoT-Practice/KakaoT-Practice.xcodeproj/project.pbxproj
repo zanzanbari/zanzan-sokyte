@@ -171,24 +171,6 @@
 			path = UIComponent;
 			sourceTree = "<group>";
 		};
-		924CAA5827CFFB610023BCA6 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				9282433B27C7A0AB00288F60 /* TaxiMapViewController.swift */,
-				9282434C27C7A53500288F60 /* TaxiSearchViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		924CAA5927CFFB740023BCA6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				924CAA5A27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift */,
-				9248132D27D1204600A0CECC /* TaxiMapMarkerView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		9282433027C7A01700288F60 /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,8 +250,8 @@
 		9282433827C7A09200288F60 /* Taxi */ = {
 			isa = PBXGroup;
 			children = (
-				924CAA5927CFFB740023BCA6 /* View */,
-				924CAA5827CFFB610023BCA6 /* ViewController */,
+				9286D77427D5309D002666DA /* TaxiSearch */,
+				9286D77327D53095002666DA /* TaxiMap */,
 			);
 			path = Taxi;
 			sourceTree = "<group>";
@@ -320,6 +302,24 @@
 				924CAA4C27CFA06D0023BCA6 /* Font */,
 			);
 			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		9286D77327D53095002666DA /* TaxiMap */ = {
+			isa = PBXGroup;
+			children = (
+				9282433B27C7A0AB00288F60 /* TaxiMapViewController.swift */,
+				9248132D27D1204600A0CECC /* TaxiMapMarkerView.swift */,
+				924CAA5A27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift */,
+			);
+			path = TaxiMap;
+			sourceTree = "<group>";
+		};
+		9286D77427D5309D002666DA /* TaxiSearch */ = {
+			isa = PBXGroup;
+			children = (
+				9282434C27C7A53500288F60 /* TaxiSearchViewController.swift */,
+			);
+			path = TaxiSearch;
 			sourceTree = "<group>";
 		};
 		92FB1B8D27C29F9A001B5E1C = {
