@@ -7,10 +7,13 @@
 
 import Foundation
 
+import Alamofire
 import Moya
 
 public class LoginAPI {
     static let shared = LoginAPI()
+    static var instance = MoyaProvider<LoginService>(plugins: [MoyaLoggingPlugin()])
+    
     var loginProvider = MoyaProvider<LoginService>(plugins: [MoyaLoggingPlugin()])
     
     public init() { }

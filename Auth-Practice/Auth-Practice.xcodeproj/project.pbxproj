@@ -41,6 +41,7 @@
 		926290FE27A46D45006A3B58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926290FC27A46D45006A3B58 /* LaunchScreen.storyboard */; };
 		9262911527A46FB8006A3B58 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262911427A46FB8006A3B58 /* UIColor+.swift */; };
 		9262912427A470AB006A3B58 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262912327A470AB006A3B58 /* UIFont+.swift */; };
+		9286D77027D4E68E002666DA /* EmailLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286D76F27D4E68E002666DA /* EmailLoginView.swift */; };
 		92A43A1527B96CDF00DD241A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A43A1427B96CDF00DD241A /* UserDefaultsKey.swift */; };
 		92B42D7E27C23FD400684748 /* SocialType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B42D7D27C23FD400684748 /* SocialType.swift */; };
 		92FC851227BF8D520020965A /* SocialLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC851127BF8D520020965A /* SocialLoginRequest.swift */; };
@@ -85,6 +86,7 @@
 		9262912127A47088006A3B58 /* PPNeueMachina-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PPNeueMachina-Regular.otf"; sourceTree = "<group>"; };
 		9262912227A47088006A3B58 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		9262912327A470AB006A3B58 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		9286D76F27D4E68E002666DA /* EmailLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginView.swift; sourceTree = "<group>"; };
 		92A43A1427B96CDF00DD241A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		92B42D7D27C23FD400684748 /* SocialType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialType.swift; sourceTree = "<group>"; };
 		92FC851127BF8D520020965A /* SocialLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginRequest.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		9262911127A46F6A006A3B58 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				9286D76E27D4E675002666DA /* View */,
 				9262910F27A46F4B006A3B58 /* ViewController */,
 			);
 			path = Source;
@@ -284,6 +287,14 @@
 				9262911E27A47088006A3B58 /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		9286D76E27D4E675002666DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9286D76F27D4E68E002666DA /* EmailLoginView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		92A43A1327B96CD200DD241A /* Const */ = {
@@ -452,6 +463,7 @@
 				9229AB4727AC171400238B24 /* BaseTargetType.swift in Sources */,
 				926290F227A46D44006A3B58 /* AppDelegate.swift in Sources */,
 				9229AB1527AA645400238B24 /* Adjusted+.swift in Sources */,
+				9286D77027D4E68E002666DA /* EmailLoginView.swift in Sources */,
 				9229AB0D27AA5C0800238B24 /* UIImage+.swift in Sources */,
 				926290F427A46D44006A3B58 /* SceneDelegate.swift in Sources */,
 				92FC851227BF8D520020965A /* SocialLoginRequest.swift in Sources */,
