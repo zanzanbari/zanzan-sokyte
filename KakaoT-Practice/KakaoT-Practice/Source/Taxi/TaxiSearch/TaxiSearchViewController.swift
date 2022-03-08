@@ -285,7 +285,6 @@ extension TaxiSearchViewController {
                 
                 guard let response = dirResponse as? GeneralResponse<DirectionsResponse> else { return }
                 
-                
                 NotificationCenter.default.post(name: Notification.Name("DirectionNotification"), object: response)
                 
             case .requestErr(let message):

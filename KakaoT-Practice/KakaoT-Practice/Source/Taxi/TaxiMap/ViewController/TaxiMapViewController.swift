@@ -190,6 +190,9 @@ final class TaxiMapViewController: UIViewController {
 
         mapView?.setMapCenter(MTMapPoint(geoCoord: MTMapPointGeo(latitude:  LocationValue.destinationLatitude,
                                                                  longitude: LocationValue.destinationLongtitude)), zoomLevel: 2, animated: true)
+        
+        // FIXME: 선택한 차량 타입 별 API 호출
+        requestCallTaxi(origin: "127.11015314141542,37.39472714688412", carType: "일반 택시")
     }
 }
 
@@ -267,3 +270,27 @@ extension TaxiMapViewController: MTMapViewDelegate {
     }
 }
 
+// MARK: - Network
+
+extension TaxiMapViewController {
+    func requestCallTaxi(origin: String, carType: String) {
+        CallTaxiAPI.shared.requestCallTaxi(parameter: CallTaxiRequest.init(origin: origin, carType: carType)) { responseData in
+            switch responseData {
+            case .success(let taxiResponse):
+                
+                guard let response = taxiResponse as? GeneralResponse<CallTaxiResponse> else { return }
+                guard let data = response.data else { return }
+                print("✅", data.carNumber)
+                
+            case .requestErr(let message):
+                print("requestErr \(message)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+}

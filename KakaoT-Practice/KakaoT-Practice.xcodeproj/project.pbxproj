@@ -16,6 +16,10 @@
 		924CAA5527CFED020023BCA6 /* ModalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5427CFED020023BCA6 /* ModalAnimation.swift */; };
 		924CAA5727CFEE970023BCA6 /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5627CFEE970023BCA6 /* DismissAnimation.swift */; };
 		924CAA5B27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA5A27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift */; };
+		92640FA327D7111300E71CBD /* CallTaxiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92640FA227D7111300E71CBD /* CallTaxiAPI.swift */; };
+		92640FA527D7112100E71CBD /* CallTaxiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92640FA427D7112100E71CBD /* CallTaxiService.swift */; };
+		92640FA927D711D700E71CBD /* CallTaxiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92640FA827D711D700E71CBD /* CallTaxiResponse.swift */; };
+		92640FAB27D711E000E71CBD /* CallTaxiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92640FAA27D711E000E71CBD /* CallTaxiRequest.swift */; };
 		9267FF3327D0AFF400B0FF1E /* DaumMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9267FF3227D0AFF400B0FF1E /* DaumMap.framework */; };
 		9267FF3727D0B05E00B0FF1E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9267FF3627D0B05E00B0FF1E /* SystemConfiguration.framework */; };
 		9267FF3927D0B06700B0FF1E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9267FF3827D0B06700B0FF1E /* CoreLocation.framework */; };
@@ -60,6 +64,10 @@
 		924CAA5427CFED020023BCA6 /* ModalAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAnimation.swift; sourceTree = "<group>"; };
 		924CAA5627CFEE970023BCA6 /* DismissAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
 		924CAA5A27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiLocationCollectionViewCell.swift; sourceTree = "<group>"; };
+		92640FA227D7111300E71CBD /* CallTaxiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTaxiAPI.swift; sourceTree = "<group>"; };
+		92640FA427D7112100E71CBD /* CallTaxiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTaxiService.swift; sourceTree = "<group>"; };
+		92640FA827D711D700E71CBD /* CallTaxiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTaxiResponse.swift; sourceTree = "<group>"; };
+		92640FAA27D711E000E71CBD /* CallTaxiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTaxiRequest.swift; sourceTree = "<group>"; };
 		9267FF3227D0AFF400B0FF1E /* DaumMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DaumMap.framework; sourceTree = "<group>"; };
 		9267FF3627D0B05E00B0FF1E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9267FF3827D0B06700B0FF1E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -179,6 +187,42 @@
 			path = UIComponent;
 			sourceTree = "<group>";
 		};
+		92640FA027D710F800E71CBD /* Directions */ = {
+			isa = PBXGroup;
+			children = (
+				9282434227C7A1CA00288F60 /* DirectionsService.swift */,
+				92B471BC27D3FAA800D691E7 /* DirectionsAPI.swift */,
+			);
+			path = Directions;
+			sourceTree = "<group>";
+		};
+		92640FA127D7110200E71CBD /* CallTaxi */ = {
+			isa = PBXGroup;
+			children = (
+				92640FA427D7112100E71CBD /* CallTaxiService.swift */,
+				92640FA227D7111300E71CBD /* CallTaxiAPI.swift */,
+			);
+			path = CallTaxi;
+			sourceTree = "<group>";
+		};
+		92640FA627D711BE00E71CBD /* Directions */ = {
+			isa = PBXGroup;
+			children = (
+				9282434427C7A1D000288F60 /* DirectionsResponse.swift */,
+				92B471BA27D3F95B00D691E7 /* DirectionsRequest.swift */,
+			);
+			path = Directions;
+			sourceTree = "<group>";
+		};
+		92640FA727D711C900E71CBD /* CallTaxi */ = {
+			isa = PBXGroup;
+			children = (
+				92640FA827D711D700E71CBD /* CallTaxiResponse.swift */,
+				92640FAA27D711E000E71CBD /* CallTaxiRequest.swift */,
+			);
+			path = CallTaxi;
+			sourceTree = "<group>";
+		};
 		9282433027C7A01700288F60 /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,8 +312,8 @@
 		9282433D27C7A19A00288F60 /* APIModel */ = {
 			isa = PBXGroup;
 			children = (
-				9282434427C7A1D000288F60 /* DirectionsResponse.swift */,
-				92B471BA27D3F95B00D691E7 /* DirectionsRequest.swift */,
+				92640FA727D711C900E71CBD /* CallTaxi */,
+				92640FA627D711BE00E71CBD /* Directions */,
 			);
 			path = APIModel;
 			sourceTree = "<group>";
@@ -277,8 +321,8 @@
 		9282433E27C7A1A200288F60 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
-				9282434227C7A1CA00288F60 /* DirectionsService.swift */,
-				92B471BC27D3FAA800D691E7 /* DirectionsAPI.swift */,
+				92640FA127D7110200E71CBD /* CallTaxi */,
+				92640FA027D710F800E71CBD /* Directions */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -503,6 +547,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92640FA327D7111300E71CBD /* CallTaxiAPI.swift in Sources */,
 				9282434B27C7A3CE00288F60 /* KakakoTTextField.swift in Sources */,
 				9282434527C7A1D000288F60 /* DirectionsResponse.swift in Sources */,
 				92FB1B9A27C29F9A001B5E1C /* AppDelegate.swift in Sources */,
@@ -513,6 +558,7 @@
 				924CAA5B27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift in Sources */,
 				9286D77C27D53813002666DA /* TaxiMapCarViewController.swift in Sources */,
 				9286D77A27D5367F002666DA /* TaxiMapCarView.swift in Sources */,
+				92640FAB27D711E000E71CBD /* CallTaxiRequest.swift in Sources */,
 				92B471BB27D3F95B00D691E7 /* DirectionsRequest.swift in Sources */,
 				9282434127C7A1BE00288F60 /* URLConstant.swift in Sources */,
 				92B471B327D3F75A00D691E7 /* NetworkConstant.swift in Sources */,
@@ -525,12 +571,14 @@
 				92B471B727D3F80E00D691E7 /* GeneralResponse.swift in Sources */,
 				924CAA5727CFEE970023BCA6 /* DismissAnimation.swift in Sources */,
 				9282433A27C7A09E00288F60 /* MainViewController.swift in Sources */,
+				92640FA527D7112100E71CBD /* CallTaxiService.swift in Sources */,
 				9282434327C7A1CA00288F60 /* DirectionsService.swift in Sources */,
 				9240852F27CAAEFA0029E753 /* UIColor+.swift in Sources */,
 				92B471B127D3F72500D691E7 /* NetworkResult.swift in Sources */,
 				92B471B927D3F82500D691E7 /* BaseTargetType.swift in Sources */,
 				9286D77827D5366D002666DA /* TaxiMapLocationView.swift in Sources */,
 				92B471BD27D3FAA800D691E7 /* DirectionsAPI.swift in Sources */,
+				92640FA927D711D700E71CBD /* CallTaxiResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,6 +28,11 @@ final class TaxiMapCarViewController: UIViewController {
         configUI()
         setLayout()
         bind()
+        
+        // TODO: REMOVE
+        DispatchQueue.main.async {
+            self.requestCallTaxi(origin: "127.11015314141542,37.39472714688412", carType: "일반 택시")
+        }
     }
     
     // MARK: - InitUI
@@ -62,5 +67,32 @@ final class TaxiMapCarViewController: UIViewController {
         carView.ventiCarView.cost = carData[2].cost
         carView.blueCarView.cost = carData[0].cost
         carView.normalCarView.cost = carData[1].cost
+    }
+}
+
+// MARK: - Network
+
+extension TaxiMapCarViewController {
+    func requestCallTaxi(origin: String, carType: String) {
+        print("✅ 통신 시작")
+        CallTaxiAPI.shared.requestCallTaxi(parameter: CallTaxiRequest.init(origin: origin, carType: carType)) { responseData in
+            switch responseData {
+            case .success(let taxiResponse):
+                
+                guard let response = taxiResponse as? GeneralResponse<CallTaxiResponse> else { return }
+                guard let data = response.data else { return }
+                
+                print("✅", data.carNumber)
+                
+            case .requestErr(let message):
+                print("requestErr \(message)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }
