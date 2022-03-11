@@ -280,7 +280,8 @@ extension TaxiMapViewController {
                 
                 guard let response = taxiResponse as? GeneralResponse<CallTaxiResponse> else { return }
                 guard let data = response.data else { return }
-                print("✅", data.carNumber)
+                
+                self.showToast(message: data.carNumber, font: KDSFont.body4)
                 
             case .requestErr(let message):
                 print("requestErr \(message)")

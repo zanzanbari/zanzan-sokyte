@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		50BEFEEF540F5085A2268FF3 /* Pods_KakaoT_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4FF5C493D6C0F45A0B6527 /* Pods_KakaoT_Practice.framework */; };
+		9219E90B27DA1A4C00F4C2A0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9219E90A27DA1A4C00F4C2A0 /* UIViewController+.swift */; };
 		9240852F27CAAEFA0029E753 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240852E27CAAEFA0029E753 /* UIColor+.swift */; };
 		9248132E27D1204600A0CECC /* TaxiMapMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248132D27D1204600A0CECC /* TaxiMapMarkerView.swift */; };
 		924CAA4E27CFA07F0023BCA6 /* KDSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CAA4D27CFA07F0023BCA6 /* KDSFont.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		43B850F8154F210140A290B9 /* Pods-KakaoT-Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KakaoT-Practice.debug.xcconfig"; path = "Target Support Files/Pods-KakaoT-Practice/Pods-KakaoT-Practice.debug.xcconfig"; sourceTree = "<group>"; };
+		9219E90A27DA1A4C00F4C2A0 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		9240852E27CAAEFA0029E753 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		9248132D27D1204600A0CECC /* TaxiMapMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiMapMarkerView.swift; sourceTree = "<group>"; };
 		924CAA4D27CFA07F0023BCA6 /* KDSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDSFont.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				9240852E27CAAEFA0029E753 /* UIColor+.swift */,
 				924CAA4F27CFD6740023BCA6 /* UILabel+.swift */,
 				924CAA5227CFDDE90023BCA6 /* UITextField+.swift */,
+				9219E90A27DA1A4C00F4C2A0 /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				92FB1B9C27C29F9A001B5E1C /* SceneDelegate.swift in Sources */,
 				9248132E27D1204600A0CECC /* TaxiMapMarkerView.swift in Sources */,
 				9286D78127D54C3F002666DA /* Location.swift in Sources */,
+				9219E90B27DA1A4C00F4C2A0 /* UIViewController+.swift in Sources */,
 				924CAA5B27CFFB9E0023BCA6 /* TaxiLocationCollectionViewCell.swift in Sources */,
 				9286D77C27D53813002666DA /* TaxiMapCarViewController.swift in Sources */,
 				9286D77A27D5367F002666DA /* TaxiMapCarView.swift in Sources */,
