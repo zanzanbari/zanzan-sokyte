@@ -96,25 +96,25 @@ extension EmailLoginViewController {
 //        }
     }
     
-//    private func signUp(email: String, password: String) {
-//        self.appApi.rx
-//            .request(.postLogin(parameter: LoginRequest.init(email: email, password: password)))
-//            .asObservable()
-//            .observeOnMain()
-//            .doOnMoyaError { err in
-//                print("\(err)")
-//            }
-//            .appApiDecode(LoginResponse)
-//            .withUnretained(self)
-//            .subscribe(onNext: { (`self`, resBody) in
-//                AppProperty.signInType = signInType
-//                AppKeychain.keychain[.appApiAccessToken] = resBody.token.accessToken
-//                AppKeychain.keychain[.appApiRefreshToken] = resBody.token.refreshToken
-//
-//                self.navigationController?.pushViewController(OnBoardingLayoutViewController(), animated: true)
-//            })
-//            .disposed(by: self.disposeBag)
-//    }
+    private func signUp(email: String, password: String) {
+        self.appApi.rx
+            .request(.postLogin(parameter: LoginRequest.init(email: email, password: password)))
+            .asObservable()
+            .observeOnMain()
+            .doOnMoyaError { err in
+                print("\(err)")
+            }
+            .appApiDecode(LoginResponse)
+            .withUnretained(self)
+            .subscribe(onNext: { (`self`, resBody) in
+                AppProperty.signInType = signInType
+                AppKeychain.keychain[.appApiAccessToken] = resBody.token.accessToken
+                AppKeychain.keychain[.appApiRefreshToken] = resBody.token.refreshToken
+
+                self.navigationController?.pushViewController(OnBoardingLayoutViewController(), animated: true)
+            })
+            .disposed(by: self.disposeBag)
+    }
     
     func getRefreshToken() {
         LoginAPI.shared.reissueToken { responseData in
