@@ -15,6 +15,10 @@
 		92534E4A281854F8002ABD91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92534E48281854F8002ABD91 /* LaunchScreen.storyboard */; };
 		92534E5328185C20002ABD91 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 92534E5228185C20002ABD91 /* SnapKit */; };
 		92534E5628185C32002ABD91 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 92534E5528185C32002ABD91 /* Then */; };
+		92534E582818620F002ABD91 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534E572818620F002ABD91 /* HistoryTableViewCell.swift */; };
+		92534E5A28186350002ABD91 /* HistorySendingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534E5928186350002ABD91 /* HistorySendingHeaderView.swift */; };
+		92534E5C2818679D002ABD91 /* HistoryCompleteHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534E5B2818679D002ABD91 /* HistoryCompleteHeaderView.swift */; };
+		92534E5E28187485002ABD91 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534E5D28187485002ABD91 /* UILabel+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		92534E46281854F8002ABD91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92534E49281854F8002ABD91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92534E4B281854F8002ABD91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92534E572818620F002ABD91 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		92534E5928186350002ABD91 /* HistorySendingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySendingHeaderView.swift; sourceTree = "<group>"; };
+		92534E5B2818679D002ABD91 /* HistoryCompleteHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCompleteHeaderView.swift; sourceTree = "<group>"; };
+		92534E5D28187485002ABD91 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +75,10 @@
 				92534E46281854F8002ABD91 /* Assets.xcassets */,
 				92534E48281854F8002ABD91 /* LaunchScreen.storyboard */,
 				92534E4B281854F8002ABD91 /* Info.plist */,
+				92534E572818620F002ABD91 /* HistoryTableViewCell.swift */,
+				92534E5928186350002ABD91 /* HistorySendingHeaderView.swift */,
+				92534E5B2818679D002ABD91 /* HistoryCompleteHeaderView.swift */,
+				92534E5D28187485002ABD91 /* UILabel+.swift */,
 			);
 			path = "WAL-History-Pratice";
 			sourceTree = "<group>";
@@ -152,7 +164,11 @@
 			files = (
 				92534E42281854F7002ABD91 /* ViewController.swift in Sources */,
 				92534E3E281854F7002ABD91 /* AppDelegate.swift in Sources */,
+				92534E5C2818679D002ABD91 /* HistoryCompleteHeaderView.swift in Sources */,
+				92534E582818620F002ABD91 /* HistoryTableViewCell.swift in Sources */,
+				92534E5E28187485002ABD91 /* UILabel+.swift in Sources */,
 				92534E40281854F7002ABD91 /* SceneDelegate.swift in Sources */,
+				92534E5A28186350002ABD91 /* HistorySendingHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

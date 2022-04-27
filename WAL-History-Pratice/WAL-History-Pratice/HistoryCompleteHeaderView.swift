@@ -7,14 +7,59 @@
 
 import UIKit
 
-class HistoryCompleteHeaderView: UIView {
+import SnapKit
+import Then
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+final class HistoryCompleteHeaderView: UIView {
+    
+    // MARK: - Properties
+    
+    private var lineView = UIView().then {
+        $0.backgroundColor = .lightGray
     }
-    */
-
+    
+    private var titleLabel = UILabel().then {
+        $0.textColor = .black
+        $0.font = .systemFont(ofSize: 16, weight: .medium)
+    }
+    
+    var title: String = "" {
+        didSet {
+            titleLabel.text = "\(title)"
+        }
+    }
+    
+    // MARK: - Initializer
+    
+    init() {
+        super.init(frame: .zero)
+        configUI()
+        setLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Init UI
+    
+    private func configUI() {
+        backgroundColor = .yellow
+    }
+    
+    private func setLayout() {
+        addSubview(titleLabel)
+        addSubview(lineView)
+        
+        lineView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(10)
+        }
+        
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(lineView.snp.bottom).offset(26)
+            $0.leading.equalToSuperview().inset(20)
+        }
+    }
 }
+

@@ -40,7 +40,7 @@ final class HistorySendingHeaderView: UIView {
     // MARK: - Init UI
     
     private func configUI() {
-        backgroundColor = .white
+        backgroundColor = .yellow
     }
     
     private func setLayout() {
