@@ -15,7 +15,7 @@ final class HistoryCompleteHeaderView: UIView {
     // MARK: - Properties
     
     private var lineView = UIView().then {
-        $0.backgroundColor = .lightGray
+        $0.backgroundColor = .systemGray4
     }
     
     private var titleLabel = UILabel().then {
@@ -44,7 +44,7 @@ final class HistoryCompleteHeaderView: UIView {
     // MARK: - Init UI
     
     private func configUI() {
-        backgroundColor = .yellow
+        backgroundColor = .white
     }
     
     private func setLayout() {
