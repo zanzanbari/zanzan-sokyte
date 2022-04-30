@@ -24,46 +24,32 @@ final class ViewController: UIViewController {
         $0.delegate = self
         $0.dataSource = self
         $0.register(HistoryTableViewCell.self,
-                    forCellReuseIdentifier: HistoryTableViewCell.CellIdentifier)
+                    forCellReuseIdentifier: HistoryTableViewCell.cellIdentifier)
         $0.separatorStyle = .none
         
         $0.rowHeight = UITableView.automaticDimension
     }
     
-    var answerFilterDatasource =  ExpandingTableViewCellContent()
+    var expandCellDatasource =  ExpandingTableViewCellContent()
+    var showCellDatasource =  ShowingTableViewCellContent()
     
-//    var sendingData: [String] = [
-//        """
-//        고생 많았젱? 고생했다 나야 퇴근길이겠군 집 들어서가서 씻어치킨먹고싶다 케이에프씨 치킨 내일은 혼자 먹는다고 하고 앞에 치킨먹으러 가야겠다 회사앞에 있던가 없던가 기억이 잘 안나네
-//        """,
-//        "난 과거에서 온 00이야 오늘하루도 고생 많았젱?",
-//        "난 과거에서 온 00이야 오늘하루도 고생 많았젱?",
-//        "난 과거에서 온 00이야 오늘하루도 고생 많았젱?",
-//        """
-//        고생 많았젱? 고생했다 나야 퇴근길이겠군 집 들어서가서 씻어치킨먹고싶다 케이에프씨 치킨 내일은 혼자 먹는다고 하고 앞에 치킨먹으러 가야겠다 회사앞에 있던가 없던가 기억이 잘 안나네
-//        """]
+    private var sendingData = [HistoryData]()
+    private var completeData = [HistoryData]()
     
-    var sendingData: [String] = [
-        "고생 많았젱? 고생했다 나야 퇴근길이겠군 집 들\n어서가서 씻어치킨먹고싶다 케이에프씨 치킨 내\n일은 혼자 먹는다고 하고 앞에 치킨먹으러 가야겠\n다 회사앞에 있던가 없던가 기억이 잘 안나네",
-        "난 과거에서 온 00이야 오늘하루도 고생 많았젱?",
-        "난 과거에서 온 00이야 오늘하루도 고생 많았젱?"
-    ]
     
-    var completeData: [String] = [
-        """
-        고생 많았젱? 고생했다 나야 퇴근길이겠군 집 들어서가서 씻어치킨먹고싶다 케이에프씨 치킨 내일은 혼자 먹는다고 하고 앞에 치킨먹으러 가야겠다 회사앞에 있던가 없던가 기억이 잘 안나네
-        """,
-        "난 과거에서 온 00이야 오늘하루도 고생 많았젱?",
-        """
-        고생 많았젱? 고생했다 나야 퇴근길이겠군 집 들어서가서 씻어치킨먹고싶다 케이에프씨 치킨 내일은 혼자 먹는다고 하고 앞에 치킨먹으러 가야겠다 회사앞에 있던가 없던가 기억이 잘 안나네
-        """]
+    var swipeIndex: Int = 0
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.getHistoryData()
+            self.historyTableView.reloadData()
+        }
         configUI()
         setLayout()
+        setTableView()
     }
     
     // MARK: - Init UI
@@ -90,7 +76,52 @@ final class ViewController: UIViewController {
     // MARK: - Custom Method
 
     private func setTableView() {
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
+        historyTableView.addGestureRecognizer(longPress)
+    }
+    
+    private func load() -> Data? {
+        let fileNm: String = "HistoryDummyData"
+        let extensionType = "json"
+        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
         
+        do {
+            let data = try Data(contentsOf: fileLocation)
+            return data
+        } catch {
+            print("파일 로드 실패")
+            return nil
+        }
+    }
+    
+    // MARK: - @objc
+    
+    @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            let touchPoint = sender.location(in: historyTableView)
+            if let indexPath = historyTableView.indexPathForRow(at: touchPoint) {
+                let content = expandCellDatasource
+                content.expanded.toggle()
+                
+                let showContent = showCellDatasource
+                showContent.showed.toggle()
+                
+                historyTableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        } else {
+            let touchPoint = sender.location(in: historyTableView)
+            if let indexPath = historyTableView.indexPathForRow(at: touchPoint) {
+//                guard let cell = historyTableView.cellForRow(at: indexPath) as? HistoryTableViewCell else { return }
+                
+                let content = expandCellDatasource
+                content.expanded.toggle()
+                
+                let showContent = showCellDatasource
+                showContent.showed.toggle()
+                
+                historyTableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
     }
 }
 
@@ -122,39 +153,74 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let content = answerFilterDatasource
+        let content = expandCellDatasource
         content.expanded.toggle()
         
         historyTableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        UIView()
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        .leastNormalMagnitude
+    }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let resend = UIContextualAction(style: .normal, title: "재전송") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
+        let resendAction = UIContextualAction(style: .normal, title: "재전송") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
             print("수정")
             success(true)
         }
-        resend.backgroundColor = .systemMint
-        resend.image = UIImage(named: "ic_rt")
         
-        let cancel = UIContextualAction(style: .normal, title: "예약 취소") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
+        resendAction.accessibilityFrame = CGRect(x: 0, y: 0, width: 106, height: tableView.rowHeight - 12)
+        resendAction.backgroundColor = .systemMint
+
+        if let cell = historyTableView.cellForRow(at: indexPath) as? HistoryTableViewCell {
+            cell.contentView.frame = cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 12, right: 0))
+            if cell.isExpanded {
+                resendAction.image = UIImage(named: "ic_rt")
+            } else {
+                resendAction.image = nil
+            }
+        }
+
+        let cancelAction = UIContextualAction(style: .normal, title: "예약 취소") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
             print("예약 취소")
             success(true)
         }
-        cancel.backgroundColor = .systemPink
         
-        cancel.image = UIImage(named: "ic_trash")
-        
-        let delete = UIContextualAction(style: .normal, title: "삭제") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
+        cancelAction.backgroundColor = .systemPink
+
+        if let cell = historyTableView.cellForRow(at: indexPath) as? HistoryTableViewCell {
+//            cell.radius = 0
+            if cell.isExpanded {
+                cancelAction.image = UIImage(named: "ic_trash")
+            } else {
+                cancelAction.image = nil
+            }
+        }
+
+        let deleteAction = UIContextualAction(style: .normal, title: "삭제") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
             print("삭제")
             success(true)
         }
-        delete.backgroundColor = .systemPink
-        delete.image = UIImage(named: "ic_trash")
-        
+        deleteAction.backgroundColor = .systemPink
+
+        if let cell = historyTableView.cellForRow(at: indexPath) as? HistoryTableViewCell {
+            if cell.isExpanded {
+                deleteAction.image = UIImage(named: "ic_trash")
+            } else {
+                resendAction.image = nil
+            }
+        }
+
         if indexPath.section == 0 {
-            return UISwipeActionsConfiguration(actions:[cancel])
+            let config = UISwipeActionsConfiguration(actions: [cancelAction])
+            config.performsFirstActionWithFullSwipe = false
+            return config
         } else {
-            return UISwipeActionsConfiguration(actions:[delete, resend])
+            return UISwipeActionsConfiguration(actions:[deleteAction, resendAction])
         }
     }
 }
@@ -178,21 +244,42 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.CellIdentifier) as? HistoryTableViewCell else { return UITableViewCell() }
-            cell.initCell(isClicked: answerFilterDatasource)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.cellIdentifier) as? HistoryTableViewCell else { return UITableViewCell() }
+            cell.tapCell(isTapped: expandCellDatasource)
+            cell.pressCell(isPressed: showCellDatasource)
+            
             cell.selectionStyle = .none
             cell.dateLabelColor = .systemMint
             cell.setData(sendingData[indexPath.row])
+            
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.CellIdentifier) as? HistoryTableViewCell else { return UITableViewCell() }
-            cell.initCell(isClicked: answerFilterDatasource)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.cellIdentifier) as? HistoryTableViewCell else { return UITableViewCell() }
+            cell.tapCell(isTapped: expandCellDatasource)
+            cell.pressCell(isPressed: showCellDatasource)
+            
             cell.selectionStyle = .none
             cell.dateLabelColor = .gray
             cell.setData(completeData[indexPath.row])
+
+            
             return cell
         default:
             return UITableViewCell()
         }
+    }
+}
+
+// MARK: - Network
+
+extension ViewController {
+    private func getHistoryData() {
+        guard
+            let jsonData = self.load(),
+            let historyDataList = try? JSONDecoder().decode(HistoryResponse.self, from: jsonData)
+        else { return }
+        
+        sendingData = historyDataList.sendingData
+        completeData = historyDataList.completeData
     }
 }

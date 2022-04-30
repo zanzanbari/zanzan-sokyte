@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9211123E281D5B4D00F24E0E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211123D281D5B4D00F24E0E /* HistoryViewController.swift */; };
+		924315D3281ABF730089F0D4 /* HistoryDummyData.json in Resources */ = {isa = PBXBuildFile; fileRef = 924315D2281ABF730089F0D4 /* HistoryDummyData.json */; };
+		924315D5281AC76C0089F0D4 /* HistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924315D4281AC76C0089F0D4 /* HistoryResponse.swift */; };
 		92534E3E281854F7002ABD91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534E3D281854F7002ABD91 /* AppDelegate.swift */; };
 		92534E40281854F7002ABD91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534E3F281854F7002ABD91 /* SceneDelegate.swift */; };
 		92534E42281854F7002ABD91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534E41281854F7002ABD91 /* ViewController.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9211123D281D5B4D00F24E0E /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		924315D2281ABF730089F0D4 /* HistoryDummyData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HistoryDummyData.json; sourceTree = "<group>"; };
+		924315D4281AC76C0089F0D4 /* HistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryResponse.swift; sourceTree = "<group>"; };
 		92534E3A281854F7002ABD91 /* WAL-History-Pratice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WAL-History-Pratice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92534E3D281854F7002ABD91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92534E3F281854F7002ABD91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +85,9 @@
 				92534E5928186350002ABD91 /* HistorySendingHeaderView.swift */,
 				92534E5B2818679D002ABD91 /* HistoryCompleteHeaderView.swift */,
 				92534E5D28187485002ABD91 /* UILabel+.swift */,
+				924315D2281ABF730089F0D4 /* HistoryDummyData.json */,
+				924315D4281AC76C0089F0D4 /* HistoryResponse.swift */,
+				9211123D281D5B4D00F24E0E /* HistoryViewController.swift */,
 			);
 			path = "WAL-History-Pratice";
 			sourceTree = "<group>";
@@ -150,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92534E4A281854F8002ABD91 /* LaunchScreen.storyboard in Resources */,
+				924315D3281ABF730089F0D4 /* HistoryDummyData.json in Resources */,
 				92534E47281854F8002ABD91 /* Assets.xcassets in Resources */,
 				92534E45281854F7002ABD91 /* Main.storyboard in Resources */,
 			);
@@ -168,7 +178,9 @@
 				92534E582818620F002ABD91 /* HistoryTableViewCell.swift in Sources */,
 				92534E5E28187485002ABD91 /* UILabel+.swift in Sources */,
 				92534E40281854F7002ABD91 /* SceneDelegate.swift in Sources */,
+				9211123E281D5B4D00F24E0E /* HistoryViewController.swift in Sources */,
 				92534E5A28186350002ABD91 /* HistorySendingHeaderView.swift in Sources */,
+				924315D5281AC76C0089F0D4 /* HistoryResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
