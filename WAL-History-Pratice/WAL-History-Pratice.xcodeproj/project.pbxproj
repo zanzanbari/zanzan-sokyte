@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9211123E281D5B4D00F24E0E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211123D281D5B4D00F24E0E /* HistoryViewController.swift */; };
+		92111240281D5D4500F24E0E /* HistoryCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211123F281D5D4500F24E0E /* HistoryCollectionReusableView.swift */; };
+		92111242281D5DFB00F24E0E /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92111241281D5DFB00F24E0E /* HistoryCollectionViewCell.swift */; };
+		92111244281D62CC00F24E0E /* HistoryCompleteCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92111243281D62CC00F24E0E /* HistoryCompleteCollectionReusableView.swift */; };
+		92111246281D92EF00F24E0E /* SizingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92111245281D92EF00F24E0E /* SizingCell.swift */; };
 		924315D3281ABF730089F0D4 /* HistoryDummyData.json in Resources */ = {isa = PBXBuildFile; fileRef = 924315D2281ABF730089F0D4 /* HistoryDummyData.json */; };
 		924315D5281AC76C0089F0D4 /* HistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924315D4281AC76C0089F0D4 /* HistoryResponse.swift */; };
 		92534E3E281854F7002ABD91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534E3D281854F7002ABD91 /* AppDelegate.swift */; };
@@ -26,6 +30,10 @@
 
 /* Begin PBXFileReference section */
 		9211123D281D5B4D00F24E0E /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		9211123F281D5D4500F24E0E /* HistoryCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionReusableView.swift; sourceTree = "<group>"; };
+		92111241281D5DFB00F24E0E /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		92111243281D62CC00F24E0E /* HistoryCompleteCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCompleteCollectionReusableView.swift; sourceTree = "<group>"; };
+		92111245281D92EF00F24E0E /* SizingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizingCell.swift; sourceTree = "<group>"; };
 		924315D2281ABF730089F0D4 /* HistoryDummyData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HistoryDummyData.json; sourceTree = "<group>"; };
 		924315D4281AC76C0089F0D4 /* HistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryResponse.swift; sourceTree = "<group>"; };
 		92534E3A281854F7002ABD91 /* WAL-History-Pratice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WAL-History-Pratice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +96,10 @@
 				924315D2281ABF730089F0D4 /* HistoryDummyData.json */,
 				924315D4281AC76C0089F0D4 /* HistoryResponse.swift */,
 				9211123D281D5B4D00F24E0E /* HistoryViewController.swift */,
+				9211123F281D5D4500F24E0E /* HistoryCollectionReusableView.swift */,
+				92111241281D5DFB00F24E0E /* HistoryCollectionViewCell.swift */,
+				92111243281D62CC00F24E0E /* HistoryCompleteCollectionReusableView.swift */,
+				92111245281D92EF00F24E0E /* SizingCell.swift */,
 			);
 			path = "WAL-History-Pratice";
 			sourceTree = "<group>";
@@ -174,13 +186,17 @@
 			files = (
 				92534E42281854F7002ABD91 /* ViewController.swift in Sources */,
 				92534E3E281854F7002ABD91 /* AppDelegate.swift in Sources */,
+				92111240281D5D4500F24E0E /* HistoryCollectionReusableView.swift in Sources */,
+				92111242281D5DFB00F24E0E /* HistoryCollectionViewCell.swift in Sources */,
 				92534E5C2818679D002ABD91 /* HistoryCompleteHeaderView.swift in Sources */,
 				92534E582818620F002ABD91 /* HistoryTableViewCell.swift in Sources */,
 				92534E5E28187485002ABD91 /* UILabel+.swift in Sources */,
 				92534E40281854F7002ABD91 /* SceneDelegate.swift in Sources */,
 				9211123E281D5B4D00F24E0E /* HistoryViewController.swift in Sources */,
 				92534E5A28186350002ABD91 /* HistorySendingHeaderView.swift in Sources */,
+				92111246281D92EF00F24E0E /* SizingCell.swift in Sources */,
 				924315D5281AC76C0089F0D4 /* HistoryResponse.swift in Sources */,
+				92111244281D62CC00F24E0E /* HistoryCompleteCollectionReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
