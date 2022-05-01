@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  WAL-History-Pratice
+//  WAL-History-Practice
 //
-//  Created by 소연 on 2022/04/27.
+//  Created by 소연 on 2022/05/01.
 //
 
 import UIKit
