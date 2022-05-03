@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  WAL-History-Practice
+//  WAL-Practice
 //
 //  Created by 소연 on 2022/05/01.
 //
