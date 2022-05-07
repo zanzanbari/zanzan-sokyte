@@ -7,14 +7,14 @@
 
 import Foundation
 
-// MARK: - Main Response
+// MARK: - MainResponse
 
 struct MainResponse: Codable {
     let data: [MainData]
 }
 
 // MARK: - Datum
-
 struct MainData: Codable {
     let type, content: String
+    let canOpen: Bool
 }

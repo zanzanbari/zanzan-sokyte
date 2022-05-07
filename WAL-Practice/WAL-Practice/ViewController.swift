@@ -29,103 +29,39 @@ final class ViewController: UIViewController {
         $0.axis = .horizontal
         $0.distribution = .fillEqually
         $0.alignment = .center
-        $0.spacing = 10
-        $0.backgroundColor = .blue
+        $0.spacing = 9
     }
     
     // MARK: - Properties
     
-    enum MainDataType {
-        case morning
-        case lunch
-        case dinner
-        case special
-    }
+    private var dataCount: Int = 0
+    private var dataList = [MainData]()
     
-    struct MainData {
-        var type: MainDataType
-        var text: String
-    }
+    private lazy var itemViews = [DefaultView]()
     
-//    var dataList: [MainData] = [
-//        MainData(type: MainDataType.morning, text: "아침"),
-//        MainData(type: MainDataType.lunch, text: "점심"),
-//        MainData(type: MainDataType.dinner, text: "저녁"),
-//        MainData(type: MainDataType.special, text: "왈뿡")
-//    ]
-    
-    var dataList: [MainData] = [
-        MainData(type: MainDataType.morning, text: "아침"),
-        MainData(type: MainDataType.lunch, text: "점심"),
-        MainData(type: MainDataType.dinner, text: "저녁")
-    ]
-    
-//    var dataList: [MainData] = [
-//        MainData(type: MainDataType.morning, text: "아침"),
-//        MainData(type: MainDataType.lunch, text: "점심")
-//    ]
-    
-//    var dataList: [MainData] = [
-//        MainData(type: MainDataType.morning, text: "아침")
-//    ]
-    
-    private lazy var itemViews: [UIView] = dataList.map { data in
-        switch data.type {
-        case .morning:
-            let view = DefaultView()
-            view.text = data.text
-            return view
-        case .lunch:
-            let view = DefaultView()
-            view.text = data.text
-            return view
-        case .dinner:
-            let view = DefaultView()
-            view.text = data.text
-            return view
-        case .special:
-            let view = SpecialView()
-            view.text = data.text
-            return view
-        }
-    }
-            
-
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
         setLayout()
-        print(dataList.count)
         DispatchQueue.main.async {
-            if self.dataList.count == 1 {
+            self.getData()
+            if self.dataCount == 1 {
                 self.walStackView.snp.updateConstraints {
-                    $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(41)
                     $0.leading.trailing.equalToSuperview().inset(139)
-                    $0.height.equalTo(90)
-                    $0.centerX.equalToSuperview()
                 }
-            } else if self.dataList.count == 2 {
+            } else if self.dataCount == 2 {
                 self.walStackView.snp.updateConstraints {
-                    $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(41)
                     $0.leading.trailing.equalToSuperview().inset(86)
-                    $0.height.equalTo(90)
-                    $0.centerX.equalToSuperview()
                 }
-            } else if self.dataList.count == 3 {
+            } else if self.dataCount == 3 {
                 self.walStackView.snp.updateConstraints {
-                    $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(41)
                     $0.leading.trailing.equalToSuperview().inset(32)
-                    $0.height.equalTo(90)
-                    $0.centerX.equalToSuperview()
                 }
-            } else if self.dataList.count == 4 {
+            } else if self.dataCount == 4 {
                 self.walStackView.snp.updateConstraints {
-                    $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(41)
-                    $0.leading.trailing.equalToSuperview().inset(22)
-                    $0.height.equalTo(90)
-                    $0.centerX.equalToSuperview()
+                    $0.leading.trailing.equalToSuperview().inset(20)
                 }
             }
         }
@@ -142,11 +78,6 @@ final class ViewController: UIViewController {
         view.addSubview(contentLabel)
         view.addSubview(walStackView)
         
-        for view in itemViews {
-            walStackView.addArrangedSubview(view)
-            view.backgroundColor = .gray
-        }
-        
         walImageView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(300)
             $0.centerX.equalToSuperview()
@@ -156,14 +87,13 @@ final class ViewController: UIViewController {
         
         contentLabel.snp.makeConstraints {
             $0.top.equalTo(walImageView.snp.bottom).offset(36)
-            $0.centerX.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(30)
         }
         
         walStackView.snp.makeConstraints {
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(41)
-            $0.leading.trailing.equalToSuperview().inset(86)
-            $0.height.equalTo(90)
-            $0.centerX.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.height.equalTo(73)
         }
     }
 
@@ -184,15 +114,69 @@ final class ViewController: UIViewController {
     }
 }
 
+// MARK: - Custom Delegate
+
+extension ViewController: DefaultViewDelegate {
+    func touchUpView(content: String, index: Int) {
+        contentLabel.text = content
+        contentLabel.isHidden.toggle()
+    }
+}
+
 // MARK: - Network
+
 extension ViewController {
     private func getData() {
         guard
             let jsonData = self.load(),
-            let data = try? JSONDecoder().decode(MainResponse.self, from: jsonData)
+            let response = try? JSONDecoder().decode(MainResponse.self, from: jsonData)
         else { return }
 
-        dump(data)
+        dataCount = response.data.count
+        dataList = response.data
+        
+        itemViews = dataList.map { data in
+            switch data.type {
+            case "아침":
+                let view = DefaultView()
+                view.content = data.content
+                view.imageName = "orange"
+                view.delegate = self
+                view.canOpen = data.canOpen
+                return view
+            case "점심":
+                let view = DefaultView()
+                view.content = data.content
+                view.imageName = "orange"
+                view.delegate = self
+                view.canOpen = data.canOpen
+                return view
+            case "저녁":
+                let view = DefaultView()
+                view.content = data.content
+                view.imageName = "gray"
+                view.delegate = self
+                view.canOpen = data.canOpen
+                return view
+            case "스페셜":
+                let view = DefaultView()
+                view.content = data.content
+                view.imageName = "gray"
+                view.delegate = self
+                view.canOpen = data.canOpen
+                return view
+            default:
+                return DefaultView()
+            }
+        }
+        
+        for view in itemViews {
+            walStackView.addArrangedSubview(view)
+        }
+        
+        for i in 0...itemViews.count - 1 {
+            itemViews[i].index = i
+        }
     }
 }
 

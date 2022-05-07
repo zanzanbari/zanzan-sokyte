@@ -10,29 +10,34 @@ import UIKit
 import SnapKit
 import Then
 
+protocol DefaultViewDelegate: AnyObject {
+    func touchUpView(content: String, index: Int)
+}
+
 final class DefaultView: UIView {
     
-    
     private var imageView = UIImageView().then {
-        $0.backgroundColor = .systemCyan
+        $0.contentMode = .scaleAspectFit
     }
     
-    private var textLabel = UILabel().then {
-        $0.textColor = .black
-        $0.font = .systemFont(ofSize: 15)
-    }
+    var content: String = ""
+    var index: Int = 0 
     
-    var text: String = "" {
+    var imageName: String = "" {
         didSet {
-            textLabel.text = text
+            imageView.image = UIImage(named: imageName)
         }
     }
     
-    var image: String = "" {
+    var canOpen: Bool = false {
         didSet {
-            imageView.image = UIImage(named: " ")
+            if canOpen { setGesture() }
         }
     }
+    
+    private var isSelected: Bool = false
+    
+    weak var delegate: DefaultViewDelegate?
 
     init() {
         super.init(frame: .zero)
@@ -47,22 +52,28 @@ final class DefaultView: UIView {
     private func configUI() {
         layer.borderWidth = 1
         layer.borderColor = UIColor.systemGray5.cgColor
+        layer.cornerRadius = 12
     }
     
     private func setLayout() {
         addSubview(imageView)
-        addSubview(textLabel)
-        
         imageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(9)
-            $0.width.height.equalTo(41)
-            $0.centerX.equalToSuperview()
+            $0.top.bottom.equalToSuperview().inset(16)
+            $0.leading.trailing.equalToSuperview().inset(18)
         }
+    }
+    
+    func setGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapView(_:)))
+        addGestureRecognizer(gesture)
+    }
+    
+    @objc func tapView(_ : UITapGestureRecognizer) {
+        isSelected.toggle()
         
-        textLabel.snp.makeConstraints {
-            $0.top.equalTo(imageView.snp.bottom).offset(4)
-            $0.centerX.equalTo(imageView.snp.centerX)
-            $0.bottom.equalToSuperview().inset(9)
-        }
+        self.layer.borderWidth = 1
+        self.layer.borderColor = isSelected ? UIColor.orange.cgColor : UIColor.systemGray5.cgColor
+        
+        delegate?.touchUpView(content: self.content, index: self.index)
     }
 }
