@@ -19,7 +19,6 @@
 		921112A1281EA71000F24E0E /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921112A0281EA71000F24E0E /* DefaultView.swift */; };
 		921112A3281EA71800F24E0E /* SpecialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921112A2281EA71800F24E0E /* SpecialView.swift */; };
 		921112A5281EAB8000F24E0E /* MainResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921112A4281EAB8000F24E0E /* MainResponse.swift */; };
-		92D9062D281FCA66004BD8ED /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9062C281FCA66004BD8ED /* DemoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +34,6 @@
 		921112A0281EA71000F24E0E /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
 		921112A2281EA71800F24E0E /* SpecialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialView.swift; sourceTree = "<group>"; };
 		921112A4281EAB8000F24E0E /* MainResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainResponse.swift; sourceTree = "<group>"; };
-		92D9062C281FCA66004BD8ED /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +79,6 @@
 				921112A0281EA71000F24E0E /* DefaultView.swift */,
 				921112A2281EA71800F24E0E /* SpecialView.swift */,
 				921112A4281EAB8000F24E0E /* MainResponse.swift */,
-				92D9062C281FCA66004BD8ED /* DemoViewController.swift */,
 			);
 			path = "WAL-Practice";
 			sourceTree = "<group>";
@@ -170,7 +167,6 @@
 				92111289281EA45100F24E0E /* ViewController.swift in Sources */,
 				92111285281EA45100F24E0E /* AppDelegate.swift in Sources */,
 				921112A3281EA71800F24E0E /* SpecialView.swift in Sources */,
-				92D9062D281FCA66004BD8ED /* DemoViewController.swift in Sources */,
 				92111287281EA45100F24E0E /* SceneDelegate.swift in Sources */,
 				921112A5281EAB8000F24E0E /* MainResponse.swift in Sources */,
 			);
