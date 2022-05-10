@@ -32,8 +32,6 @@ final class ViewController: UIViewController {
         $0.spacing = 9
     }
     
-    // MARK: - Properties
-    
     private var dataCount: Int = 0
     private var dataList = [MainData]()
     

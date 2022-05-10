@@ -19,6 +19,7 @@
 		921112A1281EA71000F24E0E /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921112A0281EA71000F24E0E /* DefaultView.swift */; };
 		921112A3281EA71800F24E0E /* SpecialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921112A2281EA71800F24E0E /* SpecialView.swift */; };
 		921112A5281EAB8000F24E0E /* MainResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921112A4281EAB8000F24E0E /* MainResponse.swift */; };
+		9235B4D22826932C0038E755 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9235B4D12826932C0038E755 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		921112A0281EA71000F24E0E /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
 		921112A2281EA71800F24E0E /* SpecialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialView.swift; sourceTree = "<group>"; };
 		921112A4281EAB8000F24E0E /* MainResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainResponse.swift; sourceTree = "<group>"; };
+		9235B4D12826932C0038E755 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				921112A0281EA71000F24E0E /* DefaultView.swift */,
 				921112A2281EA71800F24E0E /* SpecialView.swift */,
 				921112A4281EAB8000F24E0E /* MainResponse.swift */,
+				9235B4D12826932C0038E755 /* MainViewController.swift */,
 			);
 			path = "WAL-Practice";
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9235B4D22826932C0038E755 /* MainViewController.swift in Sources */,
 				921112A1281EA71000F24E0E /* DefaultView.swift in Sources */,
 				92111289281EA45100F24E0E /* ViewController.swift in Sources */,
 				92111285281EA45100F24E0E /* AppDelegate.swift in Sources */,
