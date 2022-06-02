@@ -59,7 +59,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
         
-        switch indexPath.row%10 {
+        switch indexPath.item%10 {
         case 0:
             cell.backgroundColor = .blue
         case 1:
@@ -85,7 +85,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         
         return cell
-        
     }
 }
 
@@ -120,7 +119,6 @@ extension ViewController {
                 columns = 5
             default:
                 columns = 1
-                
             }
             
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
