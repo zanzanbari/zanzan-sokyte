@@ -16,7 +16,7 @@ final class MovieCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     
     private var movieTitle = UILabel().then {
-        $0.font = .systemFont(ofSize: 15)
+        $0.font = .systemFont(ofSize: 13)
     }
     
     private var movieYear = UILabel().then {
@@ -28,7 +28,9 @@ final class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     private var movieOverview = UILabel().then {
-        $0.font = .systemFont(ofSize: 12)
+        $0.font = .systemFont(ofSize: 10)
+        $0.textAlignment = .left
+        $0.numberOfLines = 2
     }
     
     private var moviePoster = UIImageView()
@@ -50,11 +52,43 @@ final class MovieCollectionViewCell: UICollectionViewCell {
     // MARK: - Init UI
     
     private func configUI() {
-        
+        contentView.backgroundColor = .white
     }
     
     private func setLayout() {
+        contentView.addSubview(movieTitle)
+        contentView.addSubview(movieRate)
+        contentView.addSubview(movieYear)
+        contentView.addSubview(movieOverview)
+        contentView.addSubview(moviePoster)
         
+        moviePoster.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(10)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(100)
+            $0.height.equalTo(150)
+        }
+        
+        movieTitle.snp.makeConstraints {
+            $0.top.equalTo(moviePoster.snp.bottom).offset(5)
+            $0.leading.trailing.equalToSuperview().inset(10)
+        }
+        
+        movieYear.snp.makeConstraints {
+            $0.top.equalTo(movieTitle.snp.bottom).offset(5)
+            $0.leading.equalToSuperview().inset(10)
+        }
+        
+        movieRate.snp.makeConstraints {
+            $0.top.equalTo(movieTitle.snp.bottom).offset(5)
+            $0.leading.equalTo(movieYear.snp.trailing).offset(10)
+        }
+        
+        movieOverview.snp.makeConstraints {
+            $0.top.equalTo(movieYear.snp.bottom).offset(5)
+            $0.leading.equalToSuperview().inset(10)
+            $0.trailing.bottom.equalToSuperview().inset(10)
+        }
     }
     
     // MARK: - Custom Method
@@ -64,47 +98,62 @@ final class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     private func updateUI(title: String?, releaseDate: String?, rating: Double?, overview: String?, poster: String?) {
-        self.movieTitle.text = title
-        self.movieYear.text = convertDateFormater(releaseDate)
+        movieTitle.text = title
+        
+        movieYear.text = convertDateFormater(releaseDate)
+        
         guard let rate = rating else {return}
-        self.movieRate.text = String(rate)
-        self.movieOverview.text = overview
+        movieRate.text = String(rate)
+        
+        movieOverview.text = overview
         
         guard let posterString = poster else {return}
         urlString = "https://image.tmdb.org/t/p/w300" + posterString
         
         guard let posterImageURL = URL(string: urlString) else {
-            self.moviePoster.image = UIImage(named: "noImageAvailable")
+            moviePoster.image = UIImage(named: "noImageAvailable")
             return
         }
+        moviePoster.image = nil
         
-        // Before we download the image we clear out the old one
-        self.moviePoster.image = nil
-        
-        getImageDataFrom(url: posterImageURL)
-        
+        Task {
+            do {
+                moviePoster.image = try await fetchImage(from: posterImageURL)
+            } catch {}
+        }
     }
     
-    private func getImageDataFrom(url: URL) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            // Handle Error
-            if let error = error {
-                print("DataTask error: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let data = data else {
-                // Handle Empty Data
-                print("Empty Data")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                if let image = UIImage(data: data) {
-                    self.moviePoster.image = image
-                }
-            }
-        }.resume()
+//    private func getImageDataFrom(url: URL) {
+//        URLSession.shared.dataTask(with: url) { (data, response, error) in
+//            // Handle Error
+//            if let error = error {
+//                print("DataTask error: \(error.localizedDescription)")
+//                return
+//            }
+//
+//            guard let data = data else {
+//                // Handle Empty Data
+//                print("Empty Data")
+//                return
+//            }
+//
+//            DispatchQueue.main.async {
+//                if let image = UIImage(data: data) {
+//                    self.moviePoster.image = image
+//                }
+//            }
+//        }.resume()
+//    }
+    
+    func fetchImage(from url: URL) async throws -> UIImage {
+        if #available(iOS 15.0, *) {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw FetchError.notOK }
+            guard let image = UIImage(data: data) else { throw FetchError.badData }
+            return image
+        } else {
+            throw NetworkError.versionError
+        }
     }
     
     func convertDateFormater(_ date: String?) -> String {
