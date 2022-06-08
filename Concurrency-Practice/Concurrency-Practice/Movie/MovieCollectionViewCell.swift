@@ -8,5 +8,5 @@
 import UIKit
 
 class MovieCollectionViewCell: UICollectionViewCell {
-    
+    static var cellIdentifier: String { return String(describing: self) }
 }
