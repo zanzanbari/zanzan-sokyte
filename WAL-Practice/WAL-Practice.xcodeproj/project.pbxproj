@@ -20,6 +20,7 @@
 		921112A3281EA71800F24E0E /* SpecialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921112A2281EA71800F24E0E /* SpecialView.swift */; };
 		921112A5281EAB8000F24E0E /* MainResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921112A4281EAB8000F24E0E /* MainResponse.swift */; };
 		9235B4D22826932C0038E755 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9235B4D12826932C0038E755 /* MainViewController.swift */; };
+		923E4C0528508E1C008369E1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 923E4C0428508E1C008369E1 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923E4C0528508E1C008369E1 /* SnapKit in Frameworks */,
 				9211129A281EA46600F24E0E /* Then in Frameworks */,
 				9211129D281EA47A00F24E0E /* SnapKit in Frameworks */,
 			);
@@ -105,6 +107,7 @@
 			packageProductDependencies = (
 				92111299281EA46600F24E0E /* Then */,
 				9211129C281EA47A00F24E0E /* SnapKit */,
+				923E4C0428508E1C008369E1 /* SnapKit */,
 			);
 			productName = "WAL-Practice";
 			productReference = 92111281281EA45100F24E0E /* WAL-Practice.app */;
@@ -137,6 +140,7 @@
 			packageReferences = (
 				92111298281EA46600F24E0E /* XCRemoteSwiftPackageReference "Then" */,
 				9211129B281EA47A00F24E0E /* XCRemoteSwiftPackageReference "SnapKit" */,
+				923E4C0328508E1C008369E1 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 92111282281EA45100F24E0E /* Products */;
 			projectDirPath = "";
@@ -408,6 +412,14 @@
 				kind = branch;
 			};
 		};
+		923E4C0328508E1C008369E1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -417,6 +429,11 @@
 			productName = Then;
 		};
 		9211129C281EA47A00F24E0E /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9211129B281EA47A00F24E0E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		923E4C0428508E1C008369E1 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9211129B281EA47A00F24E0E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
