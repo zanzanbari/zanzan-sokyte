@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var photoTableView: UITableView!
     
-    var fetchResuls: [PHFetchResult<PHAsset>] = [] //앨범 정보
+    var fetchResults: [PHFetchResult<PHAsset>] = [] //앨범 정보
     let imageManager = PHCachingImageManager() //앨범에서 사진 받아오기 위한 객체
     var fetchOptions: PHFetchOptions {
         let fetchOptions = PHFetchOptions()
@@ -31,7 +31,6 @@ class ViewController: UIViewController {
         photoTableView.delegate = self
         photoTableView.dataSource = self
     }
-
 
     func checkPermission() {
         switch PHPhotoLibrary.authorizationStatus() {
@@ -69,21 +68,21 @@ class ViewController: UIViewController {
     private func addAlbums(collection : PHFetchResult<PHAssetCollection>){
         for i in 0 ..< collection.count {
             let collection = collection.object(at: i)
-            self.fetchResuls.append(PHAsset.fetchAssets(in: collection, options: fetchOptions))
+            self.fetchResults.append(PHAsset.fetchAssets(in: collection, options: fetchOptions))
         }
     }
 
 }
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchResuls.count
+        return fetchResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? UITableViewCell else {
             return UITableViewCell()
         }
-        guard let asset = fetchResuls[indexPath.row].firstObject as? PHAsset else {
+        guard let asset = fetchResults[indexPath.row].firstObject as? PHAsset else {
             return UITableViewCell()
         }
         
