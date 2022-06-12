@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		923E4C0828539385008369E1 /* MovieMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923E4C0728539385008369E1 /* MovieMainViewController.swift */; };
+		923E4C0C28539440008369E1 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 923E4C0B28539440008369E1 /* Moya */; };
 		92CA8D3828491B090014282E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA8D3728491B090014282E /* AppDelegate.swift */; };
 		92CA8D3A28491B090014282E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA8D3928491B090014282E /* SceneDelegate.swift */; };
 		92CA8D3C28491B090014282E /* FetchAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA8D3B28491B090014282E /* FetchAlbumsViewController.swift */; };
@@ -21,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		923E4C0728539385008369E1 /* MovieMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMainViewController.swift; sourceTree = "<group>"; };
 		92CA8D3428491B090014282E /* Concurrency-Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Concurrency-Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CA8D3728491B090014282E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92CA8D3928491B090014282E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,12 +44,61 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923E4C0C28539440008369E1 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		923E4C0628539351008369E1 /* MoyaMovie */ = {
+			isa = PBXGroup;
+			children = (
+				923E4C0E28539511008369E1 /* Screen */,
+				923E4C0D28539508008369E1 /* Network */,
+			);
+			path = MoyaMovie;
+			sourceTree = "<group>";
+		};
+		923E4C0D28539508008369E1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				923E4C1228539545008369E1 /* Base */,
+				923E4C1128539540008369E1 /* API */,
+				923E4C0F2853951F008369E1 /* Service */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		923E4C0E28539511008369E1 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				923E4C0728539385008369E1 /* MovieMainViewController.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		923E4C0F2853951F008369E1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		923E4C1128539540008369E1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		923E4C1228539545008369E1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		92CA8D2B28491B090014282E = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +118,7 @@
 		92CA8D3628491B090014282E /* Concurrency-Practice */ = {
 			isa = PBXGroup;
 			children = (
+				923E4C0628539351008369E1 /* MoyaMovie */,
 				92CA8D4E28491F130014282E /* Movie */,
 				92CA8D4D28491F050014282E /* Album */,
 				92CA8D3728491B090014282E /* AppDelegate.swift */,
@@ -114,6 +167,9 @@
 			dependencies = (
 			);
 			name = "Concurrency-Practice";
+			packageProductDependencies = (
+				923E4C0B28539440008369E1 /* Moya */,
+			);
 			productName = "Concurrency-Practice";
 			productReference = 92CA8D3428491B090014282E /* Concurrency-Practice.app */;
 			productType = "com.apple.product-type.application";
@@ -142,6 +198,9 @@
 				Base,
 			);
 			mainGroup = 92CA8D2B28491B090014282E;
+			packageReferences = (
+				923E4C0A28539440008369E1 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = 92CA8D3528491B090014282E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -176,6 +235,7 @@
 				92CA8D3828491B090014282E /* AppDelegate.swift in Sources */,
 				92CA8D3A28491B090014282E /* SceneDelegate.swift in Sources */,
 				92CA8D4C28491B380014282E /* AlbumsFetcher.swift in Sources */,
+				923E4C0828539385008369E1 /* MovieMainViewController.swift in Sources */,
 				92CA8D56284921D40014282E /* MovieCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +454,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		923E4C0A28539440008369E1 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		923E4C0B28539440008369E1 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 923E4C0A28539440008369E1 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 92CA8D2C28491B090014282E /* Project object */;
 }

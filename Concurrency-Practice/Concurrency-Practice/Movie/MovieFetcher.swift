@@ -14,7 +14,6 @@ struct MovieFetcher {
         case invalidData
     }
     
-    
     static func fetchMovieWithAsyncURLSession() async throws -> [Movie] {
         guard let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=4e0be2c22f7268edffde97481d49064a&language=en-US&page=1") else {
             throw MovieFetcherError.invalidURL
