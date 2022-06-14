@@ -19,20 +19,18 @@ class PhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
+        setCollectionView()
         fetchAllPhotos()
     }
     
-    // 전체사진 fetch
+    private func setCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
     private func fetchAllPhotos() {
         let allPhotosOptions = PHFetchOptions()
         allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-        
-//        let date = "2022-06-06"
-//        let dateString = date.toDate()
         
         let df = DateFormatter()
         df.dateFormat = "yyyy.MM.dd"
@@ -47,11 +45,35 @@ class PhotoViewController: UIViewController {
     
 }
 
+extension PhotoViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ImageCell else {
+            return true
+        }
+        
+        if cell.isSelected {
+            collectionView.deselectItem(at: indexPath, animated: false)
+            return false
+        } else {
+            let vc = MainViewController()
+            if let image = cell.imageView.image {
+                vc.image = image
+            }
+            dismiss(animated: true)
+            return true
+        }
+    }
+}
+
 extension PhotoViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = collectionView.frame.width
-        let cellHeight = collectionView.frame.height
-        return CGSize(width: 100, height: 100)
+        let cellWidth = (collectionView.frame.width - 20) / 5
+        let cellHeight = (collectionView.frame.height) / 5
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -91,6 +113,13 @@ extension PhotoViewController: UICollectionViewDataSource {
 class ImageCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
+    
+    override var isSelected: Bool {
+        didSet {
+            contentView.layer.borderColor = isSelected ? UIColor.blue.cgColor : UIColor.clear.cgColor
+            contentView.layer.borderWidth = isSelected ? 5 : 0
+        }
+    }
     
     var representedAssetIdentifier: String!
 }
