@@ -16,6 +16,7 @@ final class ViewController: UIViewController {
     
     // MARK: - Properties
     
+    var serverMovies: MovieDataModel?
     
     // MARK: - Life Cycle
     
@@ -23,6 +24,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         configUI()
         setLayout()
+        getMovieListAPI(page: 1)
     }
     
     // MARK: - Init UI
@@ -41,8 +43,27 @@ final class ViewController: UIViewController {
 // MARK: - Network
 
 extension ViewController {
-    private func getWalHistory() {
+    private func getMovieListAPI(page: Int) {
+        let param: MovieRequest = MovieRequest.init(Const.apiKey, "ko", page)
         
+        MovieAPI.shared.movieList(param: param) { response in
+            switch response {
+            case .success(let data):
+                dump(data)
+                if let movies = data as? MovieDataModel {
+                    self.serverMovies = movies
+                    dump(self.serverMovies)
+                }
+            case .requestErr(let message):
+                print("latestPhotosWithAPI - requestErr: \(message)")
+            case .pathErr:
+                print("latestPhotosWithAPI - pathErr")
+            case .serverErr:
+                print("latestPhotosWithAPI - serverErr")
+            case .networkFail:
+                print("latestPhotosWithAPI - networkFail")
+            }
+        }
     }
 }
 

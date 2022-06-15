@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 enum MovieService {
-    case movieList(id: Int)
+    case popular(param: MovieRequest)
 }
 
 extension MovieService: TargetType {
@@ -20,14 +20,14 @@ extension MovieService: TargetType {
     
     var path: String {
         switch self {
-        case .movieList(let id):
-            return "/movie/\(id)"
+        case .popular:
+            return "/movie/popular"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .movieList:
+        case .popular:
             return .get
         }
     }
@@ -38,15 +38,17 @@ extension MovieService: TargetType {
     
     var task: Task {
         switch self {
-        case .movieList:
-            return .requestPlain
+        case .popular:
+            return .requestParameters(parameters: ["api_key": Const.apiKey,
+                                                   "language" : "ko"],
+                                      encoding: URLEncoding.default)
         }
     }
     
     var headers: [String: String]? {
         switch self {
-        case .movieList:
-            return Const.Header.tokenHeader
+        case .popular:
+            return ["Content-Type": "application/json"]
         }
     }
 }

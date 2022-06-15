@@ -21,6 +21,9 @@
 		92975698285A276400A9FFA8 /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92975697285A276400A9FFA8 /* MovieAPI.swift */; };
 		9297569A285A276D00A9FFA8 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92975699285A276D00A9FFA8 /* MovieService.swift */; };
 		9297569C285A27BB00A9FFA8 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9297569B285A27BB00A9FFA8 /* Const.swift */; };
+		929756A1285A2FA500A9FFA8 /* MovieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929756A0285A2FA500A9FFA8 /* MovieRequest.swift */; };
+		929756A3285A301500A9FFA8 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929756A2285A301500A9FFA8 /* MovieResponse.swift */; };
+		929756A5285A329600A9FFA8 /* MoyaLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929756A4285A329600A9FFA8 /* MoyaLoggerPlugin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		92975697285A276400A9FFA8 /* MovieAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
 		92975699285A276D00A9FFA8 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		9297569B285A27BB00A9FFA8 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		929756A0285A2FA500A9FFA8 /* MovieRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRequest.swift; sourceTree = "<group>"; };
+		929756A2285A301500A9FFA8 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		929756A4285A329600A9FFA8 /* MoyaLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggerPlugin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +150,9 @@
 		927CD7C12858D3E10040D4F6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9297569D285A2F4C00A9FFA8 /* Model */,
+				9297569E285A2F5400A9FFA8 /* View */,
+				9297569F285A2F5A00A9FFA8 /* Controller */,
 				927CD7AA2858D38D0040D4F6 /* ViewController.swift */,
 			);
 			path = Home;
@@ -155,6 +164,7 @@
 				927CD7CC2858D72D0040D4F6 /* GenericResponse.swift */,
 				927CD7CE2858D74E0040D4F6 /* NetworkResult.swift */,
 				9297569B285A27BB00A9FFA8 /* Const.swift */,
+				929756A4285A329600A9FFA8 /* MoyaLoggerPlugin.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -166,6 +176,29 @@
 				92975699285A276D00A9FFA8 /* MovieService.swift */,
 			);
 			path = Movie;
+			sourceTree = "<group>";
+		};
+		9297569D285A2F4C00A9FFA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				929756A0285A2FA500A9FFA8 /* MovieRequest.swift */,
+				929756A2285A301500A9FFA8 /* MovieResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9297569E285A2F5400A9FFA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9297569F285A2F5A00A9FFA8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,12 +283,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				927CD7CD2858D72D0040D4F6 /* GenericResponse.swift in Sources */,
+				929756A3285A301500A9FFA8 /* MovieResponse.swift in Sources */,
 				927CD7CF2858D74E0040D4F6 /* NetworkResult.swift in Sources */,
+				929756A1285A2FA500A9FFA8 /* MovieRequest.swift in Sources */,
 				927CD7AB2858D38D0040D4F6 /* ViewController.swift in Sources */,
 				92975698285A276400A9FFA8 /* MovieAPI.swift in Sources */,
 				927CD7A72858D38D0040D4F6 /* AppDelegate.swift in Sources */,
 				9297569C285A27BB00A9FFA8 /* Const.swift in Sources */,
 				927CD7A92858D38D0040D4F6 /* SceneDelegate.swift in Sources */,
+				929756A5285A329600A9FFA8 /* MoyaLoggerPlugin.swift in Sources */,
 				9297569A285A276D00A9FFA8 /* MovieService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
